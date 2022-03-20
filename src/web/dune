@@ -1,0 +1,31 @@
+
+(executable
+  (name         main)
+  (public_name  fourever)
+  (libraries
+    dream cmdliner fourever
+  )
+)
+
+; Dream templates
+(rule
+ (targets template.ml)
+ (deps template.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+(rule
+ (targets error_html.ml)
+ (deps error_html.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+(rule
+ (targets events_html.ml)
+ (deps events_html.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+(rule
+ (targets dancers_html.ml)
+ (deps dancers_html.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+(rule
+ (targets index_html.ml)
+ (deps index_html.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+

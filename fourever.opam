@@ -1,0 +1,19 @@
+opam-version: "1.2"
+name: "fourever"
+version: "dev"
+author: "Guillaume Bury"
+maintainer: "guillaume.bury@gmail.com"
+license: "GPLv3"
+build: [
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "dune" {build}
+]
+available: [ ocaml-version >= "4.02.3" ]
+tags: [ "dance" ]
+homepage: "https://github.com/Gbury/4ever"
+doc: "http://gbury.github.io/4ever"
+bug-reports: "https://github.com/Gbury/4ever/issues"
+dev-repo: "https://github.com/Gbury/4ever.git"

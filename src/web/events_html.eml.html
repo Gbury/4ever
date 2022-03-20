@@ -1,0 +1,42 @@
+
+module D = Fourever.Date
+module E = Fourever.Event
+
+let t event =
+
+  <h1><%s E.name event %></h1>
+  <p>
+    <%s D.month_name @@ D.month @@ E.date event %> -
+    <%s string_of_int @@ D.year @@ E.date event %>
+  <p>
+
+  <p>TODO: add some description of events ?</p>
+  <p>TODO: add links to competitions related to the event</p>
+
+
+let list event_list =
+
+  <h1>Event list</h1>
+  <table class="table table-striped my-3">
+    <thead>
+      <tr>
+        <th scope="col">Event Name</th>
+        <th scope="col">Month</th>
+        <th scope="col">Year</th>
+      </tr>
+    </thead>
+    <tbody>
+%   event_list |> List.iter begin fun event ->
+      <tr>
+        <th scope="row">
+          <a class="link-primary" href="/event/<%s string_of_int (Fourever.Event.id event) %>">
+            <%s E.name event %>
+          </a>
+        </th>
+        <td><%s D.month_name @@ D.month @@ E.date event %></td>
+        <td><%s string_of_int @@ D.year @@ E.date event %></td>
+      </tr>
+%   end;
+    </tbody>
+  </table>
+

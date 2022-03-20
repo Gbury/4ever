@@ -1,0 +1,39 @@
+
+module D = Fourever.Dancer
+module Div = Fourever.Division
+
+let t dancer =
+
+  <h1><%s D.first_name dancer%> <%s D.last_name dancer %></h1>
+
+  <p>Division: <%s Div.to_string @@ D.division dancer %></p>
+
+
+let list dancer_list =
+
+  <h1>Dancer list</h1>
+  <table class="table table-striped my-3">
+    <thead>
+      <tr>
+        <th scope="col">Last Name</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Division</th>
+      </tr>
+    </thead>
+    <tbody>
+%   dancer_list |> List.iter begin fun dancer ->
+      <tr>
+        <th scope="row">
+          <%s D.last_name dancer %>
+        </th>
+        <td>
+          <%s D.first_name dancer %>
+        </td>
+        <td>
+          <%s Div.to_string @@ D.division dancer %>
+        </td>
+      </tr>
+%   end;
+    </tbody>
+  </table>
+
