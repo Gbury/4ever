@@ -12,3 +12,19 @@ let of_int = function
   | 1 -> Follower
   | d -> failwith (Format.asprintf "%d is not a valid role" d)
 
+let to_string = function
+  | Leader -> "Leader"
+  | Follower -> "Follower"
+
+let compare r r' =
+  Stdlib.compare (to_int r) (to_int r')
+
+module Aux = struct
+  type nonrec t = t
+  let compare = compare
+end
+
+module Set = Set.Make(Aux)
+module Map = Map.Make(Aux)
+
+

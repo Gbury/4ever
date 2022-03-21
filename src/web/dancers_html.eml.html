@@ -1,12 +1,53 @@
 
-module D = Fourever.Dancer
-module Div = Fourever.Division
+open Fourever
 
-let t dancer =
+let t dancer results =
 
-  <h1><%s D.first_name dancer%> <%s D.last_name dancer %></h1>
-
-  <p>Division: <%s Div.to_string @@ D.division dancer %></p>
+  <h1><%s Dancer.first_name dancer%> <%s Dancer.last_name dancer %></h1>
+% results |> Division.Map.iter begin fun div map ->
+% if not (Division.equal Division.None div) && not (Role.Map.is_empty map) then begin
+  <div class="container">
+    <h3><%s Division.to_string div %></h3>
+% map |> Role.Map.iter begin fun role l ->
+    <h5><%s Role.to_string role %></h5>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Event</th>
+          <th scope="col">Date</th>
+          <th scope="col">Kind</th>
+          <th scope="col">Result</th>
+          <th scope="col">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+% l |> List.iter begin fun (result, competition, event) ->
+        <tr>
+          <th scope="row">
+            <a class="link-primary" href="/event/<%s string_of_int (Fourever.Event.id event) %>">
+              <%s Event.name event %>
+            </a>
+          </th>
+          <th>
+            <%s Date.to_string (Event.date event) %>
+          </th>
+          <th>
+            <%s Kind.to_string (Competition.kind competition) %>
+          </th>
+          <th>
+            <%s Rank.to_string (Results.rank result) %>
+          </th>
+          <th>
+            <%s string_of_int (Results.points result) %>
+          </th>
+        </tr>
+% end;
+      </tbody>
+    </table>
+% end;
+  </div>
+% end;
+% end;
 
 
 let list dancer_list =
@@ -24,13 +65,15 @@ let list dancer_list =
 %   dancer_list |> List.iter begin fun dancer ->
       <tr>
         <th scope="row">
-          <%s D.last_name dancer %>
+          <a class="link-primary" href="/dancer/<%s string_of_int @@ Dancer.id dancer %>">
+            <%s Dancer.last_name dancer %>
+          </a>
         </th>
         <td>
-          <%s D.first_name dancer %>
+          <%s Dancer.first_name dancer %>
         </td>
         <td>
-          <%s Div.to_string @@ D.division dancer %>
+          <%s Division.to_string @@ Dancer.division dancer %>
         </td>
       </tr>
 %   end;

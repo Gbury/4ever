@@ -23,7 +23,17 @@ let to_string = function
 let compare d d' =
   CCOrd.int (to_int d) (to_int d')
 
+let equal d d' = compare d d' = 0
+
 let max d d' =
   if compare d d' < 0 then d' else d
+
+module Aux = struct
+  type nonrec t = t
+  let compare = compare
+end
+
+module Set = Set.Make(Aux)
+module Map = Map.Make(Aux)
 
 

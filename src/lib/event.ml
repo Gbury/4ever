@@ -1,9 +1,7 @@
 
-type id = int
-
 type t = {
   (* id *)
-  id : id;
+  id : Id.t;
   (* name *)
   name : string;
   (* date *)

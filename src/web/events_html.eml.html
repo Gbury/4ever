@@ -1,17 +1,43 @@
 
-module D = Fourever.Date
-module E = Fourever.Event
+open Fourever
 
-let t event =
+let t event comps =
 
-  <h1><%s E.name event %></h1>
+  <h1><%s Event.name event %></h1>
   <p>
-    <%s D.month_name @@ D.month @@ E.date event %> -
-    <%s string_of_int @@ D.year @@ E.date event %>
+    <%s Date.month_name @@ Date.month @@ Event.date event %> -
+    <%s string_of_int @@ Date.year @@ Event.date event %>
   <p>
 
   <p>TODO: add some description of events ?</p>
-  <p>TODO: add links to competitions related to the event</p>
+
+  <div class="accordion" id="competitions">
+% comps |> Kind.Map.iter begin fun kind map ->
+% let kind_id = string_of_int @@ Kind.to_int kind in
+    <div class="accordion-item">
+      <h2 class="accordion-header"
+          id="competitions-<%s kind_id %>-heading">
+        <button class="accordion-button" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#competitions-<%s kind_id %>-body"
+                aria-expanded="false"
+                aria-controls="competitions-<%s kind_id %>-body">
+          <%s Kind.to_string kind %>
+        </button>
+      </h2>
+      <div class="accordion-collapse collapse show"
+           id="competitions-<%s kind_id %>-body"
+           aria-labelledby="competitions-<%s kind_id %>-heading"
+           data-bs-parent="#competitions">
+        <div class="accordion-body">
+% map |> Division.Map.iter begin fun div _comp ->
+          <h5><%s Division.to_string div %></h5>
+% end;
+        </div>
+      </div>
+    </div>
+% end;
+  </div>
 
 
 let list event_list =
@@ -30,11 +56,11 @@ let list event_list =
       <tr>
         <th scope="row">
           <a class="link-primary" href="/event/<%s string_of_int (Fourever.Event.id event) %>">
-            <%s E.name event %>
+            <%s Event.name event %>
           </a>
         </th>
-        <td><%s D.month_name @@ D.month @@ E.date event %></td>
-        <td><%s string_of_int @@ D.year @@ E.date event %></td>
+        <td><%s Date.month_name @@ Date.month @@ Event.date event %></td>
+        <td><%s string_of_int @@ Date.year @@ Event.date event %></td>
       </tr>
 %   end;
     </tbody>

@@ -5,8 +5,12 @@ let t =
     ~title:"Event Description"
     ~body:(fun req st ->
         let id = int_of_string @@ Dream.param req "id" in
+        let comps =
+          Fourever.Competition.get_by_event st id
+          |> Fourever.Competition.order_map
+        in
         let ev = Fourever.Event.get st id in
-        Events_html.t ev
+        Events_html.t ev comps
       )
 
 let list =

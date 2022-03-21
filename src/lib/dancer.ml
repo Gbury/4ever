@@ -1,8 +1,6 @@
 
-type id = int
-
 type t = {
-  id : id;
+  id : Id.t;
   birthday : Date.t;
   last_name : string;
   first_name : string;
@@ -19,6 +17,22 @@ let as_follower { as_follower; _ } = as_follower
 
 let division d =
   Division.max (as_leader d) (as_follower d)
+
+let compare d d' =
+  let open CCOrd in
+  string (last_name d) (last_name d')
+  <?> (string, first_name d, first_name d')
+  <?> (int, id d, id d')
+
+module Aux = struct
+  type nonrec t = t
+  let compare = compare
+end
+
+module Set = Set.Make(Aux)
+module Map = Map.Make(Aux)
+
+
 
 let () =
   State.add_init (fun st ->
