@@ -1,16 +1,19 @@
 
 open Fourever
 
-let t dancer results =
+let t st id =
+  let dancer = Dancer.get st id in
 
   <h1><%s Dancer.first_name dancer%> <%s Dancer.last_name dancer %></h1>
-% results |> Division.Map.iter begin fun div map ->
-% if not (Division.equal Division.None div) && not (Role.Map.is_empty map) then begin
+% Results.get_where_dancer st id
+% |> Results.order_map st
+% |> Id.Map.find id
+% |> Division.Map.iter begin fun div map ->
   <div class="container">
     <h3><%s Division.to_string div %></h3>
 % map |> Role.Map.iter begin fun role l ->
     <h5><%s Role.to_string role %></h5>
-    <table class="table table-striped">
+    <table>
       <thead>
         <tr>
           <th scope="col">Event</th>
@@ -24,9 +27,7 @@ let t dancer results =
 % l |> List.iter begin fun (result, competition, event) ->
         <tr>
           <th scope="row">
-            <a class="link-primary" href="/event/<%s string_of_int (Fourever.Event.id event) %>">
-              <%s Event.name event %>
-            </a>
+            <%s Event.name event %>
           </th>
           <th>
             <%s Date.to_string (Event.date event) %>
@@ -47,10 +48,9 @@ let t dancer results =
 % end;
   </div>
 % end;
-% end;
 
 
-let list dancer_list =
+let list st =
 
   <h1>Dancer list</h1>
   <table class="table table-striped my-3">
@@ -62,12 +62,10 @@ let list dancer_list =
       </tr>
     </thead>
     <tbody>
-%   dancer_list |> List.iter begin fun dancer ->
+%   Dancer.list st |> List.iter begin fun dancer ->
       <tr>
         <th scope="row">
-          <a class="link-primary" href="/dancer/<%s string_of_int @@ Dancer.id dancer %>">
-            <%s Dancer.last_name dancer %>
-          </a>
+          <%s Dancer.last_name dancer %>
         </th>
         <td>
           <%s Dancer.first_name dancer %>

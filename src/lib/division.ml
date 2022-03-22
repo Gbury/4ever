@@ -15,8 +15,11 @@ let of_int = function
   | 2 -> Intermediate
   | d -> failwith (Format.asprintf "%d is not a valid division" d)
 
+let p = Sqlite3_utils.Ty.([int])
+let conv = Conv.mk p of_int
+
 let to_string = function
-  | None -> "N/A"
+  | None -> "non-competitive"
   | Novice -> "initié"
   | Intermediate -> "inter"
 

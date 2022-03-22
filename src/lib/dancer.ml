@@ -32,8 +32,6 @@ end
 module Set = Set.Make(Aux)
 module Map = Map.Make(Aux)
 
-
-
 let () =
   State.add_init (fun st ->
       Sqlite3_utils.exec0_exn st {|
@@ -47,30 +45,20 @@ let () =
         )
       |})
 
+let conv =
+  Conv.mk
+    Sqlite3_utils.Ty.(p6 int text text text int int)
+    (fun id first_name last_name birthday as_leader as_follower ->
+       { id; first_name; last_name;
+         birthday = Date.of_string birthday;
+         as_leader = Division.of_int as_leader;
+         as_follower = Division.of_int as_follower; })
+
 let get st id =
-  let open Sqlite3_utils in
-  exec_exn st
-    ~f:Cursor.get_one_exn
-    ~ty:Ty.(p1 int, p6 int text text text int int,
-            (fun id first_name last_name birthday as_leader as_follower ->
-               { id; first_name; last_name;
-                 birthday = Date.of_string birthday;
-                 as_leader = Division.of_int as_leader;
-                 as_follower = Division.of_int as_follower; }))
-    {| SELECT id, first, last, birthday, as_leader, as_follower FROM dancers WHERE id=? |} id
+  State.query_one_where ~p:Id.p ~conv ~st
+    {| SELECT * FROM dancers WHERE id=? |} id
 
 let list st =
-  let open Sqlite3_utils in
-  exec_no_params_exn st
-    ~f:Cursor.to_list
-    ~ty:Ty.(p6 int text text text int int,
-            (fun id first_name last_name birthday as_leader as_follower ->
-               { id; first_name; last_name;
-                 birthday = Date.of_string birthday;
-                 as_leader = Division.of_int as_leader;
-                 as_follower = Division.of_int as_follower; }))
-    {| SELECT id, first, last, birthday, as_leader, as_follower
-       FROM dancers ORDER BY last ASC, first ASC |}
-
-
+  State.query_list ~conv ~st
+    {| SELECT * FROM dancers ORDER BY last ASC, first ASC |}
 

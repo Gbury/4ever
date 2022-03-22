@@ -1,7 +1,8 @@
 
 open Fourever
 
-let t event comps =
+let t st id =
+  let event = Event.get st id in
 
   <h1><%s Event.name event %></h1>
   <p>
@@ -11,30 +12,44 @@ let t event comps =
 
   <p>TODO: add some description of events ?</p>
 
-  <div class="accordion" id="competitions">
-% comps |> Kind.Map.iter begin fun kind map ->
-% let kind_id = string_of_int @@ Kind.to_int kind in
-    <div class="accordion-item">
-      <h2 class="accordion-header"
-          id="competitions-<%s kind_id %>-heading">
-        <button class="accordion-button" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#competitions-<%s kind_id %>-body"
-                aria-expanded="false"
-                aria-controls="competitions-<%s kind_id %>-body">
-          <%s Kind.to_string kind %>
-        </button>
-      </h2>
-      <div class="accordion-collapse collapse show"
-           id="competitions-<%s kind_id %>-body"
-           aria-labelledby="competitions-<%s kind_id %>-heading"
-           data-bs-parent="#competitions">
-        <div class="accordion-body">
-% map |> Division.Map.iter begin fun div _comp ->
-          <h5><%s Division.to_string div %></h5>
+  <div class="container">
+% Competition.get_where_event st id
+% |> Competition.order_map
+% |> Kind.Map.iter begin fun kind map ->
+    <div class="row">
+      <h2><%s Kind.to_string kind %></h2>
+% map |> Division.Map.iter begin fun div comp ->
+      <div class="col">
+        <h3><%s Division.to_string div %></h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Rank</th>
+            </tr>
+          </thead>
+          <tbody>
+% State.query_all_where ~p:Id.p ~conv:Results.conv ~st
+% {| SELECT * FROM results WHERE competition=? ORDER BY rank ASC LIMIT 3 |}
+% (Competition.id comp) ~f:begin fun result ->
+% let dancer = Dancer.get st (Results.dancer result) in
+            <tr>
+              <th>
+                <%s Dancer.first_name dancer %>
+              </th>
+              <th>
+                <%s Dancer.last_name dancer %>
+              </th>
+              <th>
+                <%s Rank.to_string (Results.rank result) %>
+              </th>
+            </tr>
 % end;
-        </div>
+          </tbody>
+        </table>
       </div>
+% end;
     </div>
 % end;
   </div>

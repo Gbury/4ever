@@ -20,6 +20,9 @@ let to_string = function
   | Strictly -> "strictly"
   | Jack_and_Jill -> "jack&jill"
 
+let p = Sqlite3_utils.Ty.([int])
+let conv = Conv.mk p of_int
+
 let compare k k' =
   Stdlib.compare (to_int k) (to_int k')
 

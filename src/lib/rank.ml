@@ -10,21 +10,23 @@ type t =
   | Ranked of int
   | Reached of phase
 
+(* hypothesis: finals have less than ~100 paticipants,
+   and we only record exact ranks for finalists. *)
 let to_int = function
-  | Ranked i -> assert (i > 0); i
-  | Reached Preliminaries -> 0
-  | Reached Final -> -1
-  | Reached Semi_final -> -2
-  | Reached Quarter_final -> -3
-  | Reached Eighth_final -> -4
+  | Ranked i -> assert (0 < i && i < 100); i
+  | Reached Final -> 100
+  | Reached Semi_final -> 101
+  | Reached Quarter_final -> 102
+  | Reached Eighth_final -> 103
+  | Reached Preliminaries -> 104
 
 let of_int = function
-  | i when i > 0 -> Ranked i
-  | 0 -> Reached Preliminaries
-  | -1 -> Reached Final
-  | -2 -> Reached Semi_final
-  | -3 -> Reached Quarter_final
-  | -4 -> Reached Eighth_final
+  | i when 0 < i && i < 100 -> Ranked i
+  | 100 -> Reached Final
+  | 101 -> Reached Semi_final
+  | 102 -> Reached Quarter_final
+  | 103 -> Reached Eighth_final
+  | 104 -> Reached Preliminaries
   | d -> failwith (Format.asprintf "%d is not a valid rank" d)
 
 let to_string = function
@@ -37,5 +39,8 @@ let to_string = function
   | Reached Semi_final -> "Semi-finals"
   | Reached Quarter_final -> "Quarter-finals"
   | Reached Eighth_final -> "Eighth-finals"
+
+let p = Sqlite3_utils.Ty.([int])
+let conv = Conv.mk p of_int
 
 

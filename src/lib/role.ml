@@ -16,6 +16,9 @@ let to_string = function
   | Leader -> "Leader"
   | Follower -> "Follower"
 
+let p = Sqlite3_utils.Ty.([int])
+let conv = Conv.mk p of_int
+
 let compare r r' =
   Stdlib.compare (to_int r) (to_int r')
 

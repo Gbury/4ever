@@ -1,5 +1,8 @@
 
 type t = {
+  (* id *)
+  id : Id.t;
+
   (* descr *)
   event : Id.t;
   kind  : Kind.t;
@@ -10,6 +13,7 @@ type t = {
   followers : int;
 }
 
+let id { id; _ } = id
 let kind { kind; _ } = kind
 let event { event; _ } = event
 let division { division; _ } = division
@@ -27,11 +31,27 @@ let () =
         )
       |})
 
+let conv =
+  Conv.mk
+    Sqlite3_utils.Ty.(p6 int int int int int int)
+    (fun id event kind division leaders followers ->
+       let kind = Kind.of_int kind in
+       let division = Division.of_int division in
+       { id; event; kind; division; leaders; followers; })
+
+let get st id =
+  State.query_one_where ~p:Id.p ~conv ~st
+    {| SELECT * FROM competitions WHERE id=? |} id
+
+let get_where_event st id =
+  State.query_list_where ~p:Id.p ~conv ~st
+    {| SELECT * FROM competitions WHERE event=? |} id
+
 let order_map l =
   let add_to_div map comp =
     Division.Map.update comp.division (function
         | None -> Some comp
-        | Some _ -> failwith "duplicate competition !"
+        | Some _ -> assert false
       ) map
   in
   let add_to_kind map comp =
@@ -41,42 +61,4 @@ let order_map l =
       ) map
   in
   List.fold_left add_to_kind Kind.Map.empty l
-
-
-let get st id =
-  let open Sqlite3_utils in
-  exec_exn st
-    ~f:Cursor.get_one_exn
-    ~ty:Ty.(p1 int, p5 int int int int int,
-            (fun event kind division leaders followers ->
-               let kind = Kind.of_int kind in
-               let division = Division.of_int division in
-               { event; kind; division; leaders; followers; }))
-    {| SELECT event, kind, division, leaders, followers
-       FROM competitions WHERE id=? |} id
-
-let get_by_event st id =
-  let open Sqlite3_utils in
-  exec_exn st
-    ~f:Cursor.to_list
-    ~ty:Ty.(p1 int, p5 int int int int int,
-            (fun event kind division leaders followers ->
-               let kind = Kind.of_int kind in
-               let division = Division.of_int division in
-               { event; kind; division; leaders; followers; }))
-    {| SELECT event, kind, division, leaders, followers
-       FROM competitions WHERE event=? |} id
-
-let list st event_id =
-  let open Sqlite3_utils in
-  exec_exn st
-    ~f:Cursor.to_list
-    ~ty:Ty.(p1 int, p5 int int int int int,
-            (fun event kind division leaders followers ->
-               let kind = Kind.of_int kind in
-               let division = Division.of_int division in
-               { event; kind; division; leaders; followers; }))
-    {| SELECT event, kind, division, leaders, followers
-       FROM competitions WHERE event=? |} event_id
-
 

@@ -30,6 +30,9 @@ let of_string s =
   with Invalid_argument _ ->
     failwith (Format.asprintf "%s is not a correct date" s)
 
+let p = Sqlite3_utils.Ty.([text])
+let conv = Conv.mk p of_string
+
 let month_name = function
   | 1 -> "January"
   | 2 -> "February"

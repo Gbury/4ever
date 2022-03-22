@@ -10,6 +10,7 @@ type t = {
 }
 
 let rank { rank; _ } = rank
+let dancer { dancer; _ } = dancer
 let points { points; _ } = points
 
 let () =
@@ -25,6 +26,23 @@ let () =
           competition INT
         )
       |})
+
+let conv =
+  Conv.mk
+    Sqlite3_utils.Ty.((p4 int int int int) @>> (p3 int int int))
+    (fun id points role dancer rank division competition ->
+       let rank = Rank.of_int rank in
+       let role = Role.of_int role in
+       let division = Division.of_int division in
+       { id; points; role; dancer; rank; division; competition; })
+
+let get st id =
+  State.query_list_where ~p:Id.p ~conv ~st
+    {| SELECT * FROM results WHERE id=? |} id
+
+let get_where_dancer st dancer_id =
+  State.query_list_where ~p:Id.p ~conv ~st
+    {| SELECT * FROM results WHERE dancer=? |} dancer_id
 
 let order_by_event_date st l =
   let l' = List.map (fun res ->
@@ -59,30 +77,4 @@ let order_map st l =
   in
   List.fold_left add_to_dancer Id.Map.empty l
   |> Id.Map.map (Division.Map.map (Role.Map.map (order_by_event_date st)))
-
-let get st id =
-  let open Sqlite3_utils in
-  exec_exn st
-    ~f:Cursor.get_one_exn
-    ~ty:Ty.(p1 int, (p4 int int int int) @>> (p3 int int int),
-            (fun id points role dancer rank division competition ->
-               let rank = Rank.of_int rank in
-               let role = Role.of_int role in
-               let division = Division.of_int division in
-               { id; points; role; dancer; rank; division; competition; }))
-    {| SELECT id, points, role, dancer, rank, division, competition
-       FROM results WHERE id=? |} id
-
-let get_by_dancer st dancer_id =
-  let open Sqlite3_utils in
-  exec_exn st
-    ~f:Cursor.to_list
-    ~ty:Ty.(p1 int, (p4 int int int int) @>> (p3 int int int),
-            (fun id points role dancer rank division competition ->
-               let rank = Rank.of_int rank in
-               let role = Role.of_int role in
-               let division = Division.of_int division in
-               { id; points; role; dancer; rank; division; competition; }))
-    {| SELECT id, points, role, dancer, rank, division, competition
-       FROM results WHERE dancer=? |} dancer_id
 

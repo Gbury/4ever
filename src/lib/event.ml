@@ -29,21 +29,17 @@ let () =
         )
       |})
 
+let conv =
+  Conv.mk
+    Sqlite3_utils.Ty.(p3 int text text)
+    (fun id name date ->
+       { id; name; date = Date.of_string date; })
+
 let get st id =
-  let open Sqlite3_utils in
-  exec_exn st
-    ~f:Cursor.get_one_exn
-    ~ty:Ty.(p1 int, p3 int text text,
-            (fun id name date ->
-               { id; name; date = Date.of_string date; }))
-    {| SELECT id, name, date FROM events WHERE id=? |} id
+  State.query_one_where ~p:Id.p ~conv ~st
+    {| SELECT * FROM events WHERE id=? |} id
 
 let list st =
-  let open Sqlite3_utils in
-  exec_no_params_exn st
-    ~f:Cursor.to_list
-    ~ty:Ty.(p3 int text text,
-            (fun id name date ->
-               { id; name; date = Date.of_string date; }))
-    {| SELECT id, name, date FROM events |}
+  State.query_list ~conv ~st
+    {| SELECT * FROM events |}
 
