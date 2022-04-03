@@ -7,6 +7,7 @@ type t = {
   event : Id.t;
   kind  : Kind.t;
   division : Division.t;
+  name : string;
 
   (* useful info for points *)
   leaders : int;
@@ -14,6 +15,7 @@ type t = {
 }
 
 let id { id; _ } = id
+let name { name; _ } = name
 let kind { kind; _ } = kind
 let event { event; _ } = event
 let division { division; _ } = division
@@ -26,6 +28,7 @@ let () =
           event INT,
           kind INT,
           division INT,
+          name TEXT,
           leaders INT,
           followers INT
         )
@@ -33,11 +36,11 @@ let () =
 
 let conv =
   Conv.mk
-    Sqlite3_utils.Ty.(p6 int int int int int int)
-    (fun id event kind division leaders followers ->
+    Sqlite3_utils.Ty.([int; int; int; int; text; int; int])
+    (fun id event kind division name leaders followers ->
        let kind = Kind.of_int kind in
        let division = Division.of_int division in
-       { id; event; kind; division; leaders; followers; })
+       { id; event; kind; division; name; leaders; followers; })
 
 let get st id =
   State.query_one_where ~p:Id.p ~conv ~st
