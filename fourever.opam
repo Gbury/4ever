@@ -10,6 +10,11 @@ build: [
 ]
 depends: [
   "dune" {build}
+  "dream"
+  "cmdliner"
+  "sqlite3"
+  "sqlite3_utils"
+  "containers"
 ]
 available: [ ocaml-version >= "4.02.3" ]
 tags: [ "dance" ]
