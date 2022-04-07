@@ -16,6 +16,7 @@ let () =
     Dream.get "/" (Page.render Index.t);
     Dream.get "/events" (Page.render Events.list);
     Dream.get "/event/:id" (Page.render Events.t);
+    Dream.get "/comp/:id" (Page.render Competitions.t);
     Dream.get "/dancers" (Page.render Dancers.list);
     Dream.get "/dancer/:id" (Page.render Dancers.t);
   ]

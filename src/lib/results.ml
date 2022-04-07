@@ -10,6 +10,7 @@ type t = {
 }
 
 let rank { rank; _ } = rank
+let role { role; _ } = role
 let dancer { dancer; _ } = dancer
 let points { points; _ } = points
 
@@ -57,24 +58,29 @@ let order_by_event_date st l =
   List.sort cmp l'
 
 let order_map st l =
-  let add_to_role map res =
-    Role.Map.update res.role (function
-        | Some l -> Some (res :: l)
-        | None -> Some ([res])
+  let add_to_date map ((_, _, event) as t) =
+    let date = Event.date event in
+    Date.Map.update date (function
+        | Some l -> Some (t :: l)
+        | None -> Some ([t])
       ) map
   in
-  let add_to_div map res =
+  let add_to_div map ((res, _, _) as t) =
     Division.Map.update res.division (function
-        | Some m -> Some (add_to_role m res)
-        | None -> Some (add_to_role Role.Map.empty res)
+        | Some m -> Some (add_to_date m t)
+        | None -> Some (add_to_date Date.Map.empty t)
       ) map
   in
-  let add_to_dancer map res =
+  let add_to_dancer map ((res, _, _) as t) =
     Id.Map.update res.dancer (function
-        | Some m -> Some (add_to_div m res)
-        | None -> Some (add_to_div Division.Map.empty res)
+        | Some m -> Some (add_to_div m t)
+        | None -> Some (add_to_div Division.Map.empty t)
       ) map
   in
-  List.fold_left add_to_dancer Id.Map.empty l
-  |> Id.Map.map (Division.Map.map (Role.Map.map (order_by_event_date st)))
+  l
+  |> List.map (fun res ->
+      let competition = Competition.get st res.competition in
+      let event = Event.get st competition.event in
+      res, competition, event)
+  |> List.fold_left add_to_dancer Id.Map.empty
 

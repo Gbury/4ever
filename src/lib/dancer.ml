@@ -10,13 +10,16 @@ type t = {
 
 let id { id; _ } = id
 let birthday { birthday; _ } = birthday
-let first_name { first_name; _ } = first_name
-let last_name { last_name; _ } = last_name
 let as_leader { as_leader; _ } = as_leader
 let as_follower { as_follower; _ } = as_follower
 
 let division d =
   Division.max (as_leader d) (as_follower d)
+
+let first_name { first_name; _ } = first_name
+let last_name { last_name; _ } = last_name
+let full_name d =
+  Format.asprintf "%s %s" (last_name d) (first_name d)
 
 let compare d d' =
   let open CCOrd in

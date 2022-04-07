@@ -5,10 +5,11 @@ let t st id =
   let event = Event.get st id in
 
   <h1><%s Event.name event %></h1>
-  <p>
+  <h3>
+    <%s string_of_int @@ Date.day @@ Event.date event %>
     <%s Date.month_name @@ Date.month @@ Event.date event %> -
     <%s string_of_int @@ Date.year @@ Event.date event %>
-  <p>
+  </h3>
 
   <p>TODO: add some description of events ?</p>
 
@@ -18,14 +19,25 @@ let t st id =
 % |> Kind.Map.iter begin fun kind map ->
     <div class="row">
       <h2><%s Kind.to_string kind %></h2>
-% map |> Division.Map.iter begin fun div comp ->
+% map |> Division.Map.iter begin fun div l ->
+% l |> List.iter begin fun comp ->
       <div class="col">
-        <h3><%s Division.to_string div %></h3>
+        <h3>
+% if Competition.name comp <> "" then begin
+          <%s Division.to_string div %> /
+          <%s Competition.name comp %>
+% end else begin
+          <%s Division.to_string div %>
+% end;
+        <small class="text-muted">
+          - <%s! Links.comp ~kind:"secondary" comp "full results" %>
+        </small>
+        </h3>
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
               <th scope="col">Rank</th>
             </tr>
           </thead>
@@ -36,11 +48,10 @@ let t st id =
 % let dancer = Dancer.get st (Results.dancer result) in
             <tr>
               <th>
-                <%s Dancer.first_name dancer %>
+                <%s Role.short (Results.role result) %>
               </th>
               <th>
-                <%s Dancer.last_name dancer %>
-              </th>
+                <%s! Links.dancer dancer (Dancer.full_name dancer) %>
               <th>
                 <%s Rank.to_string (Results.rank result) %>
               </th>
@@ -48,9 +59,10 @@ let t st id =
 % end;
           </tbody>
         </table>
-      </div>
+      </div> <!-- end of 'Division'/'name' div -->
 % end;
-    </div>
+% end;
+    </div> <!-- end of 'Kind' div -->
 % end;
   </div>
 
@@ -70,9 +82,7 @@ let list event_list =
 %   event_list |> List.iter begin fun event ->
       <tr>
         <th scope="row">
-          <a class="link-primary" href="/event/<%s string_of_int (Fourever.Event.id event) %>">
-            <%s Event.name event %>
-          </a>
+          <%s! Links.event event ~kind:"primary" (Event.name event) %>
         </th>
         <td><%s Date.month_name @@ Date.month @@ Event.date event %></td>
         <td><%s string_of_int @@ Date.year @@ Event.date event %></td>

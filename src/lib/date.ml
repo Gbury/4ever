@@ -11,6 +11,14 @@ let compare d d' =
   <?> (int, d.month, d'.year)
   <?> (int, d.day, d'.day)
 
+module Aux = struct
+  type nonrec t = t
+  let compare = compare
+end
+
+module Set = Set.Make(Aux)
+module Map = Map.Make(Aux)
+
 let day { day; _ } = day
 let month { month; _ } = month
 let year { year; _ } = year
@@ -47,3 +55,4 @@ let month_name = function
   | 11 -> "November"
   | 12 -> "December"
   | i -> failwith (Format.asprintf "%d is not a valid month" i)
+

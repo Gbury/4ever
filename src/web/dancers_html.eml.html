@@ -4,19 +4,19 @@ open Fourever
 let t st id =
   let dancer = Dancer.get st id in
 
-  <h1><%s Dancer.first_name dancer%> <%s Dancer.last_name dancer %></h1>
+  <h1><%s Dancer.first_name dancer%>, <%s Dancer.last_name dancer %></h1>
 % Results.get_where_dancer st id
 % |> Results.order_map st
 % |> Id.Map.find id
 % |> Division.Map.iter begin fun div map ->
   <div class="container">
     <h3><%s Division.to_string div %></h3>
-% map |> Role.Map.iter begin fun role l ->
-    <h5><%s Role.to_string role %></h5>
-    <table>
+% map |> Date.Map.iter begin fun _ l ->
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Event</th>
+          <th scope="col"></th>
+          <th scope="col">Competition</th>
           <th scope="col">Date</th>
           <th scope="col">Kind</th>
           <th scope="col">Result</th>
@@ -27,7 +27,10 @@ let t st id =
 % l |> List.iter begin fun (result, competition, event) ->
         <tr>
           <th scope="row">
-            <%s Event.name event %>
+            <%s Role.short (Results.role result) %>
+          </th>
+          <th scope="row">
+            <%s! Links.comp ~kind:"secondary" competition (Event.name event) %>
           </th>
           <th>
             <%s Date.to_string (Event.date event) %>
@@ -56,8 +59,7 @@ let list st =
   <table class="table table-striped my-3">
     <thead>
       <tr>
-        <th scope="col">Last Name</th>
-        <th scope="col">First Name</th>
+        <th scope="col">Name</th>
         <th scope="col">Division</th>
       </tr>
     </thead>
@@ -65,10 +67,7 @@ let list st =
 %   Dancer.list st |> List.iter begin fun dancer ->
       <tr>
         <th scope="row">
-          <%s Dancer.last_name dancer %>
-        </th>
-        <td>
-          <%s Dancer.first_name dancer %>
+          <%s! Links.dancer dancer (Dancer.full_name dancer) %>
         </td>
         <td>
           <%s Division.to_string @@ Dancer.division dancer %>

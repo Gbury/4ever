@@ -5,14 +5,14 @@ type t =
   | Jack_and_Jill
 
 let to_int = function
-  | Routine -> 0
+  | Routine -> 2
   | Strictly -> 1
-  | Jack_and_Jill -> 2
+  | Jack_and_Jill -> 0
 
 let of_int = function
-  | 0 -> Routine
+  | 2 -> Routine
   | 1 -> Strictly
-  | 2 -> Jack_and_Jill
+  | 0 -> Jack_and_Jill
   | _ -> assert false
 
 let to_string = function

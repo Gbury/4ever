@@ -12,6 +12,10 @@ let of_int = function
   | 1 -> Follower
   | d -> failwith (Format.asprintf "%d is not a valid role" d)
 
+let short = function
+  | Leader -> "L"
+  | Follower -> "F"
+
 let to_string = function
   | Leader -> "Leader"
   | Follower -> "Follower"

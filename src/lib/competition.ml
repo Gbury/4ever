@@ -53,8 +53,8 @@ let get_where_event st id =
 let order_map l =
   let add_to_div map comp =
     Division.Map.update comp.division (function
-        | None -> Some comp
-        | Some _ -> assert false
+        | None -> Some ([comp])
+        | Some l -> Some (comp :: l)
       ) map
   in
   let add_to_kind map comp =

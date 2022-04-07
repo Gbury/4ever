@@ -20,11 +20,11 @@ let conv = Conv.mk p of_int
 
 let to_string = function
   | None -> "non-competitive"
-  | Novice -> "initié"
-  | Intermediate -> "inter"
+  | Novice -> "Initié"
+  | Intermediate -> "Inter"
 
 let compare d d' =
-  CCOrd.int (to_int d) (to_int d')
+  CCOrd.int (to_int d') (to_int d)
 
 let equal d d' = compare d d' = 0
 

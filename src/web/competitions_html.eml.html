@@ -1,0 +1,53 @@
+
+open Fourever
+
+let t st id =
+  let comp = Competition.get st id in
+  let event = Event.get st (Competition.event comp) in
+  let div = Competition.division comp in
+
+  <h1>
+    <%s Event.name event %>
+    / <%s Kind.to_string (Competition.kind comp) %>
+    / <%s Division.to_string div %>
+% if Competition.name comp <> "" then begin
+    / <%s Competition.name comp %>
+% end;
+  <h1>
+  <h3>
+    <%s string_of_int @@ Date.day @@ Event.date event %>
+    <%s Date.month_name @@ Date.month @@ Event.date event %> -
+    <%s string_of_int @@ Date.year @@ Event.date event %>
+  </h3>
+
+  <%s! Links.event event "Back to the event" %>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+% State.query_all_where ~p:Id.p ~conv:Results.conv ~st
+% {| SELECT * FROM results WHERE competition=? ORDER BY rank ASC |}
+% (Competition.id comp) ~f:begin fun result ->
+% let dancer = Dancer.get st (Results.dancer result) in
+        <tr>
+          <th>
+            <%s Role.short (Results.role result) %>
+          </th>
+          <th>
+            <%s! Links.dancer dancer (Dancer.full_name dancer) %>
+            <th>
+              <%s Rank.to_string (Results.rank result) %>
+            </th>
+        </tr>
+% end;
+      </tbody>
+    </table>
+  </div>
+

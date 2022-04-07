@@ -1,0 +1,18 @@
+
+let simple ~prefix id ?(kind="primary") text =
+  <a
+    href="/<%s prefix %>/<%s string_of_int id %>"
+    class="link-<%s kind %>">
+    <%s text %>
+  </a>
+
+let event_id = simple ~prefix:"event"
+let event ev = event_id (Fourever.Event.id ev)
+
+let comp_id = simple ~prefix:"comp"
+let comp ev = comp_id (Fourever.Competition.id ev)
+
+let dancer_id = simple ~prefix:"dancer"
+let dancer d  = dancer_id (Fourever.Dancer.id d)
+
+
