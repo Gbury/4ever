@@ -25,6 +25,14 @@
  (deps error_html.eml.html)
  (action (run dream_eml %{deps} --workspace %{workspace_root})))
 (rule
+ (targets faq_html.ml)
+ (deps faq_html.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+(rule
+ (targets about_html.ml)
+ (deps about_html.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+(rule
  (targets events_html.ml)
  (deps events_html.eml.html)
  (action (run dream_eml %{deps} --workspace %{workspace_root})))

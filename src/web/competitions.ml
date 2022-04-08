@@ -4,7 +4,7 @@ let t =
     ~page:"competitions"
     ~title:"Competition results"
     ~body:(fun req st ->
-        let id = int_of_string @@ Dream.param req "id" in
+        let id = Misc.int_param req "id" in
         Competitions_html.t st id
       )
 

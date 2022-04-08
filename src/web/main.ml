@@ -14,6 +14,8 @@ let () =
   @@ State.init ~path:options.db_path
   @@ Dream.router [
     Dream.get "/" (Page.render Index.t);
+    Dream.get "/faq" (Page.render Faq.t);
+    Dream.get "/about" (Page.render About.t);
     Dream.get "/events" (Page.render Events.list);
     Dream.get "/event/:id" (Page.render Events.t);
     Dream.get "/comp/:id" (Page.render Competitions.t);
