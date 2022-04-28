@@ -1,0 +1,15 @@
+
+(executable
+  (name       gen)
+  (libraries
+    ; main lib + deps
+    fourever progress
+    ; competitions
+    tournoi_2016
+  )
+)
+
+(rule
+  (targets db.sqlite)
+  (action (run ./gen.exe))
+)

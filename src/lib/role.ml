@@ -20,6 +20,11 @@ let to_string = function
   | Leader -> "Leader"
   | Follower -> "Follower"
 
+let parse = function
+  | "L" -> Leader
+  | "F" -> Follower
+  | _ -> assert false
+
 let p = Sqlite3_utils.Ty.([int])
 let conv = Conv.mk p of_int
 

@@ -6,9 +6,4 @@
   (libraries
     containers sqlite3 sqlite3_utils
   )
-
-
-  ; modules that make up the lib
-  ;(modules          )
-
 )

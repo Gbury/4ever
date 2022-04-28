@@ -1,7 +1,7 @@
 
 type t = {
   id : Id.t;
-  birthday : Date.t;
+  birthday : Date.t option;
   last_name : string;
   first_name : string;
   as_leader : Division.t;
@@ -50,10 +50,10 @@ let () =
 
 let conv =
   Conv.mk
-    Sqlite3_utils.Ty.(p6 int text text text int int)
+    Sqlite3_utils.Ty.(p6 int text text (nullable text) int int)
     (fun id first_name last_name birthday as_leader as_follower ->
        { id; first_name; last_name;
-         birthday = Date.of_string birthday;
+         birthday = Option.map Date.of_string birthday;
          as_leader = Division.of_int as_leader;
          as_follower = Division.of_int as_follower; })
 
@@ -64,4 +64,35 @@ let get st id =
 let list st =
   State.query_list ~conv ~st
     {| SELECT * FROM dancers ORDER BY last ASC, first ASC |}
+
+let find_id st ~first_name ~last_name ~birthdate =
+  let l =
+    match birthdate with
+    | None ->
+      State.query_list_where ~st
+        ~p:(Sqlite3_utils.Ty.[text; text]) ~conv:Id.conv
+        {| SELECT id FROM dancers WHERE first=? AND last=? |} first_name last_name
+    | Some _ ->
+      State.query_list_where ~st
+        ~p:(Sqlite3_utils.Ty.[text; text; (nullable text)]) ~conv:Id.conv
+        {| SELECT id FROM dancers WHERE first=? AND last=? AND birthdate=? |}
+        first_name last_name (Option.map Date.to_string birthdate)
+  in
+  match l with
+  | [ id ] -> Some id
+  | [] -> None
+  | _ :: _ :: _ -> assert false
+
+let create st ~first_name ~last_name ~birthdate =
+  let div = Division.(to_string None) in
+  let open Sqlite3_utils.Ty in
+  State.insert ~st ~ty:[text; text; nullable text; text; text]
+    {| INSERT INTO dancers (first,last,birthday,as_leader,as_follower)
+       VALUES (?,?,?,?,?) |}
+    first_name last_name (Option.map Date.to_string birthdate) div div;
+  match find_id st ~first_name ~last_name ~birthdate with
+  | Some id -> id
+  | None -> assert false
+
+
 

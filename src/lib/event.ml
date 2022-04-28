@@ -43,3 +43,12 @@ let list st =
   State.query_list ~conv ~st
     {| SELECT * FROM events |}
 
+let create st name date : Id.t =
+  let open Sqlite3_utils.Ty in
+  State.insert ~st ~ty:[ text; text; ]
+    {| INSERT INTO events (name, date) VALUES (?,?) |}
+    name (Date.to_string date);
+  State.query_one_where ~p:[ text; text; ] ~conv:Id.conv ~st
+    {| SELECT id FROM events WHERE name=? AND date=? |}
+    name (Date.to_string date)
+

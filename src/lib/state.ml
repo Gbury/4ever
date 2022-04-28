@@ -11,6 +11,12 @@ let mk path =
   List.iter (fun f -> f st) !initializers;
   st
 
+let atomically = Sqlite3_utils.atomically
+
+let insert ~ty ~st sql =
+  let open Sqlite3_utils in
+  exec_no_cursor_exn st sql ~ty
+
 let query_all ~f ~conv ~st sql =
   let Conv.Conv (p, res) = conv in
   let open Sqlite3_utils in

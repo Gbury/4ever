@@ -40,6 +40,17 @@ let to_string = function
   | Reached Quarter_final -> "Quarter-finals"
   | Reached Eighth_final -> "Eighth-finals"
 
+let parse = function
+  | "F" -> Reached Final
+  | "S" -> Reached Semi_final
+  | "Q" -> Reached Quarter_final
+  | "E" -> Reached Eighth_final
+  | s ->
+    begin match int_of_string s with
+      | n -> Ranked n
+      | exception Failure _ -> assert false
+    end
+
 let p = Sqlite3_utils.Ty.([int])
 let conv = Conv.mk p of_int
 

@@ -50,6 +50,17 @@ let get_where_event st id =
   State.query_list_where ~p:Id.p ~conv ~st
     {| SELECT * FROM competitions WHERE event=? |} id
 
+let create st ~ev ~kind ~division ~name ~leaders ~followers =
+  let open Sqlite3_utils.Ty in
+  State.insert ~st ~ty:[ int; text; text; text; int; int ]
+    {| INSERT INTO competitions (event,kind,division,name,leaders,followers)
+       VALUES (?,?,?,?,?,?) |}
+    ev (Kind.to_string kind) (Division.to_string division) name leaders followers;
+  State.query_one_where ~p:[int; text; text; text] ~conv:Id.conv ~st
+    {| SELECT id FROM competitions WHERE
+       event=? AND kind=? AND division=? AND name=? |}
+    ev (Kind.to_string kind) (Division.to_string division) name
+
 let order_map l =
   let add_to_div map comp =
     Division.Map.update comp.division (function

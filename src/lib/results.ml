@@ -45,6 +45,14 @@ let get_where_dancer st dancer_id =
   State.query_list_where ~p:Id.p ~conv ~st
     {| SELECT * FROM results WHERE dancer=? |} dancer_id
 
+let add st ~points ~role ~dancer ~rank ~division ~competition =
+  let open Sqlite3_utils.Ty in
+  State.insert ~st ~ty:[ int; int; int; int; int; int]
+    {| INSERT INTO results (points,role,dancer,rank,division,competition)
+       VALUES (?,?,?,?,?,?) |}
+    points (Role.to_int role) dancer (Rank.to_int rank)
+    (Division.to_int division) competition
+
 let order_by_event_date st l =
   let l' = List.map (fun res ->
       let competition = Competition.get st res.competition in
