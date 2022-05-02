@@ -1,0 +1,10 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1 	F	Bla	Bla
+#################################################
+1	F	Durand	Céline
+1	L	Pacherie	Éliot
