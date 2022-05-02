@@ -4,11 +4,13 @@ module I = F.Import
 
 let events = [
   Tournoi_2016.t;
+  Essec_2016.t;
+  Ulm_2016.t;
 ]
 
 let progress_bar total =
   let open Progress.Line in
-  const "importing events: " ++ spinner () ++
+  const "importing events: " ++ count_to total  ++
   const " " ++ elapsed () ++ const " " ++
   bar ~width:(`Fixed 80) total
 

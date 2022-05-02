@@ -84,9 +84,9 @@ let find_id st ~first_name ~last_name ~birthdate =
   | _ :: _ :: _ -> assert false
 
 let create st ~first_name ~last_name ~birthdate =
-  let div = Division.(to_string None) in
+  let div = Division.(to_int None) in
   let open Sqlite3_utils.Ty in
-  State.insert ~st ~ty:[text; text; nullable text; text; text]
+  State.insert ~st ~ty:[text; text; nullable text; int; int]
     {| INSERT INTO dancers (first,last,birthday,as_leader,as_follower)
        VALUES (?,?,?,?,?) |}
     first_name last_name (Option.map Date.to_string birthdate) div div;

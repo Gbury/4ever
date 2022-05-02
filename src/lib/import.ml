@@ -40,8 +40,11 @@ let parse_result ~rank ~role ~last_name ~first_name ?birthdate ?(points="0") () 
 let read_results contents =
   let l = String.split_on_char '\n' contents in
   List.fold_left (fun acc line ->
-      match line with
-      | "" -> acc
+      let line = String.trim line in
+      if String.length line <= 0 || line.[0] = '#'
+      then acc
+      else match line with
+      | "" -> assert false (* should have been caught by the condition above *)
       | _ ->
         let r =
           match String.split_on_char '\t' line with

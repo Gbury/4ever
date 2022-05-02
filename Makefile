@@ -17,8 +17,12 @@ top:
 doc:
 	dune build $(FLAGS) @doc
 
-test: build
-	dune exec -- fourever --db=test/fourever.sqlite
+db:
+	dune build archive/gen.exe
+	dune build -j 1 --no-buffer --display quiet archive/db.sqlite
+
+test: build db
+	dune exec -- fourever --db=_build/default/archive/db.sqlite
 
 clean:
 	dune clean

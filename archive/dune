@@ -5,7 +5,7 @@
     ; main lib + deps
     fourever progress
     ; competitions
-    tournoi_2016
+    tournoi_2016 essec_2016 ulm_2016
   )
 )
 
