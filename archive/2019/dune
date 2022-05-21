@@ -1,6 +1,6 @@
 
 (library
-  (name   tournoi_2016)
+  (name       archive_2019)
   (libraries  fourever)
 )
 

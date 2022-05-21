@@ -1,6 +1,12 @@
 
 open Fourever
 
+let dancer_opt st = function
+  | None -> Format.asprintf "-"
+  | Some r ->
+    let dancer = Dancer.get st (Results.dancer r) in
+    Links.dancer dancer (Dancer.full_name dancer)
+
 let t st id =
   let comp = Competition.get st id in
   let event = Event.get st (Competition.event comp) in
@@ -22,32 +28,60 @@ let t st id =
 
   <%s! Links.event event "Back to the event" %>
 
-  <div class="container">
-    <table class="table">
+  <div class="container-sm">
+  <div class="row justify-content-md-center">
+  <div class="col col-6">
+    <table class="table table-hover">
       <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Name</th>
+        <tr class="table-dark">
+          <th scope="col">Leader</th>
           <th scope="col">Rank</th>
+          <th scope="col">Follower</th>
         </tr>
       </thead>
       <tbody>
-% State.query_all_where ~p:Id.p ~conv:Results.conv ~st
+% State.query_list_where ~p:Id.p ~conv:Results.conv ~st
 % {| SELECT * FROM results WHERE competition=? ORDER BY rank ASC |}
-% (Competition.id comp) ~f:begin fun result ->
-% let dancer = Dancer.get st (Results.dancer result) in
-        <tr>
+% (Competition.id comp) |> Results.order_by_rank |>
+% Rank.Map.iter begin fun rank l ->
+% begin match rank with
+% | Rank.Ranked _ ->
+%   Results.iter_by_dancer l begin fun lead follow ->
+        <tr class="table-primary">
           <th>
-            <%s Role.short (Results.role result) %>
+            <%s! dancer_opt st lead %>
           </th>
           <th>
-            <%s! Links.dancer dancer (Dancer.full_name dancer) %>
-            <th>
-              <%s Rank.to_string (Results.rank result) %>
-            </th>
+            <%s Rank.to_string rank %>
+          </th>
+          <th>
+            <%s! dancer_opt st follow %>
+          </th>
         </tr>
+% end;
+% | Rank.Reached _ ->
+        <tr class="table-active">
+          <th></th>
+          <th>
+            <%s Rank.to_string rank %>
+          </th>
+          <th></th>
+        </tr>
+%   Results.iter_by_dancer l begin fun lead follow ->
+        <tr class="table-secondary">
+          <th>
+            <%s! dancer_opt st lead %>
+          </th>
+          <th>
+          </th>
+          <th>
+            <%s! dancer_opt st follow %>
+          </th>
+        </tr>
+% end;
+% end;
 % end;
       </tbody>
     </table>
-  </div>
+    </div></div></div>
 

@@ -1,0 +1,30 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+1	F	Vallerio	Héloise
+1	L	Ben Kiran	Paul
+
+F	F	Cimelli	Léa
+F	L	De Longuemar	Guillaume
+
+F	F	Geneste-Samissof	Natacha
+F	L	Bury	Guillaume
+
+# Unsorted people
+F	F	Debu	Sandra
+F	F	Durand	Céline
+F	F	Langlès	Aliénor
+F	F	Varieras	Matilde
+F	F	Abella	Alexandra
+
+F	L	Kakovine	Nikita
+F	L	Escolier	Anthony
+F	L	Kreis	Alaa
+F	L	Lopez	Yann
+F	L	Monier	Ludovic
+

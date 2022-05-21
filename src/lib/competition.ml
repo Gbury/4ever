@@ -75,4 +75,3 @@ let order_map l =
       ) map
   in
   List.fold_left add_to_kind Kind.Map.empty l
-

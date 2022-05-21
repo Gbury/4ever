@@ -2,11 +2,9 @@
 module F = Fourever
 module I = F.Import
 
-let events = [
-  Tournoi_2016.t;
-  Essec_2016.t;
-  Ulm_2016.t;
-]
+let events =
+  Archive_2019.events @
+  []
 
 let progress_bar total =
   let open Progress.Line in

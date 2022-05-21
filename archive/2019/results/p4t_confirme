@@ -1,0 +1,30 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+
+1	F	Parquier	Claire
+1	L	Franque	Guillaume
+
+2	F	Desseaux	Albane
+2	L	Rambaud	Matthieu
+
+3	F	Gaurois	Alexia
+3	L	Khansa	Rémi
+
+F	L	Ziakovic	Théo
+F	F	Lim	Melody
+
+F	L	Aron	Vincent
+F	F	Renoul	Louise
+
+F	L	Badescu	Rares
+F	F	Bivas	Irène
+
+F	L	Morel	Baptiste
+F	F	Dumon	Camille
+

@@ -1,0 +1,24 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+1	F	Daumal	Ange
+1	L	Khansa	Rémi
+
+2	F	Pébrier	Madeleine
+2	L	Jorge Do Marco	Romain
+
+3	F	Antoine	Louise
+3	L	Jeanson	Antonio
+
+
+F	L	Croenne-Ambroise	Aurélien
+F	L	Bartaud	Raphaël
+
+F	F	Gaurois	Alexia
+F	F	Law	Thalie
+

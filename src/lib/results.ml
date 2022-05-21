@@ -1,4 +1,6 @@
 
+module M = Map.Make(Int)
+
 type t = {
   id : Id.t;
   points : int;
@@ -64,6 +66,38 @@ let order_by_event_date st l =
     CCOrd.opp Date.compare (Event.date e) (Event.date e')
   in
   List.sort cmp l'
+
+let order_by_rank l =
+  let aux map r =
+    Rank.Map.update r.rank (function
+        | None -> Some [r]
+        | Some l -> Some (r :: l)
+      ) map
+  in
+  List.fold_left aux Rank.Map.empty l
+
+let iter_by_dancer l f =
+  let rec aux leads follows =
+    match leads, follows with
+    | [], [] -> ()
+    | lead :: leads, [] ->
+      f (Some lead) None;
+      aux leads follows
+    | [], follow :: follows ->
+      f None (Some follow);
+      aux leads follows
+    | lead :: leads, follow :: follows ->
+      f (Some lead) (Some follow);
+      aux leads follows
+  in
+  let leads, follows =
+    List.partition (function r ->
+      match r.role with
+      | Leader -> true
+      | Follower -> false
+      ) l
+  in
+  aux leads follows
 
 let order_map st l =
   let add_to_date map ((_, _, event) as t) =

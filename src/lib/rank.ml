@@ -29,6 +29,17 @@ let of_int = function
   | 104 -> Reached Preliminaries
   | d -> failwith (Format.asprintf "%d is not a valid rank" d)
 
+let compare r r' =
+  CCOrd.int (to_int r) (to_int r')
+
+module Aux = struct
+  type nonrec t = t
+  let compare = compare
+end
+
+module Set = Set.Make(Aux)
+module Map = Map.Make(Aux)
+
 let to_string = function
   | Ranked 1 -> "1st"
   | Ranked 2 -> "2nd"

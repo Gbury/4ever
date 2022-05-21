@@ -1,20 +1,31 @@
 
 open Fourever
 
+let competition_name event competition =
+  if Competition.name competition = "" then
+    Event.name event
+  else
+    Format.asprintf "%s - %s"
+      (Event.name event) (Competition.name competition)
+
+(* ************************************************************************* *)
+(* Individual Dancer profile *********************************************** *)
+(* ************************************************************************* *)
+
 let t st id =
   let dancer = Dancer.get st id in
 
   <h1><%s Dancer.first_name dancer%>, <%s Dancer.last_name dancer %></h1>
+  <p>Competitive id: #<%s string_of_int (Dancer.id dancer) %></p>
 % Results.get_where_dancer st id
 % |> Results.order_map st
 % |> Id.Map.find id
 % |> Division.Map.iter begin fun div map ->
   <div class="container">
     <h3><%s Division.to_string div %></h3>
-% map |> Date.Map.iter begin fun _ l ->
     <table class="table table-striped">
       <thead>
-        <tr>
+        <tr class="table-dark">
           <th scope="col"></th>
           <th scope="col">Competition</th>
           <th scope="col">Date</th>
@@ -24,13 +35,15 @@ let t st id =
         </tr>
       </thead>
       <tbody>
+% map |> Date.Map.iter begin fun _ l ->
 % l |> List.iter begin fun (result, competition, event) ->
         <tr>
           <th scope="row">
             <%s Role.short (Results.role result) %>
           </th>
           <th scope="row">
-            <%s! Links.comp ~kind:"secondary" competition (Event.name event) %>
+            <%s! Links.comp ~kind:"secondary" competition
+                   (competition_name event competition) %>
           </th>
           <th>
             <%s Date.to_string (Event.date event) %>
@@ -46,12 +59,16 @@ let t st id =
           </th>
         </tr>
 % end;
+% end;
       </tbody>
     </table>
-% end;
   </div>
 % end;
 
+
+(* ************************************************************************* *)
+(* List of all Dancers ***************************************************** *)
+(* ************************************************************************* *)
 
 let list st =
 
