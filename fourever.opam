@@ -9,14 +9,15 @@ build: [
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
+  "ocaml" {>= "4.02.3"}
   "dune" {build}
   "dream"
+  "crunch"
   "cmdliner"
   "sqlite3"
   "sqlite3_utils"
   "containers"
 ]
-available: [ ocaml-version >= "4.02.3" ]
 tags: [ "dance" ]
 homepage: "https://github.com/Gbury/4ever"
 doc: "http://gbury.github.io/4ever"
