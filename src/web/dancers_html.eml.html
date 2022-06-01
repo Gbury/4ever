@@ -8,6 +8,17 @@ let competition_name event competition =
     Format.asprintf "%s - %s"
       (Event.name event) (Competition.name competition)
 
+let divisions dancer =
+  match Dancer.as_leader dancer, Dancer.as_follower dancer with
+  | dl, df when Division.equal dl df -> Badge.division dl
+  | Novice, df -> Badge.division ~role:Follower df
+  | dl, Novice -> Badge.division ~role:Leader dl
+  | dl, df ->
+    Format.asprintf "%s %s"
+      (Badge.division ~role:Leader dl)
+      (Badge.division ~role:Follower df)
+
+
 (* ************************************************************************* *)
 (* Individual Dancer profile *********************************************** *)
 (* ************************************************************************* *)
@@ -15,14 +26,18 @@ let competition_name event competition =
 let t st id =
   let dancer = Dancer.get st id in
 
-  <h1><%s Dancer.first_name dancer%>, <%s Dancer.last_name dancer %></h1>
-  <p>Competitive id: #<%s string_of_int (Dancer.id dancer) %></p>
+  <div class="row">
+    <h2>
+      <%s Dancer.first_name dancer%>, <%s Dancer.last_name dancer %>
+      <%s! divisions dancer %>
+    </h2>
+  </div>
 % Results.get_where_dancer st id
 % |> Results.order_map st
 % |> Id.Map.find id
-% |> Division.Map.iter begin fun div map ->
+% |> Category.Map.iter begin fun cat map ->
   <div class="container">
-    <h3><%s Division.to_string div %></h3>
+    <h3><%s Category.to_string cat %></h3>
     <table class="table table-striped">
       <thead>
         <tr class="table-dark">
@@ -73,11 +88,11 @@ let t st id =
 let list st =
 
   <h1>Dancer list</h1>
-  <table class="table table-striped my-3">
+  <table class="table table-striped m-3">
     <thead>
       <tr>
         <th scope="col">Name</th>
-        <th scope="col">Division</th>
+        <th scope="col">Category</th>
       </tr>
     </thead>
     <tbody>
@@ -87,7 +102,7 @@ let list st =
           <%s! Links.dancer dancer (Dancer.full_name dancer) %>
         </td>
         <td>
-          <%s Division.to_string @@ Dancer.division dancer %>
+          <div><%s! divisions dancer %></div>
         </td>
       </tr>
 %   end;

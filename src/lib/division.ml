@@ -1,35 +1,23 @@
 
 type t =
-  | None
-  | Qualifying
   | Novice
   | Intermediate
-  | Invited
 
 let to_int = function
-  | None -> 0
-  | Qualifying -> 1
-  | Novice -> 2
-  | Intermediate -> 3
-  | Invited -> 4
+  | Novice -> 1
+  | Intermediate -> 2
 
 let of_int = function
-  | 0 -> None
-  | 1 -> Qualifying
-  | 2 -> Novice
-  | 3 -> Intermediate
-  | 4 -> Invited
+  | 1 -> Novice
+  | 2 -> Intermediate
   | d -> failwith (Format.asprintf "%d is not a valid division" d)
 
 let p = Sqlite3_utils.Ty.([int])
 let conv = Conv.mk p of_int
 
 let to_string = function
-  | None -> "non-competitive"
-  | Qualifying -> "qualifying"
-  | Novice -> "Initié"
+  | Novice -> "Initie"
   | Intermediate -> "Inter"
-  | Invited -> "Invité"
 
 let compare d d' =
   CCOrd.int (to_int d') (to_int d)

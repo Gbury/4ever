@@ -10,12 +10,12 @@ let dancer_opt st = function
 let t st id =
   let comp = Competition.get st id in
   let event = Event.get st (Competition.event comp) in
-  let div = Competition.division comp in
+  let cat = Competition.category comp in
 
   <h1>
     <%s Event.name event %>
     / <%s Kind.to_string (Competition.kind comp) %>
-    / <%s Division.to_string div %>
+    / <%s Category.to_string cat %>
 % if Competition.name comp <> "" then begin
     / <%s Competition.name comp %>
 % end;

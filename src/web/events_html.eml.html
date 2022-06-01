@@ -10,30 +10,36 @@ let dancer_opt st = function
 let t st id =
   let event = Event.get st id in
 
-  <h1><%s Event.name event %></h1>
-  <h3>
-    <%s string_of_int @@ Date.day @@ Event.date event %>
-    <%s Date.month_name @@ Date.month @@ Event.date event %> -
-    <%s string_of_int @@ Date.year @@ Event.date event %>
-  </h3>
+  <div class="row">
+    <div class="col">
+      <h2><%s Event.name event %></h2>
+    </div>
+    <div class="col text-end">
+      <h2>
+        <%s string_of_int @@ Date.day @@ Event.date event %>
+        <%s Date.month_name @@ Date.month @@ Event.date event %> -
+        <%s string_of_int @@ Date.year @@ Event.date event %>
+      </h2>
+    </div>
+  </div>
 
-  <p>TODO: add some description of events ?</p>
+  <!-- <p>TODO: add some description of events ?</p> -->
 
   <div class="container">
 % Competition.get_where_event st id
 % |> Competition.order_map
 % |> Kind.Map.iter begin fun kind map ->
-    <div class="row">
+    <div class="row border-top my-3 p-3">
       <h2><%s Kind.to_string kind %></h2>
-% map |> Division.Map.iter begin fun div l ->
+% map |> Category.Map.iter begin fun cat l ->
 % l |> List.iter begin fun comp ->
       <div class="col-6">
         <h3>
 % if Competition.name comp <> "" then begin
-          <%s Division.to_string div %> /
+          <%s Category.to_string cat %> /
           <%s Competition.name comp %>
 % end else begin
-          <%s Division.to_string div %>
+          <%s Category.to_string cat %>
 % end;
         <small class="text-muted">
           - <%s! Links.comp ~kind:"secondary" comp "full results" %>
@@ -92,7 +98,7 @@ let t st id =
 % end;
           </tbody>
         </table>
-      </div> <!-- end of 'Division'/'name' div -->
+      </div> <!-- end of 'Category'/'name' div -->
 % end;
 % end;
     </div> <!-- end of 'Kind' div -->

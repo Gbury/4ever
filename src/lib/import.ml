@@ -17,7 +17,7 @@ type comp = {
   name : string;
   leaders : int;
   follows : int;
-  division : Division.t;
+  category : Category.t;
   results : result list;
 }
 
@@ -68,24 +68,28 @@ let import_result st comp_id comp_div result : unit =
     | None ->
       Dancer.create st ~first_name ~last_name ~birthdate
   in
-  Results.add st
-    ~points:result.points ~role:result.role
-    ~dancer:dancer_id ~rank:result.rank
-    ~division:comp_div ~competition:comp_id;
+  let r =
+    Results.add st
+      ~points:result.points ~role:result.role
+      ~dancer:dancer_id ~rank:result.rank
+      ~category:comp_div ~competition:comp_id
+  in
+  Promotion.update_with_new_result st r;
   ()
 
 let import_comp st event_id comp =
   let comp_id = Competition.create st
       ~ev:event_id ~kind:comp.kind ~name:comp.name
-      ~division:comp.division ~leaders:comp.leaders ~followers:comp.follows
+      ~category:comp.category ~leaders:comp.leaders ~followers:comp.follows
   in
-  List.iter (import_result st comp_id comp.division) comp.results
+  List.iter (import_result st comp_id comp.category) comp.results
 
 let import_event st ev =
   let event_id = Event.create st ev.name ev.date in
   List.iter (import_comp st event_id) ev.comps
 
-let import st ev =
+let import st ev = import_event st ev
+    (*
   State.atomically st (fun st -> import_event st ev)
-
+*)
 

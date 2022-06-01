@@ -3,7 +3,7 @@
   (name         main)
   (public_name  fourever)
   (libraries
-    dream cmdliner fourever
+    ocb dream cmdliner fourever
   )
 )
 

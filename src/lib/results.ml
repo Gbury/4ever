@@ -7,7 +7,7 @@ type t = {
   role : Role.t;
   dancer : Id.t;
   rank : Rank.t;
-  division : Division.t;
+  category : Category.t;
   competition : Id.t;
 }
 
@@ -25,7 +25,7 @@ let () =
           role INT,
           dancer INT,
           rank INT,
-          division INT,
+          category INT,
           competition INT
         )
       |})
@@ -33,11 +33,11 @@ let () =
 let conv =
   Conv.mk
     Sqlite3_utils.Ty.((p4 int int int int) @>> (p3 int int int))
-    (fun id points role dancer rank division competition ->
+    (fun id points role dancer rank category competition ->
        let rank = Rank.of_int rank in
        let role = Role.of_int role in
-       let division = Division.of_int division in
-       { id; points; role; dancer; rank; division; competition; })
+       let category = Category.of_int category in
+       { id; points; role; dancer; rank; category; competition; })
 
 let get st id =
   State.query_list_where ~p:Id.p ~conv ~st
@@ -47,13 +47,18 @@ let get_where_dancer st dancer_id =
   State.query_list_where ~p:Id.p ~conv ~st
     {| SELECT * FROM results WHERE dancer=? |} dancer_id
 
-let add st ~points ~role ~dancer ~rank ~division ~competition =
+let add st ~points ~role ~dancer ~rank ~category ~competition =
   let open Sqlite3_utils.Ty in
   State.insert ~st ~ty:[ int; int; int; int; int; int]
-    {| INSERT INTO results (points,role,dancer,rank,division,competition)
+    {| INSERT INTO results (points,role,dancer,rank,category,competition)
        VALUES (?,?,?,?,?,?) |}
     points (Role.to_int role) dancer (Rank.to_int rank)
-    (Division.to_int division) competition
+    (Category.to_int category) competition;
+  State.query_one_where ~st ~conv ~p:[ int; int; int; int; int; int]
+    {| SELECT * FROM results WHERE points=? AND role=? AND dancer=? AND
+                                   rank=? AND category=? AND competition=? |}
+    points (Role.to_int role) dancer (Rank.to_int rank)
+    (Category.to_int category) competition
 
 let order_by_event_date st l =
   let l' = List.map (fun res ->
@@ -108,7 +113,7 @@ let order_map st l =
       ) map
   in
   let add_to_div map ((res, _, _) as t) =
-    Division.Map.update res.division (function
+    Category.Map.update res.category (function
         | Some m -> Some (add_to_date m t)
         | None -> Some (add_to_date Date.Map.empty t)
       ) map
@@ -116,7 +121,7 @@ let order_map st l =
   let add_to_dancer map ((res, _, _) as t) =
     Id.Map.update res.dancer (function
         | Some m -> Some (add_to_div m t)
-        | None -> Some (add_to_div Division.Map.empty t)
+        | None -> Some (add_to_div Category.Map.empty t)
       ) map
   in
   l

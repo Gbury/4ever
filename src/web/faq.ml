@@ -12,6 +12,11 @@ let l = [
   qui fallback sur de l'anglais dès qu'il mets plus d'une demie-seconde
   à trouver le mot français qu'il cherche.";
 
+  "Division badges",
+  Format.asprintf "%s %s blabla"
+    (Badge.division Fourever.Division.Novice)
+    (Badge.division Fourever.Division.Intermediate);
+
 ]
 
 let t =
