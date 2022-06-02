@@ -30,6 +30,8 @@ type ev = {
 type t = ev
 
 let parse_result ~rank ~role ~last_name ~first_name ?birthdate ?(points="0") () =
+  let first_name = String.trim first_name in
+  let last_name = String.trim last_name in
   let rank = Rank.parse rank in
   let role = Role.parse role in
   let dancer = { first_name; last_name; birthdate; } in

@@ -1,0 +1,27 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Aron	Vincent	10
+1	F	Martel	Alice	10
+
+2	L	Popineau	Pierre	8
+2	F	Le	Ai-My	8
+
+3	L	Le	Huy Hoang	6
+3	F	Langlès	Aliénor	6
+
+4	L	Ziakovic	Théo	3
+4	F	Bivas	Irène	3
+
+5	L	Lopez	Yann	3
+5	F	Lefrère	Valentine	3
+
+6	L	Ducros	Charles
+6	F	Desseaux	Albane
+

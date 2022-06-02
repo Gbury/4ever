@@ -15,6 +15,7 @@ let rank { rank; _ } = rank
 let role { role; _ } = role
 let dancer { dancer; _ } = dancer
 let points { points; _ } = points
+let category { category; _ } = category
 
 let () =
   State.add_init (fun st ->

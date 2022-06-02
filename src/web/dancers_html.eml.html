@@ -32,13 +32,21 @@ let t st id =
       <%s! divisions dancer %>
     </h2>
   </div>
-% Results.get_where_dancer st id
-% |> Results.order_map st
-% |> Id.Map.find id
-% |> Category.Map.iter begin fun cat map ->
-  <div class="container">
-    <h3><%s Category.to_string cat %></h3>
-    <table class="table table-striped">
+  <div class="row">
+% let m =
+%   Results.get_where_dancer st id
+%   |> Results.order_map st
+%   |> Id.Map.find id
+% in
+% let comp, non_comp =
+%   Category.Map.partition (fun cat _ -> Category.competitive cat) m
+% in
+% ["Competitive", comp; "Non-competitive", non_comp]
+% |> List.iter begin fun (title, map) ->
+% if not (Category.Map.is_empty map) then begin
+  <div class="col">
+    <h3><%s title %></h3>
+    <table class="table table-hover table-striped">
       <thead>
         <tr class="table-dark">
           <th scope="col"></th>
@@ -50,9 +58,15 @@ let t st id =
         </tr>
       </thead>
       <tbody>
-% map |> Date.Map.iter begin fun _ l ->
+% map |> Category.Map.iter begin fun cat map ->
+        <tr class="table-secondary text-center">
+          <td colspan="6">
+            <strong><%s Category.to_string cat %></strong>
+          </td>
+        </tr>
+% map |> Date.Map.to_rev_seq |> Seq.iter begin fun (_, l) ->
 % l |> List.iter begin fun (result, competition, event) ->
-        <tr>
+        <tr class="table-primary">
           <th scope="row">
             <%s Role.short (Results.role result) %>
           </th>
@@ -75,10 +89,13 @@ let t st id =
         </tr>
 % end;
 % end;
+% end;
       </tbody>
     </table>
   </div>
 % end;
+% end;
+  </div>
 
 
 (* ************************************************************************* *)
@@ -87,8 +104,9 @@ let t st id =
 
 let list st =
 
+  <div class="row justify-content-center"><div class="col-6">
   <h1>Dancer list</h1>
-  <table class="table table-striped m-3">
+  <table id="dancers" class="table table-hover table-striped m-3">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -108,4 +126,4 @@ let list st =
 %   end;
     </tbody>
   </table>
-
+  </div></div>

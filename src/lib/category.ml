@@ -7,19 +7,23 @@ type t =
   | Competitive of Division.t
   | Non_competitive of special option
 
+let competitive = function
+  | Competitive _ -> true
+  | Non_competitive _ -> false
+
 let to_int = function
-  | Competitive Intermediate -> 2
-  | Competitive Novice -> 1
-  | Non_competitive None -> 0
-  | Non_competitive Some Qualifying -> -1
-  | Non_competitive Some Invited -> -2
+  | Non_competitive Some Invited -> 0
+  | Competitive Intermediate -> 1
+  | Competitive Novice -> 2
+  | Non_competitive None -> 3
+  | Non_competitive Some Qualifying -> 4
 
 let of_int = function
-  | 2 -> Competitive Intermediate
-  | 1 -> Competitive Novice
-  | 0 -> Non_competitive None
-  | -1 -> Non_competitive (Some Qualifying)
-  | -2 -> Non_competitive (Some Invited)
+  | 0 -> Non_competitive (Some Invited)
+  | 1 -> Competitive Intermediate
+  | 2 -> Competitive Novice
+  | 3 -> Non_competitive None
+  | 4 -> Non_competitive (Some Qualifying)
   | d -> failwith (Format.asprintf "%d is not a valid category" d)
 
 let p = Sqlite3_utils.Ty.([int])

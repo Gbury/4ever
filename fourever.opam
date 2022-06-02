@@ -18,6 +18,7 @@ depends: [
   "sqlite3_utils"
   "containers"
   "progress"
+  "ocb"
 ]
 tags: [ "dance" ]
 homepage: "https://github.com/Gbury/4ever"

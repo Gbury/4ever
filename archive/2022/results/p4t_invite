@@ -1,0 +1,33 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Bury	Guillaume
+1	F	Cimelli	Léa
+
+2	L	Popineau	Pierre
+2	F	Desseaux	Albane
+
+3	L	De Longuemar	Guillaume
+3	F	Varieras	Mathilde
+
+F	L	Lopez	Yann
+F	F	Schecas	Maria
+
+F	L	Le	Huy Hoang
+F	F	Le	Ai-My
+
+F	L	Ben Kiran	Paul
+F	F	Parquier	Claire
+
+F	L	Lam	Philippe
+F	F	Langlès	Aliénor
+
+F	L	Nykol	Adrien
+F	F	Bivas	Irène
+

@@ -4,6 +4,7 @@ module I = F.Import
 
 let events =
   Archive_2019.events @
+  Archive_2022.events @
   []
 
 let progress_bar total =

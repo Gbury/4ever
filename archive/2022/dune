@@ -1,10 +1,9 @@
 
 (library
-  (name       event_name)
+  (name       archive_2022)
   (libraries  fourever)
 )
 
-; Do that for each file of results
 (rule
  (target results.ml)
  (deps (source_tree results))

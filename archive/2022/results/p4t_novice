@@ -1,0 +1,55 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Martel	Alice	14
+1	F	Leblanc Sogutçu	Gabrielle	14
+
+2	L	Bussonati	Orlando	12
+2	F	Daumal 	Ange	12
+
+3	L	Abbed	Aniss	10
+3	F	Gaglione	Eglantine	10
+
+4	L	Bellec	Nicolas	8
+4	F	Guillochon	Romain	8
+
+5	L	Bivas	Irène	8
+5	F	Sargent-Caillat	Pauline	8
+
+6	L	Mellet-Leclere	Lucas	6
+6	F	Szilas	Eva	6
+
+7	L	Manet	Hugo	6
+7	F	Novene	Marie-Lou	6
+
+8	L	Coso	Amaury	3
+8	F	Nguyen	Romy	3
+
+9	L	Régnier	Léo	3
+9	F	Reclus	Anne-Marie	3
+
+10	L	Loew	Sieffried	3
+10	F	Koeler	Alice	3
+
+# Semi-finals
+S	L	Camoin	Gabriel	2
+S	L	Renoul	Louise	2
+S	L	Nédélec	Vincent	2
+S	L	Leclerc	Alexis	2
+S	L	Nguyen	Olivier	2
+S	L	Loyer	Lilian	2
+
+S	F	Donatien	Albane	2
+S	F	Law	Thalie	2
+S	F	Leborgne	Amandine	2
+S	F	Penin	Gaelle	2
+S	F	Chauvin	Kitima	2
+S	F	Tandeau	Eléonore	2
+
+

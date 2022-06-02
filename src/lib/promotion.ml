@@ -22,17 +22,23 @@ let qualifying_finalist : rule = fun _st _id result ->
   | Non_competitive Some Qualifying, Reached Final -> true
   | _ -> false
 
-let points div threshold : rule = fun st dancer_id _result ->
-  let open Sqlite3_utils.Ty in
-  let conv = Conv.mk [nullable int] CCFun.id in
-  let points =
-    (* we cheat a little and use ID.t to convert to an integer/sum of
-       points, and not an identifier. *)
-    State.query_one_where ~st ~conv ~p:[int; int]
-      {| SELECT SUM(points) FROM results WHERE dancer = ? AND category = ?|}
-      dancer_id (Category.to_int (Competitive div))
-  in
-  CCOption.get_or ~default:0 points >= threshold
+let points div threshold : rule = fun st dancer_id result ->
+  match Results.category result with
+  | Competitive d when Division.equal div d ->
+    if Results.points result >= threshold then true
+    else begin
+      let open Sqlite3_utils.Ty in
+      let conv = Conv.mk [nullable int] CCFun.id in
+      let points =
+        (* we cheat a little and use ID.t to convert to an integer/sum of
+           points, and not an identifier. *)
+        State.query_one_where ~st ~conv ~p:[int; int]
+          {| SELECT SUM(points) FROM results WHERE dancer = ? AND category = ?|}
+          dancer_id (Category.to_int (Competitive div))
+      in
+      CCOption.get_or ~default:0 points >= threshold
+    end
+  | _ -> false
 
 
 (* ************************************************************************* *)
@@ -51,6 +57,7 @@ let rules =
     { promote_to_inter = [
           invited;
           qualifying_finalist;
+          points Intermediate 1;
           points Novice 6;
         ];
     };
