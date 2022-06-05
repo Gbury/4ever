@@ -61,9 +61,56 @@ let get st id =
   State.query_one_where ~p:Id.p ~conv ~st
     {| SELECT * FROM dancers WHERE id=? |} id
 
-let list st =
+let query_order_by ?order_by fmt () =
+  let l = match order_by with
+    | None -> [`Last, `Asc; `First, `Asc]
+    | Some (`First, `Asc) -> [`First, `Asc; `Last, `Asc]
+    | Some (`First, `Desc) -> [`First, `Desc; `Last, `Asc]
+    | Some (`Last, `Asc) -> [`Last, `Asc; `First, `Asc]
+    | Some (`Last, `Desc) -> [`Last, `Desc; `First, `Asc]
+  in
+  let pp_sep fmt () = Format.fprintf fmt ", " in
+  let pp fmt (col, dir) =
+    let col =
+      match col with
+      | `First -> "first"
+      | `Last -> "last"
+    in
+    let dir =
+      match dir with
+      | `Asc -> "ASC"
+      | `Desc -> "DESC"
+    in
+    Format.fprintf fmt "%s %s" col dir
+  in
+  Format.pp_print_list ~pp_sep pp fmt l
+
+let list ?order_by st =
   State.query_list ~conv ~st
-    {| SELECT * FROM dancers ORDER BY last ASC, first ASC |}
+    (Format.asprintf
+       {| SELECT * FROM dancers ORDER BY %a |}
+       (query_order_by ?order_by) ())
+
+let sanitize s =
+  let correct =
+    String.for_all (function
+      | 'a' .. 'z' | 'A' .. 'Z' -> true
+      | _ -> false
+      ) s
+  in
+  if correct then s else ""
+
+let search ?order_by st ?(name="") () =
+  match sanitize name with
+  | "" -> list st
+  | name ->
+    let open Sqlite3_utils.Ty in
+    State.query_list_where ~conv ~st ~p:[] (
+      Format.asprintf {|
+        SELECT * FROM dancers
+        WHERE first LIKE '%%%s%%' OR last LIKE '%%%s%%'
+        ORDER BY %a |} name name (query_order_by ?order_by) ()
+    )
 
 let find_id st ~first_name ~last_name ~birthdate =
   let l =

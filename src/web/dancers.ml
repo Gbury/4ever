@@ -12,5 +12,5 @@ let list =
   Page.mk
     ~page:"dancers"
     ~title:"Dancer List"
-    ~body:(fun _req st -> Dancers_html.list st)
+    ~body:Dancers_html.list
 

@@ -118,20 +118,92 @@ let t st id =
 (* List of all Dancers ***************************************************** *)
 (* ************************************************************************* *)
 
-let list st =
+let list_url_gen order_by search =
+  let pp_order_by fmt = function
+    | None -> ()
+    | Some (`First, `Asc) -> Format.fprintf fmt {|order_by=first-asc&|}
+    | Some (`First, `Desc) -> Format.fprintf fmt {|order_by=first-desc&|}
+    | Some (`Last, `Asc) -> Format.fprintf fmt {|order_by=last-asc&|}
+    | Some (`Last, `Desc) -> Format.fprintf fmt {|order_by=last-desc&|}
+  in
+  let pp_search fmt = function
+    | "" -> ()
+    | s -> Format.fprintf fmt {|search=%s&|} s
+  in
+  Format.asprintf "/dancers?%a%a" pp_order_by order_by pp_search search
+
+let list_url_parse req =
+  let order_by =
+    match Dream.query req "order_by" with
+    | Some "first-asc" -> Some (`First, `Asc)
+    | Some "first-desc" -> Some (`First, `Desc)
+    | Some "last-asc" -> Some (`Last, `Asc)
+    | Some "last-desc" -> Some (`Last, `Desc)
+    | None | Some _ -> None
+  in
+  let search =
+    match Dream.query req "search" with
+    | None -> ""
+    | Some s -> s
+  in
+  order_by, search
+
+let sort_symbol_aux = function
+  | `Asc, false -> {|<i class="bi bi-caret-up"></i>|}
+  | `Asc, true -> {|<i class="bi bi-caret-up-fill"></i>|}
+  | `Desc, false -> {|<i class="bi bi-caret-down"></i>|}
+  | `Desc, true -> {|<i class="bi bi-caret-down-fill"></i>|}
+
+let sort_symbol col dir = function
+  | Some (col', dir') when col = col' && dir = dir' -> sort_symbol_aux (dir, true)
+  | _ -> sort_symbol_aux (dir, false)
+
+
+let list req st =
 
   <div class="row justify-content-center"><div class="col-8">
-  <h1>Dancer list</h1>
+% let order_by, search = list_url_parse req in
+  <div class="row">
+    <div class="col">
+      <h1>Dancer list</h1>
+    </div>
+    <div class="col gx-3 gy-2 align-items-end">
+      <form action="/dancers" method="GET">
+
+        <div class="input-group gx-3 gy-2 align-items-end">
+          <div class="form-outline">
+            <input type="search" class="form-control"
+                   placeholder="Search" name="search" value="<%s search %>" />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
   <table id="dancers" class="table table-hover table-striped m-3">
     <thead>
       <tr>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Category</th>
+        <th scope="col">
+          First Name
+            <a href="<%s list_url_gen (Some (`First, `Asc)) search %>"><%s! sort_symbol `First `Asc order_by %></a>
+            <a href="<%s list_url_gen (Some (`First, `Desc)) search %>"><%s! sort_symbol `First `Desc order_by %></a>
+        </th>
+        <th scope="col">
+          Last Name
+            <a href="<%s list_url_gen (Some (`Last, `Asc)) search %>"><%s! sort_symbol `Last `Asc order_by %></a>
+            <a href="<%s list_url_gen (Some (`Last, `Desc)) search %>"><%s! sort_symbol `Last `Desc order_by %></a>
+        </th>
+        <th scope="col">
+          Category
+        </th>
       </tr>
     </thead>
     <tbody>
-%   Dancer.list st |> List.iter begin fun dancer ->
+%   Dancer.search st ?order_by ~name:search () |> List.iter begin fun dancer ->
       <tr>
         <td>
           <%s! Links.dancer dancer (Dancer.first_name dancer) %>
