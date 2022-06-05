@@ -63,35 +63,35 @@ let t st id =
 % | Rank.Ranked _ ->
 %   Results.iter_by_dancer l begin fun lead follow ->
             <tr class="table-primary">
-              <th>
+              <td>
                 <%s! dancer_opt st lead %>
-              </th>
-              <th>
-                <%s Rank.to_string rank %>
-              </th>
-              <th>
+              </td>
+              <td>
+                <strong><%s Rank.to_string rank %></strong>
+              </td>
+              <td>
                 <%s! dancer_opt st follow %>
-              </th>
+              </td>
             </tr>
 % end;
 % | Rank.Reached _ ->
             <tr class="table-active">
-              <th></th>
-              <th>
-                <%s Rank.to_string rank %>
-              </th>
-              <th></th>
+              <td></td>
+              <td>
+                <strong><%s Rank.to_string rank %></strong>
+              </td>
+              <td></td>
             </tr>
 %   Results.iter_by_dancer l begin fun lead follow ->
             <tr class="table-secondary">
-              <th>
+              <td>
                 <%s! dancer_opt st lead %>
-              </th>
-              <th>
-              </th>
-              <th>
+              </td>
+              <td>
+              </td>
+              <td>
                 <%s! dancer_opt st follow %>
-              </th>
+              </td>
             </tr>
 % end;
 % end;
@@ -120,9 +120,9 @@ let list event_list =
     <tbody>
 %   event_list |> List.iter begin fun event ->
       <tr>
-        <th scope="row">
+        <td scope="row">
           <%s! Links.event event ~kind:"primary" (Event.name event) %>
-        </th>
+        </td>
         <td><%s Date.month_name @@ Date.month @@ Event.date event %></td>
         <td><%s string_of_int @@ Date.year @@ Event.date event %></td>
       </tr>

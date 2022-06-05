@@ -1,0 +1,24 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+
+1	L	Chen	Frédéric
+1	F	Gadon-Ferreira	Justine
+
+2	L	Bury	Guillaume
+2	F	Cimelli	Léa
+
+3	L	Kavokine	Nikita
+3	F	Debu	Sandra
+
+F	L	De Longuemar	Guillaume
+F	L	Lamusse	Olivier
+
+F	F	Durand	Céline
+F	F	Langlès	Aliénor
+

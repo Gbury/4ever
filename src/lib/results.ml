@@ -48,6 +48,14 @@ let get_where_dancer st dancer_id =
   State.query_list_where ~p:Id.p ~conv ~st
     {| SELECT * FROM results WHERE dancer=? |} dancer_id
 
+let all_points st dancer_id div =
+  let open Sqlite3_utils.Ty in
+  let conv = Conv.mk [nullable int] CCFun.id in
+  CCOption.get_or ~default:0 @@
+  State.query_one_where ~st ~conv ~p:[int; int]
+    {| SELECT SUM(points) FROM results WHERE dancer = ? AND category = ?|}
+    dancer_id (Category.to_int (Competitive div))
+
 let add st ~points ~role ~dancer ~rank ~category ~competition =
   let open Sqlite3_utils.Ty in
   State.insert ~st ~ty:[ int; int; int; int; int; int]

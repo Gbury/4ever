@@ -16,7 +16,7 @@ let p = Sqlite3_utils.Ty.([int])
 let conv = Conv.mk p of_int
 
 let to_string = function
-  | Novice -> "Initie"
+  | Novice -> "Initié"
   | Intermediate -> "Inter"
 
 let compare d d' =

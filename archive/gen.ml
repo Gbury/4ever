@@ -3,6 +3,7 @@ module F = Fourever
 module I = F.Import
 
 let events =
+  Archive_2018.events @
   Archive_2019.events @
   Archive_2022.events @
   []

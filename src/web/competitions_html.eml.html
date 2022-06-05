@@ -48,35 +48,35 @@ let t st id =
 % | Rank.Ranked _ ->
 %   Results.iter_by_dancer l begin fun lead follow ->
         <tr class="table-primary">
-          <th>
+          <td>
             <%s! dancer_opt st lead %>
-          </th>
-          <th>
-            <%s Rank.to_string rank %>
-          </th>
-          <th>
+          </td>
+          <td>
+            <strong><%s Rank.to_string rank %></strong>
+          </td>
+          <td>
             <%s! dancer_opt st follow %>
-          </th>
+          </td>
         </tr>
 % end;
 % | Rank.Reached _ ->
         <tr class="table-active">
-          <th></th>
-          <th>
-            <%s Rank.to_string rank %>
-          </th>
-          <th></th>
+          <td></td>
+          <td>
+            <strong><%s Rank.to_string rank %></strong>
+          </td>
+          <td></td>
         </tr>
 %   Results.iter_by_dancer l begin fun lead follow ->
         <tr class="table-secondary">
-          <th>
+          <td>
             <%s! dancer_opt st lead %>
-          </th>
-          <th>
-          </th>
-          <th>
+          </td>
+          <td>
+          </td>
+          <td>
             <%s! dancer_opt st follow %>
-          </th>
+          </td>
         </tr>
 % end;
 % end;
