@@ -1,28 +1,55 @@
 
-let render l =
+let render ~orgas ~dancers =
 
-  <h1>FAQ</h1>
+  <h1 class="display-1">FAQ</h1>
 
-  <div class="accordion accordion-flush" id="faq">
-
-% l |> List.iteri begin fun i (question, answer) ->
+  <h4 class="display-4">Pour les compétiteur-ice-s</h4>
+  <div class="accordion accordion-flush" id="faq-dancers">
+% dancers |> List.iteri begin fun i (question, answer) ->
 % let n = string_of_int i in
     <div class="accordion-item">
-      <h2 class="accordion-header" id="faq-header-<%s n %>">
+      <h2 class="accordion-header" id="faq-dancers-header-<%s n %>">
         <button class="accordion-button collapsed" type="button"
-                data-bs-toggle="collapse" data-bs-target="#faq-collapse-<%s n %>"
-                aria-expanded="false" aria-controls="faq-collapse-<%s n %>">
+                data-bs-toggle="collapse" data-bs-target="#faq-dancers-collapse-<%s n %>"
+                aria-expanded="false" aria-controls="faq-dancers-collapse-<%s n %>">
           <%s question %>
         </button>
       </h2>
-      <div id="faq-collapse-<%s n %>" class="accordion-collapse collapse"
-           aria-labelledby="faq-heading-<%s n %>" data-bs-parent="#faq">
+      <div id="faq-dancers-collapse-<%s n %>" class="accordion-collapse collapse"
+           aria-labelledby="faq-dancers-heading-<%s n %>" data-bs-parent="#faq-dancers">
         <div class="accordion-body">
           <%s! answer %>
         </div>
       </div>
     </div>
 % end;
-
   </div>
+
+  <hr></ hr>
+
+  <h4 class="display-4">Pour les organisateur-ice-s de compétition</h4>
+  <div class="accordion accordion-flush" id="faq-orgas">
+% orgas |> List.iteri begin fun i (question, answer) ->
+% let n = string_of_int i in
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq-orgas-header-<%s n %>">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq-orgas-collapse-<%s n %>"
+                aria-expanded="false" aria-controls="faq-orgas-collapse-<%s n %>">
+          <%s question %>
+        </button>
+      </h2>
+      <div id="faq-orgas-collapse-<%s n %>" class="accordion-collapse collapse"
+           aria-labelledby="faq-orgas-heading-<%s n %>" data-bs-parent="#faq-orgas">
+        <div class="accordion-body">
+          <%s! answer %>
+        </div>
+      </div>
+    </div>
+% end;
+  </div>
+
+  <hr></ hr>
+
+  <p>D’autres questions ? Adressez-vous à la page facebook du SCR4T [lien]</p>
 

@@ -1,0 +1,326 @@
+
+let render () =
+
+  <h1>Les règles du SCR4T</h1>
+
+  <h3>Préambule</h3>
+
+  <p>
+  Le SCR4T propose une architecture de compétitions en trois axes :
+  <ol>
+    <li>les étapes de compétitions ;</li>
+    <li>les divisions compétitives ;</li>
+    <li>les points permettant de passer d’une division à une autre.</li>
+  </ol>
+  </p>
+
+  <p>
+  Conseils préalables à l'application des règles :
+  <ul>
+    <li>
+      Le format de compétition concerné par l’obtention de points est
+      uniquement le format Jack’n’Jill : partenaire et musique tirés au hasard
+      à chaque phase de compétition. Cela permet au SCR4T de refléter une
+      évolution individuelle de chaque danseur-euse.<br />
+      Cependant, les organisateurs de Strictly (compétitions par couple) ou de
+      concours de chorégraphies peuvent demander accès à la base de données
+      pour définir des divisions dans ces compétitions. Elles ne permettent
+      cependant pas d’obtenir de points.
+    </li>
+    <li>
+      Les organisateur-ice-s de compétition sont encouragés à avoir des jurys
+      formés, diversifiés et paritaires. Nous pensons qu’un juge de danse doit
+      pouvoir expliquer ses choix à l’aide de son expérience et de ses opinions
+      personnelles, et doit pouvoir aiguiller les compétiteur-ice-s sur les
+      parties positives de leurs performances ainsi que sur des pistes
+      d’amélioration. Nous pensons que les jurys devraient, aussi souvent que
+      possible, représenter différentes visions de la danse, car c’est une
+      partie inhérente de notre communauté de 4 Temps. Nous pensons que les
+      jurys devraient avoir autant de juges spécialisés dans le rôle follower
+      que dans le rôle leader.
+    </li>
+    <li>
+      Nous encourageons l’usage de l’algorithme de placement relatif pour les
+      finales. Cet algorithme permet d’attribuer le même poids aux scores de
+      chaque juge, sans effets d’échelle. Voir cette ressource pour mieux
+      comprendre :
+      <a href="https://www.worldsdc.com/wp-content/uploads/2016/04/Relative_placement.pdf">
+        https://www.worldsdc.com/wp-content/uploads/2016/04/Relative_placement.pdf
+      </a>
+    </li>
+  </ul>
+  </p>
+
+  <h3>Phases de compétitions</h3>
+
+  <p>
+  Les compétitions adoptant le SCR4T sont organisées en phases préliminaires,
+  demi-finales et finales.
+  <ul>
+    <li>
+      Le nombre minimal de personnes pour ouvrir une division est de 5
+      personnes participantes dans le rôle minoritaire.
+    </li>
+    <li>
+      La tenue de demi-finales et de finales dépend du nombre de personnes
+      participant à la compétition dans le rôle le plus représenté.
+    </li>
+    <li>
+      Le nombre de danseurs en demi-finale et finale est déterminé par le rôle
+      le plus représenté en phases préliminaires.
+    </li>
+  </ul>
+  NB : l’organisation de quarts de finale peut être demandée au SCR4T si le
+  nombre de participants dans une division le justifie.
+  </p>
+
+  <p>
+  Le tableau ci-dessous indique le nombre de danseur-euses passant à l’étape
+  suivante de la compétition en fonction du nombre de danseur-euses du rôle
+  majoritaire.
+  </p>
+
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombre de compétiteurs dans le rôle majoritaire</th>
+        <th scope="col">Demi-finales (nombre de participants par rôle)</th>
+        <th scope="col">Finales (nombre de participants par rôle)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>&lt; 11 personnes</td>
+        <td>Non</td>
+        <td>Oui (une seule étape de compétition, les préliminaires sont aussi la finale)</td>
+      </tr>
+      <tr>
+        <td>de 11 à 20 personnes</td>
+        <td>Non</td>
+        <td>Oui (5)</td>
+      </tr>
+      <tr>
+        <td>de 21 à 30 personnes</td>
+        <td>Non</td>
+        <td>Oui (10)</td>
+      </tr>
+      <tr>
+        <td>de 31 à 45 personnes</td>
+        <td>Oui (16)</td>
+        <td>Oui (10)</td>
+      </tr>
+      <tr>
+        <td>&gt; 45 personnes</td>
+        <td>Oui (24)</td>
+        <td>Oui (10)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Système de Divisions</h3>
+
+  <p>
+  Nous proposons à l’heure actuelle deux divisions : initiée et intermédiaire.
+  </p>
+
+  <p>
+  A l’exception des personnes ayant de droit accès à la division intermédiaire
+  (voir la section annexe), il sera nécessaire pour s’y inscrire, passée
+  l’événement de mise en place du système (le Printemps 4 Temps 2022), d’avoir
+  obtenu au minimum 6 points en division initiée. A partir de 6 points en
+  division initiée, il est possible d’accéder à la division intermédiaire. A
+  partir de 12 points en division initiée, ou plus de 6 points en division
+  initiée et 1 point en division intermédiaire, il n’est plus possible de
+  compétiter en division initiée.
+  </p>
+
+  <p>
+  Des changements dans le nombre de divisions (ajout d’une division avancée) ou
+  le nombre de points nécessaires pour passer d’une division à une autre seront
+  possibles dans le futur, si le nombre de compétitions SCR4T et de compétiteur
+  augmente. Aucun changement ne sera rétro-actif et tous seront annoncés
+  préalablement. Une personne en division intermédiaire, ne peut pas être
+  privée de son droit de compétiter en division intermédiaire. Une personne
+  ayant gagné des points ne peut pas perdre ses points, sauf si la compétition
+  à laquelle elle a participé n’a pas respecté les conditions pour rejoindre le
+  SCR4T.
+  </p>
+
+
+  <h3>Système de Points</h3>
+
+  <p>
+  Le nombre de points que peut gagner un-e compétiteur-ice est déterminé par le
+  nombre de danseur-euse-s inscrit-e-s dans son rôle. Cela permet au point de
+  représenter en partie la difficulté de la compétition : il est plus difficile
+  d’arriver en finale quand il y a beaucoup de compétiteur-ice-s.
+  </p>
+
+  <p>
+  Le tableau ci-dessous indique le nombre de points gagnés en fonction du rang
+  obtenu lors de la finale et du nombre de danseur-euse-s inscrit-e-s dans leur
+  rôle.
+  </p>
+
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Rang<br>Personnes dans le rôle</th>
+        <th scope="col">1ère place</th>
+        <th scope="col">2ème place</th>
+        <th scope="col">3ème place</th>
+        <th scope="col">4ème place</th>
+        <th scope="col">5ème place</th>
+        <th scope="col">6ème place</th>
+        <th scope="col">7ème place</th>
+        <th scope="col">8ème place</th>
+        <th scope="col">9ème place</th>
+        <th scope="col">10ème place</th>
+        <th scope="col">demi-finaliste</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>&lt; 11 personnes</td>
+        <td>7</td>
+        <td>5</td>
+        <td>3</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>de 11 à 20 personnes</td>
+        <td>10</td>
+        <td>8</td>
+        <td>6</td>
+        <td>3</td>
+        <td>3</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>de 21 à 30 personnes</td>
+        <td>12</td>
+        <td>10</td>
+        <td>8</td>
+        <td>6</td>
+        <td>6</td>
+        <td>3</td>
+        <td>3</td>
+        <td>3</td>
+        <td>3</td>
+        <td>3</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>de 31 à 45 personnes</td>
+        <td>14</td>
+        <td>12</td>
+        <td>10</td>
+        <td>8</td>
+        <td>8</td>
+        <td>6</td>
+        <td>6</td>
+        <td>3</td>
+        <td>3</td>
+        <td>3</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>&gt; 45 personnes</td>
+        <td>16</td>
+        <td>14</td>
+        <td>12</td>
+        <td>10</td>
+        <td>10</td>
+        <td>8</td>
+        <td>8</td>
+        <td>6</td>
+        <td>6</td>
+        <td>6</td>
+        <td>3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+  L’ensemble des points obtenus dans des compétitions utilisant le SCR4T sera
+  répertorié publiquement.
+  </p>
+
+  <p>
+  Les points sont liés au rôle dansant de la personne. Une personne pratiquant
+  les deux rôles en compétition à des points en leader et en follower. Elle ne
+  concourra pas nécessairement dans la même division pour chacun de ses deux
+  rôles.
+  </p>
+
+  <p>
+  Les points sont liés à la division. Quand une personne passe en division
+  intermédiaire, elle commence dans cette division avec zéro points
+  intermédiaires.
+  </p>
+
+
+  <h3>Annexe: Cas particulier du lancement du SCR4T au Printemps 4 Temps 2022</h3>
+
+  <p>
+  Pour l’édition 2022 du P4T, qui correspond à la mise en place du système,
+  deux types de danseurs peuvent immédiatement concourir en division
+  intermédiaire:
+  <ul>
+    <li>
+      Des danseurs y concourent de droit. Même si ces personnes ne marquent pas
+      de point au cours de l’édition, elles pourront dans le futur continuer à
+      concourir en division intermédiaire. Ces personnes sont:
+      <ul>
+        <li>
+          les danseurs conviés à participer en division invitée de l’édition
+          2019 ou 2022 du P4T, ou en division vétéran de l’édition 2018 du JnJ
+          du Club de Rock 4 Temps de l’ENS Ulm, dans leur rôle principal
+          <sup><a href="#fn1" id="ref1">1</a></sup>;
+        </li>
+        <li>
+          les finalistes du JnJ confirmé (i.e. division non-débutante) du P4T
+          2019 dans leur rôle principal.
+        </li>
+      </ul>
+    </li>
+    <li>
+      Les danseurs n’appartenant pas à la catégorie précédente peuvent tenter
+      leur chance, de façon exceptionnelle, pour cette première édition. Ces
+      danseurs pourront rester dans la division intermédiaire dans les futures
+      compétitions utilisant ce système s’ils obtiennent au moins un point au
+      cours du P4T 2022 (voir table n°2). Si aucun point n’a été marqué lors de
+      l’édition 2022 du P4T, il faudra alors passer par la procédure classique
+      (marquer 6 points en division initiée) pour avoir de nouveau accès à la
+      division intermédiaire.
+    </li>
+  </ul>
+  Au cours du P4T 2022 un participant choisit un rôle par division et une division par rôle.
+  </p>
+
+
+  <!-- Footnotes -->
+  <hr></hr>
+
+  <sup id="fn1">1.
+    Avaient été invités en JnJ “invité” (2019) et “vétéran” (2018) : la
+    majorité des professeur-e-s de R4T parisiens, ainsi que les vainqueurs des
+    compétitions parisiennes depuis 2015.
+    <a href="#ref1" title="Jump back to footnote 1 in the text.">
+      <i class="bi bi-arrow-return-left"></i>
+    </a>
+  </sup>
+
+

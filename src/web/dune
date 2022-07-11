@@ -7,6 +7,14 @@
   )
 )
 
+; crunch static files
+(rule
+  (target static.ml)
+  (deps (source_tree static))
+  (action (with-stdout-to %{null}
+   (run ocaml-crunch -m plain static -o %{target})))
+)
+
 ; Dream templates
 (rule
  (targets template.ml)
@@ -31,6 +39,10 @@
 (rule
  (targets about_html.ml)
  (deps about_html.eml.html)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
+(rule
+ (targets rules_html.ml)
+ (deps rules_html.eml.html)
  (action (run dream_eml %{deps} --workspace %{workspace_root})))
 (rule
  (targets events_html.ml)
