@@ -14,7 +14,9 @@ let () =
     | Error `Parse -> exit Cmdliner.Cmd.Exit.cli_error
     | Error (`Term | `Exn) -> exit Cmdliner.Cmd.Exit.internal_error
   in
-  Dream.run ~error_handler:Error.error_handler
+  Dream.run
+    ~port:options.server_port
+    ~error_handler:Error.error_handler
   @@ Dream.logger
   @@ State.init ~path:options.db_path
   @@ Dream.router [

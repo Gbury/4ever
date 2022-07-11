@@ -15,3 +15,9 @@
   (targets db.sqlite)
   (action (run ./gen.exe))
 )
+
+(install
+  (files db.sqlite)
+  (section share)
+  (package fourever)
+)

@@ -24,6 +24,9 @@ db:
 test: build db
 	dune exec -- fourever --db=_build/default/archive/db.sqlite
 
+release:
+	dune build $(FLAGS) --profile=release @install
+
 clean:
 	dune clean
 
