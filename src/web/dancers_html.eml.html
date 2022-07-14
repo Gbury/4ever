@@ -43,7 +43,7 @@ let t st id =
 % in
 % [ true, comp; false, non_comp] |> List.iter begin fun (comp, map) ->
 % if not (Category.Map.is_empty map) then begin
-  <div class="col">
+  <div class="col-lg-6">
     <table class="table table-hover table-striped">
       <thead>
         <tr class="table-dark">
@@ -161,7 +161,7 @@ let sort_symbol col dir = function
 
 let list req st =
 
-  <div class="row justify-content-center"><div class="col-8">
+  <div class="row justify-content-center"><div class="col-md-8">
 % let order_by, search = list_url_parse req in
   <div class="row">
     <div class="col">

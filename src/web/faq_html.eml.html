@@ -1,10 +1,10 @@
 
 let render ~orgas ~dancers =
 
-  <h1 class="display-1">FAQ</h1>
+  <h1 class="text-center display-1">FAQ</h1>
 
   <h4 class="display-4">Pour les compétiteur-ice-s</h4>
-  <div class="accordion accordion-flush" id="faq-dancers">
+  <div class="accordion accordion-flush py-3 my-3" id="faq-dancers">
 % dancers |> List.iteri begin fun i (question, answer) ->
 % let n = string_of_int i in
     <div class="accordion-item">
@@ -28,7 +28,7 @@ let render ~orgas ~dancers =
   <hr></ hr>
 
   <h4 class="display-4">Pour les organisateur-ice-s de compétition</h4>
-  <div class="accordion accordion-flush" id="faq-orgas">
+  <div class="accordion accordion-flush py-3 my-3" id="faq-orgas">
 % orgas |> List.iteri begin fun i (question, answer) ->
 % let n = string_of_int i in
     <div class="accordion-item">

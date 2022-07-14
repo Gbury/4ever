@@ -33,7 +33,7 @@ let t st id =
       <h2><%s Kind.to_string kind %></h2>
 % map |> Category.Map.iter begin fun cat l ->
 % l |> List.iter begin fun comp ->
-      <div class="col-6">
+      <div class="col-md-6">
         <h3>
 % if Competition.name comp <> "" then begin
           <%s Category.to_string cat %> /
