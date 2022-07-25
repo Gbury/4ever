@@ -8,8 +8,8 @@ all: build
 watch:
 	dune build $(FLAGS) -w @check
 
-build:
-	dune build $(FLAGS) @install
+lib:
+	dune build $(FLAGS)
 
 top:
 	dune utop
@@ -17,11 +17,12 @@ top:
 doc:
 	dune build $(FLAGS) @doc
 
-db:
-	dune build archive/gen.exe
-	dune build -j 1 --no-buffer --display quiet archive/db.sqlite
+build:
+	dune build $(FLAGS) archive/gen.exe
+	dune build $(FLAGS) -j 1 --no-buffer --display quiet archive/db.sqlite
+	dune build $(FLAGS) @install
 
-test: build db
+test: build
 	dune exec -- fourever --db=_build/default/archive/db.sqlite
 
 release:

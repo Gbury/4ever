@@ -4,8 +4,8 @@ type t = {
   birthday : Date.t option;
   last_name : string;
   first_name : string;
-  as_leader : Division.t;
-  as_follower : Division.t;
+  as_leader : Divisions.t;
+  as_follower : Divisions.t;
 }
 
 let id { id; _ } = id
@@ -14,7 +14,9 @@ let as_leader { as_leader; _ } = as_leader
 let as_follower { as_follower; _ } = as_follower
 
 let division d =
-  Division.max (as_leader d) (as_follower d)
+  Division.max
+    (Divisions.max_div (as_leader d))
+    (Divisions.max_div (as_follower d))
 
 let first_name { first_name; _ } = first_name
 let last_name { last_name; _ } = last_name
@@ -54,8 +56,8 @@ let conv =
     (fun id first_name last_name birthday as_leader as_follower ->
        { id; first_name; last_name;
          birthday = Option.map Date.of_string birthday;
-         as_leader = Division.of_int as_leader;
-         as_follower = Division.of_int as_follower; })
+         as_leader = Divisions.of_int as_leader;
+         as_follower = Divisions.of_int as_follower; })
 
 let get st id =
   State.query_one_where ~p:Id.p ~conv ~st
@@ -131,26 +133,26 @@ let find_id st ~first_name ~last_name ~birthdate =
   | _ :: _ :: _ -> assert false
 
 let create st ~first_name ~last_name ~birthdate =
-  let div = Division.(to_int Novice) in
+  let divs = Divisions.(to_int @@ mk ~novice:true ~inter:false) in
   let open Sqlite3_utils.Ty in
   State.insert ~st ~ty:[text; text; nullable text; int; int]
     {| INSERT INTO dancers (first,last,birthday,as_leader,as_follower)
        VALUES (?,?,?,?,?) |}
-    first_name last_name (Option.map Date.to_string birthdate) div div;
+    first_name last_name (Option.map Date.to_string birthdate) divs divs;
   match find_id st ~first_name ~last_name ~birthdate with
   | Some id -> id
   | None -> assert false
 
-let update_division st dancer_id role div =
+let update_divisions st dancer_id role divs =
   let open Sqlite3_utils.Ty in
   match (role : Role.t) with
   | Leader ->
     State.insert ~st ~ty:[int; int]
       {| UPDATE dancers SET as_leader = ? WHERE id = ? |}
-      (Division.to_int div) dancer_id
+      (Divisions.to_int divs) dancer_id
   | Follower ->
     State.insert ~st ~ty:[int; int]
       {| UPDATE dancers SET as_follower = ? WHERE id = ? |}
-      (Division.to_int div) dancer_id
+      (Divisions.to_int divs) dancer_id
 
 
