@@ -32,8 +32,8 @@ let conv = Conv.mk p of_int
 let to_string = function
   | Competitive Novice -> "Initié"
   | Competitive Intermediate -> "Inter"
-  | Non_competitive None -> "non-competitive"
-  | Non_competitive Some Qualifying -> "qualifying"
+  | Non_competitive None -> "Divers"
+  | Non_competitive Some Qualifying -> "Compétition qualifiante"
   | Non_competitive Some Invited -> "Invité"
 
 let compare d d' =

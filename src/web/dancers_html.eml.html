@@ -29,29 +29,39 @@ let t st id =
   <div class="row">
     <h2>
       <%s Dancer.first_name dancer%>, <%s Dancer.last_name dancer %>
-      <%s! divisions dancer %>
     </h2>
   </div>
+
   <div class="row">
+
+% [ Role.Leader, Dancer.as_leader dancer;
+%   Role.Follower, Dancer.as_follower dancer ]
+% |> List.iter begin fun (role, divs) ->
 % let m =
-%   Results.get_where_dancer st id
+%   Results.get_where_dancer st id role
 %   |> Results.order_map st
-%   |> Id.Map.find id
+%   |> Id.Map.find_opt id
+%   |> Option.value ~default:Category.Map.empty
 % in
+% if not (Category.Map.is_empty m) then begin
+  <div class="col-lg-6 mx-auto px-4">
+    <h4><%s Role.to_string role %> <%s! Badge.divisions ~role divs %></h4>
 % let comp, non_comp =
 %   Category.Map.partition (fun cat _ -> Category.competitive cat) m
 % in
 % [ true, comp; false, non_comp] |> List.iter begin fun (comp, map) ->
 % if not (Category.Map.is_empty map) then begin
-  <div class="col-lg-6">
+  <h5><%s if comp then "Compétitif" else "Non-compétitif" %></h5>
+  <div class="row">
     <table class="table table-hover table-striped">
       <thead>
         <tr class="table-dark">
-          <th scope="col"></th>
           <th scope="col">Competition</th>
           <th scope="col">Date</th>
-          <th scope="col">Kind</th>
-          <th scope="col">Result</th>
+% if not comp then begin
+          <th scope="col"></th>
+% end;
+          <th scope="col">Rang</th>
 % if comp then begin
           <th scope="col">Points</th>
 % end;
@@ -61,19 +71,15 @@ let t st id =
 % map |> Category.Map.iter begin fun cat map ->
         <tr class="table-secondary">
 % begin match cat with
-% | Competitive div when Date.Map.cardinal map > 1 ->
-          <td colspan="5" class="text-center">
+% | Competitive div ->
+          <td colspan="3" class="text-center">
             <strong><%s Category.to_string cat %></strong>
           </td>
           <td>
             <%d Results.all_points st id div %>
           </td>
-% | Competitive _ ->
-          <td colspan="6" class="text-center">
-            <strong><%s Category.to_string cat %></strong>
-          </td>
 % | Non_competitive _ ->
-          <td colspan="5" class="text-center">
+          <td colspan="4" class="text-center">
             <strong><%s Category.to_string cat %></strong>
           </td>
 % end;
@@ -82,20 +88,19 @@ let t st id =
 % l |> List.iter begin fun (result, competition, event) ->
         <tr class="table-primary">
           <td scope="row">
-            <%s Role.short (Results.role result) %>
-          </td>
-          <td scope="row">
             <%s! Links.comp ~kind:"secondary" competition
                    (competition_name event competition) %>
           </td>
           <td>
             <%s Date.to_string (Event.date event) %>
           </td>
+% if not comp then begin
           <td>
             <%s Kind.to_string (Competition.kind competition) %>
           </td>
+% end;
           <td>
-            <%s Rank.to_string (Results.rank result) %>
+            <%s Rank.as_individual_rank (Results.rank result) %>
           </td>
 % if comp then begin
           <td>
@@ -103,15 +108,18 @@ let t st id =
           </td>
 % end;
         </tr>
-% end; (* end of List.iter *)
-% end; (* end of Seq.iter *)
+% end; (* end of results / List.iter *)
+% end; (* end of Date.Map / Seq.iter *)
 % end; (* end of Category.Map.iter *)
       </tbody>
     </table>
   </div>
-% end;
-% end;
+% end; (* end of 'Category.Map.is_empty' for comp/non-comp results *)
+% end; (* end of comp/non-comp List.iter *)
   </div>
+% end; (* end of 'Category.Map.is_empty' for roles results *)
+% end; (* end of role / List.iter *)
+  </div> <!-- end of global row -->
 
 
 (* ************************************************************************* *)

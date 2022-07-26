@@ -155,10 +155,13 @@ let orgas = [
       organisateur-ice-s des conditions ci-dessus.
     </li>
     <li>
-      Ne pas refuser l’accès à sa division à un compétiteur sur d’autres motifs
-      que ceux de la mise en danger d’autrui. Au contraire ne pas donner de
-      dérogation pour la participation à une division s’il n’appartient pas à
-      cette dernière d’après notre base de donnée.
+      Dans la limite des règles limitant la pratique des deux roles pour votre
+      compétition, ne pas refuser l’accès à sa division à un compétiteur sur
+      d’autres motifs que ceux de la mise en danger d’autrui. Au contraire ne
+      pas donner de dérogation pour la participation à une division s’il
+      n’appartient pas à cette dernière d’après notre base de donnée et que la
+      dérogation "professeur" (voire FAQ compétiteur) n'a pas été accordée par
+      le SCR4T
     </li>
     <li>
       Le non-respect de ces règles pendant l’événement peut aboutir à

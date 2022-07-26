@@ -44,9 +44,10 @@ let get st id =
   State.query_list_where ~p:Id.p ~conv ~st
     {| SELECT * FROM results WHERE id=? |} id
 
-let get_where_dancer st dancer_id =
-  State.query_list_where ~p:Id.p ~conv ~st
-    {| SELECT * FROM results WHERE dancer=? |} dancer_id
+let get_where_dancer st dancer_id role =
+  let open Sqlite3_utils.Ty in
+  State.query_list_where ~p:[int; int] ~conv ~st
+    {| SELECT * FROM results WHERE dancer=? AND role=? |} dancer_id (Role.to_int role)
 
 let all_points st dancer_id div =
   let open Sqlite3_utils.Ty in

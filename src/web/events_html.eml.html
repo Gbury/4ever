@@ -29,11 +29,11 @@ let t st id =
 % Competition.get_where_event st id
 % |> Competition.order_map
 % |> Kind.Map.iter begin fun kind map ->
-    <div class="row border-top my-3 p-3">
+    <div class="border-top my-3 p-3">
       <h2><%s Kind.to_string kind %></h2>
 % map |> Category.Map.iter begin fun cat l ->
 % l |> List.iter begin fun comp ->
-      <div class="col-md-6">
+      <div class="col-md-7 mx-auto">
         <h3>
 % if Competition.name comp <> "" then begin
           <%s Category.to_string cat %> /
@@ -67,7 +67,7 @@ let t st id =
                 <%s! dancer_opt st lead %>
               </td>
               <td>
-                <strong><%s Rank.to_string rank %></strong>
+                <strong><%s Rank.as_individual_rank rank %></strong>
               </td>
               <td>
                 <%s! dancer_opt st follow %>
@@ -78,7 +78,7 @@ let t st id =
             <tr class="table-active">
               <td></td>
               <td>
-                <strong><%s Rank.to_string rank %></strong>
+                <strong><%s Rank.as_rank_section rank %></strong>
               </td>
               <td></td>
             </tr>

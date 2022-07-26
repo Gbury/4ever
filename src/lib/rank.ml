@@ -40,16 +40,28 @@ end
 module Set = Set.Make(Aux)
 module Map = Map.Make(Aux)
 
-let to_string = function
-  | Ranked 1 -> "1st"
-  | Ranked 2 -> "2nd"
-  | Ranked 3 -> "3rd"
-  | Ranked n -> Printf.sprintf "%dth" n
+let as_individual_rank = function
+  | Ranked 1 -> "1er"
+  | Ranked 2 -> "2ème"
+  | Ranked 3 -> "3ème"
+  | Ranked n -> Printf.sprintf "%dème" n
+  | Reached Preliminaries -> "Participant"
+  | Reached Final -> "Finaliste"
+  | Reached Semi_final -> "Demi-finaliste"
+  | Reached Quarter_final -> "Quarts de finaliste"
+  | Reached Eighth_final -> "Huitièmes de finaliste"
+
+let as_rank_section = function
+  | Ranked 1 -> "1er"
+  | Ranked 2 -> "2ème"
+  | Ranked 3 -> "3ème"
+  | Ranked n -> Printf.sprintf "%dème" n
   | Reached Preliminaries -> "Prelims"
-  | Reached Final -> "Finals"
-  | Reached Semi_final -> "Semi-finals"
-  | Reached Quarter_final -> "Quarter-finals"
-  | Reached Eighth_final -> "Eighth-finals"
+  | Reached Final -> "Finalistes"
+  | Reached Semi_final -> "Demi-finalistes"
+  | Reached Quarter_final -> "Quarts de finalistes"
+  | Reached Eighth_final -> "Huitièmes de finalistes"
+
 
 let parse = function
   | "F" -> Reached Final

@@ -30,7 +30,7 @@ let t st id =
 
   <div class="container-sm">
   <div class="row justify-content-md-center">
-  <div class="col col-6">
+  <div class="mx-auto col-6">
     <table class="table table-hover">
       <thead>
         <tr class="table-dark">
@@ -52,7 +52,7 @@ let t st id =
             <%s! dancer_opt st lead %>
           </td>
           <td>
-            <strong><%s Rank.to_string rank %></strong>
+            <strong><%s Rank.as_individual_rank rank %></strong>
           </td>
           <td>
             <%s! dancer_opt st follow %>
@@ -61,11 +61,13 @@ let t st id =
 % end;
 % | Rank.Reached _ ->
         <tr class="table-active">
-          <td></td>
-          <td>
-            <strong><%s Rank.to_string rank %></strong>
+          <td colspan="3">
+            <center>
+              <strong>
+                <%s Rank.as_rank_section rank %> (non appariés)
+              </strong>
+            </center>
           </td>
-          <td></td>
         </tr>
 %   Results.iter_by_dancer l begin fun lead follow ->
         <tr class="table-secondary">
@@ -83,5 +85,20 @@ let t st id =
 % end;
       </tbody>
     </table>
-    </div></div></div>
+  </div>
+  </div>
+% begin match Fourever.Competition.category comp with
+% | Competitive _ ->
+    <p>
+    Cette compétition appartient a une division compétitive,
+    et elle donne donc des points comme décrit dans
+    <a href="/rules">les règles</a>.
+    </p>
+% | Non_competitive _ ->
+    <p>
+    Cette compétition n'est pas dans une division compétitive,
+    elle ne donne donc pas de points aux participants.
+    </p>
+% end;
+  </div>
 
