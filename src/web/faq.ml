@@ -31,7 +31,7 @@ let dancers = [
   "Je suis professeur, je n’ai jamais participé à une compétition utilisant le
   SCR4T, je souhaiterais ne pas faire concurrence à mes élèves ; pourrais-je
   exceptionnellement participer en division intermédiaire ?",
-  {|
+  Format.asprintf {|
   Vous pouvez effectuer une demande de dérogation au SCR4T en justifiant de
   votre statut de professeur. Le SCR4T vous donnera une dérogation pour
   participer à une compétition en intermédiaire et une seule. Si vous marquez
@@ -40,9 +40,8 @@ let dancers = [
   division, il faudra soit marquer vos points en initiée à la prochaine
   compétition soit demander une autre dérogation. La dérogation doit être
   demandée par mail à l’adresse suivante au plus tard une semaine avant la
-  compétition considérée :
-  <a href="mailto:scr4t.danse@gmail.com">scr4t.danse@gmail.com</a>.
-  |};
+  compétition considérée : %s.
+  |} Links.contact;
 
   "Je ne suis pas débutant mais je n’ai pas 6 points en division initiée, dans
   quelle division dois-je m’inscrire ?",
@@ -178,13 +177,11 @@ let orgas = [
 
 
   "Je veux que mon Jack and Jill utilise le SCR4T, que faire ?",
-  {|
+  Format.asprintf {|
   Pour avoir accès aux ressources du SCR4T et/ou garantir l’accès de vos
   danseurs aux points à l’issue de votre compétition, il suffit d’entrer en
   contact avec l’association gérant le SCR4T au moins un mois avant votre
-  compétition. Pour cela vous pouvez nous écrire à l’adresse :
-  <a href="mailto:scr4t.danse@gmail.com">scr4t.danse@gmail.com</a>
-  ou via
+  compétition. Pour cela vous pouvez nous écrire à l’adresse : %s ou via
   Messenger en vous adressant à notre page FB (lien : XXXX). <br />
 
   Ce que le SCR4T vous demandera :
@@ -215,7 +212,7 @@ let orgas = [
     <li>le SCR4T mettra en ligne sur son site les résultats de vos compétitions
         et les points qui auront été gagnés seront enregistrés.</li>
   </ul>
-  |};
+  |} Links.contact;
 
   "Quels critères doit remplir le règlement de mon JnJ pour pouvoir adopter le SCR4T ?",
   {|
