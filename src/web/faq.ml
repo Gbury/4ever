@@ -40,7 +40,8 @@ let dancers = [
   division, il faudra soit marquer vos points en initiée à la prochaine
   compétition soit demander une autre dérogation. La dérogation doit être
   demandée par mail à l’adresse suivante au plus tard une semaine avant la
-  compétition considérée : XXXXX.
+  compétition considérée :
+  <a href="mailto:scr4t.danse@gmail.com">scr4t.danse@gmail.com</a>.
   |};
 
   "Je ne suis pas débutant mais je n’ai pas 6 points en division initiée, dans
@@ -181,7 +182,9 @@ let orgas = [
   Pour avoir accès aux ressources du SCR4T et/ou garantir l’accès de vos
   danseurs aux points à l’issue de votre compétition, il suffit d’entrer en
   contact avec l’association gérant le SCR4T au moins un mois avant votre
-  compétition. Pour cela vous pouvez nous écrire à l’adresse : XXXX ou via
+  compétition. Pour cela vous pouvez nous écrire à l’adresse :
+  <a href="mailto:scr4t.danse@gmail.com">scr4t.danse@gmail.com</a>
+  ou via
   Messenger en vous adressant à notre page FB (lien : XXXX). <br />
 
   Ce que le SCR4T vous demandera :

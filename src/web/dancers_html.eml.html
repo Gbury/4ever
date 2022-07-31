@@ -56,7 +56,7 @@ let t st id =
     <table class="table table-hover table-striped">
       <thead>
         <tr class="table-dark">
-          <th scope="col">Competition</th>
+          <th scope="col">Compétition</th>
           <th scope="col">Date</th>
 % if not comp then begin
           <th scope="col"></th>
@@ -196,17 +196,17 @@ let list req st =
     <thead>
       <tr>
         <th scope="col">
-          First Name
+          Prénom
             <a href="<%s list_url_gen (Some (`First, `Asc)) search %>"><%s! sort_symbol `First `Asc order_by %></a>
             <a href="<%s list_url_gen (Some (`First, `Desc)) search %>"><%s! sort_symbol `First `Desc order_by %></a>
         </th>
         <th scope="col">
-          Last Name
+          Nom
             <a href="<%s list_url_gen (Some (`Last, `Asc)) search %>"><%s! sort_symbol `Last `Asc order_by %></a>
             <a href="<%s list_url_gen (Some (`Last, `Desc)) search %>"><%s! sort_symbol `Last `Desc order_by %></a>
         </th>
         <th scope="col">
-          Category
+          Catégorie
         </th>
       </tr>
     </thead>
