@@ -120,7 +120,8 @@ let dancers = [
   Vous ne pouvez marquer des points que dans les JNJ adoptant le SCR4T. Les
   compétitions participant au système l’annonceront. Vous pouvez également
   suivre les nouvelles compétitions adoptant le SCR4T et donnant accès à des
-  points dans l’onglet “compétition”, ou en consultant la page FB du SCR4T.<br />
+  points dans l’onglet “compétition”, ou en consultant
+  <a href="https://www.facebook.com/SCR4T.danse">la page FB du SCR4T</a>.<br />
 
   Les Strictly et concours de chorégraphies ne donnent pas accès à des points
   compatibles avec le SCR4T, mais peuvent avoir des divisions, pour lesquelles
