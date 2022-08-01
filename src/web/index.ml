@@ -2,7 +2,7 @@
 let t =
   Page.mk
     ~page:"index"
-    ~title:"Home"
+    ~title:"SCR4T"
     ~body:(fun _ _ -> Index_html.render ())
 
 

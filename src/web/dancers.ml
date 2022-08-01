@@ -2,7 +2,7 @@
 let t =
   Page.mk
     ~page:"dancers"
-    ~title:"Dancers"
+    ~title:"Compétiteur"
     ~body:(fun req st ->
         let id = Misc.int_param req "id" in
         Dancers_html.t st id
@@ -11,6 +11,6 @@ let t =
 let list =
   Page.mk
     ~page:"dancers"
-    ~title:"Dancer List"
+    ~title:"Compétiteurs"
     ~body:Dancers_html.list
 
