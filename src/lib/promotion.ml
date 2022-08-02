@@ -37,8 +37,9 @@ let invited : rule = fun result _points ->
    are also eligible for division upgrade *)
 let qualifying_finalist : rule = fun result _points ->
   match result.category, result.rank with
-  | Non_competitive Some Qualifying, Reached Final ->
-    [ Add_access_to Intermediate; ]
+  | Non_competitive Some Qualifying, (Reached Final | Ranked _ ) ->
+    [ Add_access_to Intermediate;
+      Remove_access_to Novice ]
   | _ -> []
 
 (* soft promotion: once a threshold of points is reached in a division,
