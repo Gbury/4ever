@@ -110,9 +110,11 @@ let dancers = [
 
   "Comment puis-je savoir combien de points j’ai accumulé ?",
   {|
-  Vous pouvez suivre l’évolution de votre point sur ce site internet, soit en
-  cherchant les compétitions où vous avez participé, dans l’onglet
-  « Events », soit en cherchant votre nom dans l’onglet « Compétiteurs ».
+  Votre nom apparait sur ce site dès le premier point gagné dans une
+  compétition SCR4T. Vous pouvez alors suivre l’évolution de vos points, soit
+  en cherchant les compétitions où vous avez participé, dans l’onglet « Events »,
+  soit en cherchant votre nom dans l’onglet « Compétiteurs ». Les nombres de
+  point et la division sont mis à jour après chaque compétition SCR4T.
   |};
 
   "Quelles sont les compétitions dans lesquelles je peux accumuler des points ?",
