@@ -116,17 +116,16 @@ let dancers = [
   |};
 
   "Quelles sont les compétitions dans lesquelles je peux accumuler des points ?",
-  {|
+  Format.asprintf {|
   Vous ne pouvez marquer des points que dans les JNJ adoptant le SCR4T. Les
   compétitions participant au système l’annonceront. Vous pouvez également
   suivre les nouvelles compétitions adoptant le SCR4T et donnant accès à des
-  points dans l’onglet “compétition”, ou en consultant
-  <a href="https://www.facebook.com/SCR4T.danse">la page FB du SCR4T</a>.<br />
+  points dans l’onglet “compétition”, ou en consultant %s. <br />
 
   Les Strictly et concours de chorégraphies ne donnent pas accès à des points
   compatibles avec le SCR4T, mais peuvent avoir des divisions, pour lesquelles
   les mêmes règles d’inscription décrites ci-dessus s’appliquent.
-  |};
+  |} (Links.fb_page "la page FB du SCR4T");
 
 ]
 
@@ -140,8 +139,8 @@ let orgas = [
   <ul>
     <li>
       Adopter une organisation phase préliminaire, demi-finale et finale,
-      cohérente avec les tableaux dans l’onglet “Règles du SCR4T” [avec
-      hyperlien]. L’ajout de quart de finale peut être envisagé en cas de forte
+      cohérente avec les tableaux de la page <a href="/rules">Règles du SCR4T</a>.
+      L’ajout de quart de finale peut être envisagé en cas de forte
       affluence de participants dans une division sur discussion avec
       l’association gérant le SCR4T.
     </li>
@@ -183,7 +182,7 @@ let orgas = [
   danseurs aux points à l’issue de votre compétition, il suffit d’entrer en
   contact avec l’association gérant le SCR4T au moins un mois avant votre
   compétition. Pour cela vous pouvez nous écrire à l’adresse : %s ou via
-  Messenger en vous adressant à notre page FB (lien : XXXX). <br />
+  Messenger en vous adressant à %s. <br />
 
   Ce que le SCR4T vous demandera :
   <ul>
@@ -213,7 +212,7 @@ let orgas = [
     <li>le SCR4T mettra en ligne sur son site les résultats de vos compétitions
         et les points qui auront été gagnés seront enregistrés.</li>
   </ul>
-  |} Links.contact;
+  |} Links.contact (Links.fb_page "notre page FB");
 
   "Quels critères doit remplir le règlement de mon JnJ pour pouvoir adopter le SCR4T ?",
   {|

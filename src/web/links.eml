@@ -2,6 +2,9 @@
 let contact =
   <a href="mailto:scr4t.danse@gmail.com">scr4t.danse@gmail.com<a/>
 
+let fb_page text =
+  <a href="https://www.facebook.com/SCR4T.danse"><%s text %></a>
+
 let simple ~prefix id ?(kind="primary") text =
   <a
     href="/<%s prefix %>/<%s string_of_int id %>"
