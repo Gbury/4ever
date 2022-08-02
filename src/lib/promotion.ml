@@ -42,6 +42,15 @@ let qualifying_finalist : rule = fun result _points ->
       Remove_access_to Novice ]
   | _ -> []
 
+(* exceptional rule for the beginning/transition:
+   reaching finals in Inter gives right to the Inter division *)
+let inter_finalist : rule = fun result _points ->
+  match result.category, result.rank with
+  | Competitive Intermediate, (Reached Final | Ranked _ ) ->
+    [ Add_access_to Intermediate;
+      Remove_access_to Novice ]
+  | _ -> []
+
 (* soft promotion: once a threshold of points is reached in a division,
    gives access to a higher division. *)
 let soft_promote div threshold upgrade_div : rule = fun result points ->
@@ -83,6 +92,17 @@ type rules = rule list
 let rules =
   Date.Map.of_seq @@ List.to_seq [
 
+    (* Rules for the beginning/transition period:
+       i.e. until the end of 2022 *)
+    Date.mk ~day:31 ~month:12 ~year:2022, [
+      invited;
+      inter_finalist;
+      qualifying_finalist;
+      auto_promote Intermediate [Novice];
+      soft_promote Novice 6 Intermediate;
+      hard_promote Novice 12 Intermediate;
+    ];
+
     (* Rules for the foreseeable future *)
     Date.mk ~day:01 ~month:01 ~year:2100, [
       invited;
@@ -95,7 +115,7 @@ let rules =
   ]
 
 let get_rules_for date =
-  snd @@ Date.Map.find_last (fun d ->
+  snd @@ Date.Map.find_first (fun d ->
       Date.compare date d <= 0
     ) rules
 
