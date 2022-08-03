@@ -15,6 +15,7 @@ let p4t : I.ev = {
     {
       kind = Jack_and_Jill;
       name = "Débutants";
+      check_divs = false;
       category = Non_competitive None;
       results = results "p4t_debutants";
       leaders = 0;
@@ -23,6 +24,7 @@ let p4t : I.ev = {
     {
       kind = Jack_and_Jill;
       name = "Confirmés";
+      check_divs = false;
       category = Non_competitive (Some Qualifying);
       results = results "p4t_confirme";
       leaders = 0;
@@ -31,6 +33,7 @@ let p4t : I.ev = {
     {
       kind = Jack_and_Jill;
       name = {|Invité "Old School"|};
+      check_divs = false;
       category = Non_competitive (Some Invited);
       results = results "p4t_invite_old_school";
       leaders = 0;
@@ -39,6 +42,7 @@ let p4t : I.ev = {
     {
       kind = Jack_and_Jill;
       name = {|Invité "Moderne"|};
+      check_divs = false;
       category = Non_competitive (Some Invited);
       results = results "p4t_invite_moderne";
       leaders = 0;

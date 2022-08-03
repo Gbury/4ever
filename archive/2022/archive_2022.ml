@@ -15,6 +15,7 @@ let p4t : I.ev = {
     {
       kind = Jack_and_Jill;
       name = "";
+      check_divs = false;
       category = Competitive Novice;
       results = results "p4t_novice";
       leaders = 31;
@@ -23,6 +24,7 @@ let p4t : I.ev = {
     {
       kind = Jack_and_Jill;
       name = "";
+      check_divs = false;
       category = Competitive Intermediate;
       results = results "p4t_inter";
       leaders = 15;
@@ -31,6 +33,7 @@ let p4t : I.ev = {
     {
       kind = Jack_and_Jill;
       name = "";
+      check_divs = false;
       category = Non_competitive (Some Invited);
       results = results "p4t_invite";
       leaders = 8;

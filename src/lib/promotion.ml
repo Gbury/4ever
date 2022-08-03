@@ -23,7 +23,6 @@ type points = Division.t -> int
 
 type rule = Results.t -> points -> update list
 
-
 (* Dancers that have been invited to an invitational Jack&Jill
    are upgraded to a division above that of Novice *)
 let invited : rule = fun result _points ->
@@ -120,6 +119,7 @@ let get_rules_for date =
     ) rules
 
 let update_with_new_result st (result : Results.t) =
+  (* Fetch/extract some info *)
   let competition = Competition.get st result.competition in
   let event = Event.get st competition.event in
   let id = result.dancer in
@@ -129,6 +129,28 @@ let update_with_new_result st (result : Results.t) =
     | Leader -> dancer.as_leader
     | Follower -> dancer.as_follower
   in
+  (* First participants in competition have an all-zero divs,
+     and thus it need to be upgraded to at least novice (which will then
+     be later upgraded if necessary). *)
+  let effective_divs =
+    if Divisions.is_empty dancer_divs then
+      Divisions.add dancer_divs Novice
+    else dancer_divs
+  in
+  (* Check that the competitor had access to the competition *)
+  if competition.check_divs then begin
+    let fail () =
+      Format.eprintf
+        "Check_divs failed for dancer %s in competition %s"
+        (Dancer.full_name dancer) competition.name;
+      assert false
+    in
+    match competition.category with
+    | Competitive Novice -> if not effective_divs.novice then fail ()
+    | Competitive Intermediate -> if not effective_divs.inter then fail ()
+    | Non_competitive _ -> ()
+  end;
+  (* lazy computation of cumulative points total by division *)
   let points =
     let novice = lazy (Results.all_points st id Novice) in
     let inter = lazy (Results.all_points st id Intermediate) in
@@ -140,7 +162,7 @@ let update_with_new_result st (result : Results.t) =
   let new_divs =
     List.fold_left (fun divs (rule : rule) ->
         apply divs (rule result points)
-      ) dancer_divs (get_rules_for event.date)
+      ) effective_divs (get_rules_for event.date)
   in
   if Divisions.equal dancer_divs new_divs then ()
   else Dancer.update_divisions st id result.role new_divs

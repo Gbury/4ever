@@ -10,9 +10,13 @@ let compare = Stdlib.compare
 let mask_novice = 0x1
 let mask_inter = 0x2
 
-let mk ~novice ~inter =
-  assert (novice || inter);
-  { novice; inter; }
+let empty = {
+  novice = false;
+  inter = false;
+}
+
+let is_empty { novice; inter; } =
+  novice = false && inter = false
 
 let add t div =
   match (div : Division.t) with

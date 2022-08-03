@@ -14,6 +14,7 @@ let jnj_ulm : I.ev = {
     {
       kind = Jack_and_Jill;
       name = "Vétéran";
+      check_divs = false;
       category = Non_competitive (Some Invited);
       results = results "jnj_ulm_veteran";
       leaders = 0;

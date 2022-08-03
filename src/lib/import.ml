@@ -18,6 +18,7 @@ type comp = {
   leaders : int;
   follows : int;
   category : Category.t;
+  check_divs : bool;
   results : result list;
 }
 
@@ -82,7 +83,8 @@ let import_result st comp_id comp_div result : unit =
 let import_comp st event_id comp =
   let comp_id = Competition.create st
       ~ev:event_id ~kind:comp.kind ~name:comp.name
-      ~category:comp.category ~leaders:comp.leaders ~followers:comp.follows
+      ~category:comp.category ~check_divs:comp.check_divs
+      ~leaders:comp.leaders ~followers:comp.follows
   in
   List.iter (import_result st comp_id comp.category) comp.results
 

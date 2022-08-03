@@ -9,15 +9,9 @@ let competition_name event competition =
       (Event.name event) (Competition.name competition)
 
 let divisions dancer =
-  match Dancer.as_leader dancer, Dancer.as_follower dancer with
-  | dl, df when Divisions.equal dl df -> Badge.divisions dl
-  | { novice = true; inter = false; }, df -> Badge.divisions ~role:Follower df
-  | dl, { novice = true; inter = false; } -> Badge.divisions ~role:Leader dl
-  | dl, df ->
     Format.asprintf "%s %s"
-      (Badge.divisions ~role:Leader dl)
-      (Badge.divisions ~role:Follower df)
-
+      (Badge.divisions ~role:Leader (Dancer.as_leader dancer))
+      (Badge.divisions ~role:Follower (Dancer.as_follower dancer))
 
 (* ************************************************************************* *)
 (* Individual Dancer profile *********************************************** *)
