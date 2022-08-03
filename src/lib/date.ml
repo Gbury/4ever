@@ -42,17 +42,17 @@ let p = Sqlite3_utils.Ty.([text])
 let conv = Conv.mk p of_string
 
 let month_name = function
-  | 1 -> "January"
-  | 2 -> "February"
-  | 3 -> "March"
-  | 4 -> "April"
-  | 5 -> "May"
-  | 6 -> "June"
-  | 7 -> "July"
-  | 8 -> "August"
-  | 9 -> "September"
-  | 10 -> "October"
-  | 11 -> "November"
-  | 12 -> "December"
+  | 1 -> "Janvier"
+  | 2 -> "Février"
+  | 3 -> "Mars"
+  | 4 -> "Avril"
+  | 5 -> "Mai"
+  | 6 -> "Juin"
+  | 7 -> "Juillet"
+  | 8 -> "Août"
+  | 9 -> "Septembre"
+  | 10 -> "Octobre"
+  | 11 -> "Novembre"
+  | 12 -> "Décembre"
   | i -> failwith (Format.asprintf "%d is not a valid month" i)
 
