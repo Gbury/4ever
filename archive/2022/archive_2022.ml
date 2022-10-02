@@ -7,6 +7,21 @@ let results name =
   | None -> assert false
   | Some contents -> I.read_results contents
 
+let routine_ulm : I.ev = {
+  name = "Concours Chorégraphie ENS Ulm";
+  date = F.Date.mk ~day:22 ~month:4 ~year:2022;
+  comps = [
+    {
+      kind = Routine;
+      name = "";
+      check_divs = false;
+      category = Non_competitive None;
+      results = results "ulm_choregraphy";
+      leaders = 10;
+      follows = 10;
+    };
+  ];
+}
 
 let p4t : I.ev = {
   name = "Printemps 4 Temps";
@@ -43,5 +58,6 @@ let p4t : I.ev = {
 }
 
 let events = [
+  routine_ulm;
   p4t;
 ]

@@ -6,9 +6,12 @@
 # 1	L	Foo	Bar
 # 1	F	Bla	Bla
 #################################################
+
+# Podium
 1	F	Vallerio	Héloise
 1	L	Bury	Guillaume
 
+# Sorted people
 F	F	Cimelli	Léa
 F	L	Ben Kiran	Paul
 

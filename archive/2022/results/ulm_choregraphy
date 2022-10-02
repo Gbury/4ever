@@ -1,0 +1,18 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Bury	Guillaume
+1	F	Castro Scherianz	Maria
+
+2	L	Lopez	Yann
+2	F	Langlès	Aliénor
+
+3	L	Popineau	Pierre
+3	F	Vallerio	Héloise
+

@@ -32,7 +32,7 @@ let conv = Conv.mk p of_int
 let to_string = function
   | Competitive Novice -> "Initié"
   | Competitive Intermediate -> "Inter"
-  | Non_competitive None -> "Divers"
+  | Non_competitive None -> "Autres"
   | Non_competitive Some Qualifying -> "Compétition qualifiante"
   | Non_competitive Some Invited -> "Invité"
 
