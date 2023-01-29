@@ -7,7 +7,7 @@ let results name =
   | None -> assert false
   | Some contents -> I.read_results contents
 
-let winter_cup = I.ev ~log:true
+let winter_cup = I.ev
     ~name:"4 Temps Winter Cup"
     ~date:(F.Date.mk ~day:28 ~month:1 ~year:2023)
     [
