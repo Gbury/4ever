@@ -4,6 +4,6 @@
 
  ; deps
   (libraries
-    containers sqlite3 sqlite3_utils logs
+    containers sqlite3 sqlite3_utils logs progress
   )
 )

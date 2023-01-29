@@ -118,7 +118,7 @@ let get_rules_for date =
       Date.compare date d <= 0
     ) rules
 
-let update_with_new_result st (result : Results.t) =
+let update_with_new_result ~log st (result : Results.t) =
   (* Fetch/extract some info *)
   let competition = Competition.get st result.competition in
   let event = Event.get st competition.event in
@@ -140,10 +140,13 @@ let update_with_new_result st (result : Results.t) =
   (* Check that the competitor had access to the competition *)
   if competition.check_divs then begin
     let fail () =
-      Format.eprintf
-        "Check_divs failed for dancer %s in competition %s"
-        (Dancer.full_name dancer) competition.name;
-      assert false
+      if log then begin
+        Progress.interject_with @@ begin fun () ->
+          Format.eprintf
+            "!! ERROR: Check_divs failed for dancer %s in competition '%s'@."
+            (Dancer.full_name dancer) competition.name
+        end
+      end
     in
     match competition.category with
     | Competitive Novice -> if not effective_divs.novice then fail ()
@@ -165,6 +168,16 @@ let update_with_new_result st (result : Results.t) =
       ) effective_divs (get_rules_for event.date)
   in
   if Divisions.equal dancer_divs new_divs then ()
-  else Dancer.update_divisions st id result.role new_divs
+  else begin
+    if log then
+      Progress.interject_with @@ begin fun () ->
+          Format.printf "  PROMOTE : %20s %20s\t%10s\t%a -> %a@."
+            dancer.first_name dancer.last_name
+            (Role.to_string result.role)
+            Divisions.print effective_divs
+            Divisions.print new_divs
+      end;
+    Dancer.update_divisions st id result.role new_divs
+  end
 
 

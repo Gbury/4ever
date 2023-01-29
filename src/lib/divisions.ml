@@ -15,6 +15,13 @@ let empty = {
   inter = false;
 }
 
+let print fmt { novice; inter; } =
+  match novice, inter with
+  | false, false -> Format.fprintf fmt "N/A"
+  | true, false -> Format.fprintf fmt "initié"
+  | true, true -> Format.fprintf fmt "initié/inter"
+  | false, true -> Format.fprintf fmt "inter"
+
 let is_empty { novice; inter; } =
   novice = false && inter = false
 

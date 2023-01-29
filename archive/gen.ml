@@ -3,10 +3,13 @@ module F = Fourever
 module I = F.Import
 
 let events =
-  Archive_2018.events @
-  Archive_2019.events @
-  Archive_2022.events @
-  []
+  Seq.concat @@
+  List.to_seq [
+    Archive_2018.events;
+    Archive_2019.events;
+    Archive_2022.events;
+    Archive_2023.events;
+  ]
 
 let progress_bar total =
   let open Progress.Line in
@@ -16,9 +19,9 @@ let progress_bar total =
 
 let () =
   let st = F.State.mk "db.sqlite" in
-  let total = List.length events in
+  let total = Seq.length events in
   Progress.with_reporter (progress_bar total) (fun progress ->
-      List.iter (fun ev ->
+      Seq.iter (fun ev ->
           let () = I.import st ev in
           progress 1; (* report some progress *)
           ()

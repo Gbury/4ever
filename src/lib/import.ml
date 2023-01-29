@@ -23,12 +23,23 @@ type comp = {
 }
 
 type ev = {
+  log : bool;
   date : Date.t;
   name : string;
   comps : comp list;
 }
 
 type t = ev
+
+(* Helper function to create records *)
+
+let ev ?(log=false) ~name ~date comps =
+  { log; name; date; comps; }
+
+let comp ~kind ~name ~leaders ~follows ~check_divs ~category ~results =
+  { kind; name; leaders; follows; category; check_divs; results; }
+
+(* parsing functions *)
 
 let parse_result ~rank ~role ~last_name ~first_name ?birthdate ?(points="0") () =
   let first_name = String.trim first_name in
@@ -61,7 +72,9 @@ let read_results contents =
         r :: acc
     ) [] l
 
-let import_result st comp_id comp_div result : unit =
+(* Import results, comps and events *)
+
+let import_result ~log st comp_id comp_div result : unit =
   let dancer_id =
     let first_name = result.dancer.first_name in
     let last_name = result.dancer.last_name in
@@ -69,6 +82,11 @@ let import_result st comp_id comp_div result : unit =
     match Dancer.find_id st ~first_name ~last_name ~birthdate with
     | Some id -> id
     | None ->
+      if log then begin
+        Progress.interject_with @@ begin fun () ->
+          Format.printf "  NEW     : %20s %20s@." first_name last_name
+        end
+      end;
       Dancer.create st ~first_name ~last_name ~birthdate
   in
   let r =
@@ -77,23 +95,21 @@ let import_result st comp_id comp_div result : unit =
       ~dancer:dancer_id ~rank:result.rank
       ~category:comp_div ~competition:comp_id
   in
-  Promotion.update_with_new_result st r;
+  Promotion.update_with_new_result ~log st r;
   ()
 
-let import_comp st event_id comp =
+let import_comp ~log st event_id comp =
   let comp_id = Competition.create st
       ~ev:event_id ~kind:comp.kind ~name:comp.name
       ~category:comp.category ~check_divs:comp.check_divs
       ~leaders:comp.leaders ~followers:comp.follows
   in
-  List.iter (import_result st comp_id comp.category) comp.results
+  List.iter (import_result ~log st comp_id comp.category) comp.results
 
 let import_event st ev =
   let event_id = Event.create st ev.name ev.date in
-  List.iter (import_comp st event_id) ev.comps
+  List.iter (import_comp ~log:ev.log st event_id) ev.comps
 
-let import st ev = import_event st ev
-    (*
-  State.atomically st (fun st -> import_event st ev)
-*)
+let import st ev =
+  import_event st ev
 

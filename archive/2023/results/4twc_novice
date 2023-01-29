@@ -1,0 +1,38 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Bivas	Irène	10
+1	F	Koeler	Alice	12
+
+2	L	Balu	Tristan	8
+2	F	Le	Huy Hoang	10
+
+3	L	Falconieri	Lorenzo	6
+3	F	Law	Thalie	8
+
+4	L	Abella	Alexandra	3
+4	F	Berton	Irène	6
+
+5	L	Guillochon	Romain	3
+5	F	Penin	Gaelle	6
+
+6	L	Vallerio	Héloise
+6	F	Ziakovic	Théo	3
+
+7	L	Leclerc	Alexis
+7	F	Nguyen	Romy	3
+
+8	L	Lamarque	Aymerick
+8	F	Hérété	Héloïse	3
+
+9	L	Leblanc	Gabrielle
+9	F	Escolier	Anthony	3
+
+10	L	Corbet	Alexandre
+10	F	Picard	Soliane	3
