@@ -155,8 +155,8 @@ let update_with_new_result ~log st (result : Results.t) =
   end;
   (* lazy computation of cumulative points total by division *)
   let points =
-    let novice = lazy (Results.all_points st id Novice) in
-    let inter = lazy (Results.all_points st id Intermediate) in
+    let novice = lazy (Results.all_points st id result.role Novice) in
+    let inter = lazy (Results.all_points st id result.role Intermediate) in
     (fun div ->
        match (div : Division.t) with
       | Novice -> Lazy.force novice
