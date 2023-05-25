@@ -8,11 +8,6 @@ let competition_name event competition =
     Format.asprintf "%s - %s"
       (Event.name event) (Competition.name competition)
 
-let divisions dancer =
-    Format.asprintf "%s %s"
-      (Badge.divisions ~role:Leader (Dancer.as_leader dancer))
-      (Badge.divisions ~role:Follower (Dancer.as_follower dancer))
-
 (* ************************************************************************* *)
 (* Individual Dancer profile *********************************************** *)
 (* ************************************************************************* *)
@@ -120,7 +115,7 @@ let t st id =
 (* List of all Dancers ***************************************************** *)
 (* ************************************************************************* *)
 
-let list_url_gen order_by search =
+let list_url_gen order_by search divisions =
   let pp_order_by fmt = function
     | None -> ()
     | Some (`First, `Asc) -> Format.fprintf fmt {|order_by=first-asc&|}
@@ -132,7 +127,14 @@ let list_url_gen order_by search =
     | "" -> ()
     | s -> Format.fprintf fmt {|search=%s&|} s
   in
-  Format.asprintf "/dancers?%a%a" pp_order_by order_by pp_search search
+  let pp_divisions fmt = function
+    | None -> ()
+    | Some d -> Format.fprintf fmt {|div=%d&|} (Divisions.to_int d)
+  in
+  Format.asprintf "/dancers?%a%a%a"
+    pp_order_by order_by
+    pp_search search
+    pp_divisions divisions
 
 let list_url_parse req =
   let order_by =
@@ -148,7 +150,16 @@ let list_url_parse req =
     | None -> ""
     | Some s -> s
   in
-  order_by, search
+  let divisions =
+    match Dream.query req "div" with
+    | Some s ->
+      begin match int_of_string s with
+        | i -> Some (Divisions.of_int i)
+        | exception Failure _ -> None
+      end
+    | None -> None
+  in
+  order_by, search, divisions
 
 let sort_symbol_aux = function
   | `Asc, false -> {|<i class="bi bi-caret-up"></i>|}
@@ -160,11 +171,25 @@ let sort_symbol col dir = function
   | Some (col', dir') when col = col' && dir = dir' -> sort_symbol_aux (dir, true)
   | _ -> sort_symbol_aux (dir, false)
 
+let divisions_badges url dancer =
+  let aux fmt (role, divisions) =
+  Format.fprintf fmt {|<a href="%s">%s</a>|}
+      (url ?order_by:None ?search:None ?divisions:(Some divisions) ())
+      (Badge.divisions ~role divisions)
+  in
+  Format.asprintf "%a %a"
+    aux (Leader, Dancer.as_leader dancer)
+    aux (Follower, Dancer.as_follower dancer)
+
 
 let list req st =
 
   <div class="row justify-content-center"><div class="col-md-8">
-% let order_by, search = list_url_parse req in
+% let order_by, search, divisions = list_url_parse req in
+% let url ?(order_by=order_by) ?(search=search) ?divisions:d () =
+%   let divisions = match d with Some _ -> d | None -> divisions in
+%   list_url_gen order_by search divisions
+% in
   <div class="row">
     <div class="col">
       <h1>Dancer list</h1>
@@ -191,13 +216,13 @@ let list req st =
       <tr>
         <th scope="col">
           Prénom
-            <a href="<%s list_url_gen (Some (`First, `Asc)) search %>"><%s! sort_symbol `First `Asc order_by %></a>
-            <a href="<%s list_url_gen (Some (`First, `Desc)) search %>"><%s! sort_symbol `First `Desc order_by %></a>
+            <a href="<%s url ~order_by:(Some (`First, `Asc)) () %>"><%s! sort_symbol `First `Asc order_by %></a>
+            <a href="<%s url ~order_by:(Some (`First, `Desc)) () %>"><%s! sort_symbol `First `Desc order_by %></a>
         </th>
         <th scope="col">
           Nom
-            <a href="<%s list_url_gen (Some (`Last, `Asc)) search %>"><%s! sort_symbol `Last `Asc order_by %></a>
-            <a href="<%s list_url_gen (Some (`Last, `Desc)) search %>"><%s! sort_symbol `Last `Desc order_by %></a>
+            <a href="<%s url ~order_by:(Some (`Last, `Asc)) () %>"><%s! sort_symbol `Last `Asc order_by %></a>
+            <a href="<%s url ~order_by:(Some (`Last, `Desc)) () %>"><%s! sort_symbol `Last `Desc order_by %></a>
         </th>
         <th scope="col">
           Catégorie
@@ -205,7 +230,20 @@ let list req st =
       </tr>
     </thead>
     <tbody>
-%   Dancer.search st ?order_by ~name:search () |> List.iter begin fun dancer ->
+%   let mask = match divisions with
+%     | None -> None
+%     | Some d -> Some (Divisions.to_int d)
+%   in
+%   Dancer.search st ?order_by ~name:search ()
+%   |> List.iter begin fun (dancer : Dancer.t) ->
+%   let b =
+%     match mask with
+%     | None -> true
+%     | Some m ->
+%       (m land Divisions.to_int dancer.as_leader) <> 0 ||
+%       (m land Divisions.to_int dancer.as_follower) <> 0
+%   in
+%   if b then begin
       <tr>
         <td>
           <%s! Links.dancer dancer (Dancer.first_name dancer) %>
@@ -214,9 +252,10 @@ let list req st =
           <%s! Links.dancer dancer (Dancer.last_name dancer) %>
         </td>
         <td>
-          <div><%s! divisions dancer %></div>
+          <div><%s! divisions_badges url dancer %></div>
         </td>
       </tr>
+%   end;
 %   end;
     </tbody>
   </table>

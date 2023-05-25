@@ -102,7 +102,7 @@ let sanitize s =
   in
   if correct then s else ""
 
-let search ?order_by st ?(name="") () =
+let search st ?order_by ?(name="") () =
   match sanitize name with
   | "" -> list st
   | name ->
