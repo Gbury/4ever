@@ -28,6 +28,7 @@ type rule = Results.t -> points -> update list
 let invited : rule = fun result _points ->
   match result.category with
   | Non_competitive Some Invited ->
+    (* TODO: this is wrong when there are more than jus ttwo divisions *)
     [ Add_access_to Intermediate;
       Remove_access_to Novice; ]
   | _ -> []
