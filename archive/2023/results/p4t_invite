@@ -1,0 +1,39 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Bury	Guillaume
+1	F	De Saint Léon	Aliénor
+
+# 2nd place
+F	L	De Longuemar	Guillaume
+F	F	Castro Scherianz	Maria
+
+# 3rd place
+F	L	Lam	Philippe
+F	F	Desseaux	Albane
+
+# 4e
+F	L	Popineau	Pierre
+F	F	Leblanc Sogutçu	Gabrielle
+
+# 5e
+F	L	Le	Huy Hoang
+F	F	Cimelli	Léa
+
+# 6e (2e passage de DeGaulle)
+F	F	Bivas	Irène
+
+# 7e
+F	L	Lopez	Yann
+F	F	Le	Ai-My
+
+# 8e
+F	L	Guillaume	De Gaulle
+F	F	Vendroux	Camille
+

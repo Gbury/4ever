@@ -1,0 +1,25 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+# Finals
+1	L	Popineau	Pierre	7
+1	F	Bivas	Irène	10
+
+2	L	Lopez	Yann	5
+2	F	Lefrère	Valentine	8
+
+3	L	Ziakovic	Théo	3
+3	F	De Saint Léon	Aliénor	6
+
+4	L	Le	Huy Hoang
+4	F	Le	Ai-My	3
+
+5	L	Falconieri	Lorenzo
+5	F	Abella	Alexandra	3
+

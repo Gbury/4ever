@@ -1,0 +1,55 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+# Finals
+1	L	Guillochon	Romain	14
+1	F	Ziakovic	Théo	14
+
+2	L	Morin	Raphaël	12
+2	F	Rault	Cécile	12
+
+3	L	Maymard	Vincent	10
+3	F	Leborgne	Amandine	10
+
+4	L	Visouthivong	Anouvong	8
+4	F	Berton	Irène	8
+
+5	L	Camoin	Gabriel	8
+5	F	Bourda	Alice	8
+
+6	L	Nguyen	Romy	6
+6	F	Duchon-Doris	Cyril	6
+
+7	L	Loew walker	Siegfried	6
+7	F	Hérété	Héloïse	6
+
+8	L	Leclerc	Alexis	3
+8	F	Vignaud	Lucile	3
+
+9	L	Lamarque	Aymerick	3
+9	F	Donatien	Albane	3
+
+10	L	Emmanuel	Aurélien	3
+10	F	Rieu	Camille	3
+
+# Semis
+S	L	Leblanc Sogutçu	Gabrielle	2
+S	L	Airiau	Pierre-Marie	2
+S	L	Astaing-Peyrat	Dylan	2
+S	L	Koeler	Alice	2
+S	L	Lancien	François	2
+S	L	Gandilhon	Etienne	2
+
+S	F	Davoust	Enora	2
+S	F	Nativelle	Agathe	2
+S	F	Thomas	Marie Anne	2
+S	F	Richard	Emilie	2
+S	F	Rossignol	Irène	2
+S	F	Tranvouez	Maïlys	2
+
