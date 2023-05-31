@@ -30,8 +30,23 @@ let winter_cup = I.ev
         ~follows:11
     ]
 
-let p4t = I.ev
+let cc_ulm = I.ev
     ~log:true
+    ~name:"Concours Chorégraphie ENS Ulm"
+    ~date:(F.Date.mk ~day:21 ~month:4 ~year:2023)
+    [
+      I.comp
+        ~kind:Routine
+        ~name:""
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "cc_ulm")
+        ~leaders:8
+        ~follows:8
+      ;
+    ]
+
+let p4t = I.ev
     ~name:"Printemps 4 Temps"
     ~date:(F.Date.mk ~day:27 ~month:05 ~year:2023)
     [
@@ -67,6 +82,7 @@ let p4t = I.ev
 let events =
   List.to_seq [
     winter_cup;
+    cc_ulm;
     p4t;
   ]
 

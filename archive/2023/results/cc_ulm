@@ -1,0 +1,18 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Ziakovic	Théo
+1	F	Vallerio	Héloise
+
+2	L	Lopez	Yann
+2	F	De Saint Léon	Aliénor
+
+3	L	Falconieri	Lorenzo
+3	F	Abella	Alexandra
+
