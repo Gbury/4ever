@@ -1,0 +1,18 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+
+1	L	Duchon-Doris	Cyril
+1	F	Castro Scherianz	Maria
+
+2	L	Morel	Baptiste
+2	F	Rabreaud	Agathe
+
+3	L	Robin	Paul
+3	F	Hacquin	Anne-Sophie
+

@@ -1,0 +1,18 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+
+1	L	Laurent	Théo
+1	F	Curchod	Hélène
+
+2	L	Monier	Ludovic
+2	F	Kopecz-Muller	Caroline
+
+3	L	Lamusse	Olivier
+3	F	Geneste-Samissof	Natacha
+

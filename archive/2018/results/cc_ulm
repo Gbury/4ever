@@ -1,0 +1,18 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+
+1	L	Laurent	Théo
+1	F	Durand	Céline
+
+2	L	Janin	Martin
+2	F	Castro Scherianz	Maria
+
+3	L	Chen	Frédéric
+3	F	Vallerio	Héloise
+

@@ -1,0 +1,17 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+
+1	L	Kavokine	Nikita
+1	F	Vallerio	Héloise
+
+2	L	Falconieri	Lorenzo
+2	F	Desseaux	Albane
+
+3	L	Lopez	Yann
+3	F	Gadon-Ferreira	Justine

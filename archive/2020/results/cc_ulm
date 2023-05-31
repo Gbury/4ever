@@ -1,0 +1,18 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar
+# 1	F	Bla	Bla
+#################################################
+
+1	L	Lebrat	Jérémie
+1	F	Abella	Alexandra
+
+2	L	Régnier	Léo
+2	F	Leblanc Sogutçu	Gabrielle
+
+3	L	Le	Huy Hoang
+3	F	Varieras	Mathilde
+

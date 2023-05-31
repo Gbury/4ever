@@ -5,8 +5,10 @@
     ; main lib + deps
     fourever progress
     ; competitions
+    archive_2017
     archive_2018
     archive_2019
+    archive_2020
     archive_2022
     archive_2023
   )

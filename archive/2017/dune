@@ -1,0 +1,11 @@
+
+(library
+  (name       archive_2017)
+  (libraries  fourever)
+)
+
+(rule
+ (target results.ml)
+ (deps (source_tree results))
+ (action (with-stdout-to %{null}
+  (run ocaml-crunch -m plain results -o %{target}))))

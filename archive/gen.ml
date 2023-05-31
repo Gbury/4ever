@@ -5,8 +5,10 @@ module I = F.Import
 let events =
   Seq.concat @@
   List.to_seq [
+    Archive_2017.events;
     Archive_2018.events;
     Archive_2019.events;
+    Archive_2020.events;
     Archive_2022.events;
     Archive_2023.events;
   ]
