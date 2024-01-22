@@ -1,4 +1,5 @@
 
+
 module F = Fourever
 module I = F.Import
 
@@ -11,6 +12,7 @@ let events =
     Archive_2020.events;
     Archive_2022.events;
     Archive_2023.events;
+    Archive_2024.events;
   ]
 
 let progress_bar total =

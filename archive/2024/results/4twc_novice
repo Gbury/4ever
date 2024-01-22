@@ -1,0 +1,52 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Barateig	Maximilien	14
+1	F	Richard	Emilie	14
+
+2	L	Marcetteau	Aurélien	12
+2	F	Litzler-Italia	Marie	12
+
+3	L	Leclerc	Alexis	10
+3	F	Le	Huy Hoang	10
+
+4	L	Balu	Tristan	8
+4	F	Rossignol	Irène	8
+
+5	L	Leblanc Sogutçu	Gabrielle	8
+5	F	Guillochon	Romain	8
+
+6	L	Koeler	Alice	6
+6	F	Strizzi	Laura	6
+
+7	L	Corbet	Alexandre	6
+7	F	Houdeau	Alice	6
+
+8	L	Lamarque	Aymerick	3
+8	F	Bourda	Alice	3
+
+9	L	Visouthivong	Anouvong	3
+9	F	Rieu	Camille	3
+
+10	L	Cannone	Raphaël	3
+10	F	De Mongolfier	Claire	3
+
+S	L	Nicot	Julien	2
+S	L	Fauchille	David	2
+S	L	Lancien	François	2
+S	L	Augusto	Arthur	2
+S	L	Airiau	Pierre-Marie	2
+S	L	Sayada	Sébastien	2
+
+S	F	Jouy	Coline	2
+S	F	Picard	Soliane	2
+S	F	Villa	Alice	2
+S	F	Bussonati	Orlando	2
+S	F	Manet	Hugo	2
+S	F	Morizur	Suzanne	2
