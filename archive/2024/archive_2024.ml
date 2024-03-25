@@ -32,7 +32,7 @@ let winter_cup = I.ev
     ]
 
 let temptastiques = I.ev
-    ~log:true
+    ~log:false
     ~name:"4 Temptastiques"
     ~date:(F.Date.mk ~day:24 ~month:3 ~year:2024)
     [
