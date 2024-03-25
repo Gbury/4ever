@@ -1,0 +1,53 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Corbet	Alexandre
+1	F	Silvain	Alexandra
+
+2	L	Rossignol	Irène
+2	F	Bourda	Alice
+
+3	L	Leblanc Sogutçu	Gabrielle
+3	F	Regnault	Léa
+
+4	L	Lamarque	Aymerick
+4	F	Jouy	Coline
+
+5	L	Burg	Antoine
+5	F	Rieu	Camille
+
+6	L	Duquesne	Xavier
+6	F	Castagnet	Mathilde
+
+7	L	Astaing-Peyrat	Dylan
+7	F	Leclerc	Alexis
+
+8	L	Canonne	Raphaël
+8	F	Thomas	Marie Anne
+
+9	L	Meziane	Yani
+9	F	Koeler	Diane
+
+10	L	Leborgne	Amandine
+10	F	Goubert	Camille
+
+# Semis
+S	L	Maison	Baptiste
+S	L	Visouthivong	Anouvong
+S	L	Bazin	Dominique
+S	L	Airiau	Pierre-Marie
+S	L	Lancien	François
+S	L	Koeler	Alice
+
+S	F	Manet	Hugo
+S	F	Baechlin	Valentine
+S	F	Houdeau	Alice
+S	F	Pigeon	Elisa
+S	F	Berthelon	Alix
+S	F	Lazare	Maïa

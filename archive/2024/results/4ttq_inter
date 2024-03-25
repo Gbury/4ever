@@ -1,0 +1,23 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Guillochon	Romain
+1	F	Richard	Emilie
+
+2	L	Le	Huy Hoang
+2	F	Lefrere	Valentine
+
+3	L	Bussonati	Orlando
+3	F	Cimelli	Léa
+
+4	L	Ducros	Charles
+4	F	Renoul	Louise
+
+5	L	Leclerc	Alexis
+5	F	Castro Scherianz	María
