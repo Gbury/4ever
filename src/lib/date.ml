@@ -8,7 +8,7 @@ type t = {
 let compare d d' =
   let open CCOrd in
   int d.year d'.year
-  <?> (int, d.month, d'.year)
+  <?> (int, d.month, d'.month)
   <?> (int, d.day, d'.day)
 
 module Aux = struct
