@@ -1,0 +1,70 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Maison	Baptiste	16
+1	F	Goubert	Camille	16
+
+2	L	Bazin	Dominique	14
+2	F	De Montgolfier	Claire	14
+
+3	L	Strizzi	Laura	12
+3	F	Rossignol	Irène	12
+
+4	L	Piau	Olivier	10
+4	F	Tranvouez	Maïlys	10
+
+5	L	Astaing-Peyrat	Dylan	10
+5	F	Picard	Soliane	10
+
+6	L	Leborgne	Amandine	8
+6	F	Thomas	Marie Anne	8
+
+7	L	Berton	Irène	8
+7	F	Balu	Tristan	8
+
+8	L	Zerara	Abdelhalim	6
+8	F	Jouy	Coline	6
+
+9	L	Brandicourt	Titouan	6
+9	F	Gressin	Celia	6
+
+10	L	Bourda	Alice	6
+10	F	Davoust	Enora	6
+
+S	L	Nicot	Julien	3
+S	L	Pujos	Bruno	3
+S	L	Kraemer	Guillaume	3
+S	L	Burg	Antoine	3
+S	L	Guignabodet	Eva	3
+S	L	Meziane	Yani	3
+S	L	Poirier	Jean-françois	3
+S	L	Gandilhon	Etienne	3
+S	L	El Murr	Richard	3
+S	L	Cauhépé	Vivien	3
+S	L	Masson	Florine	3
+S	L	Bellec	Nicolas	3
+S	L	Augusto	Arthur	3
+S	L	Céruti	Aurélien	3
+
+S	F	Sargent-Caillat	Pauline	3
+S	F	Manet	Hugo	3
+S	F	Leclerc	Alexis	3
+S	F	Morizur	Suzanne	3
+S	F	Roche	Maïlys	3
+S	F	Pigeon	Elisa	3
+S	F	Donatien	Albane	3
+S	F	Raveleau	Charlotte	3
+S	F	Greffion	Valentine	3
+S	F	Guyon	Lison	3
+S	F	Causse	Pauline	3
+S	F	Girod	Marie	3
+S	F	Guiserix	Danaé	3
+S	F	Airiau	Pierre-Marie	3
+
+

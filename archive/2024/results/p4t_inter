@@ -1,0 +1,38 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Ducros	Charles	10
+1	F	Abella	Alexandra	12
+
+2	L	Popineau	Pierre	8
+2	F	Richard	Emilie	10
+
+3	L	Guillochon	Romain	6
+3	F	Martel	Alice	8
+
+4	L	Corbet	Alexandre	3
+4	F	Lefrère	Valentine	6
+
+5	L	Lamarque	Aymerick	3
+5	F	De Saint Léon	Aliénor	6
+
+6	L	Bury	Guillaume
+6	F	Strizzi	Laura	3
+
+7	L	Leclerc	Alexis
+7	F	Regnault	Léa	3
+
+8	L	Ziakovic	Théo
+8	F	Castro Scherianz	Maria	3
+
+9	L	Le	Huy Hoang
+9	F	Renoul	Louise	3
+
+10	L	Balu	Tristan
+10	F	Litzler-Italia	Marie	3
