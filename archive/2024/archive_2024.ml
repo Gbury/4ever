@@ -56,7 +56,7 @@ let temptastiques = I.ev
     ]
 
 let p4t = I.ev
-    ~log:true
+    ~log:false
     ~name:"Printemps 4 temps"
     ~date:(F.Date.mk ~day:18 ~month:5 ~year:2024)
     [
@@ -79,10 +79,26 @@ let p4t = I.ev
         ~follows:21
     ]
 
+let spooky = I.ev
+    ~log:true
+    ~name:"Spooky Cup"
+    ~date:(F.Date.mk ~day:19 ~month:10 ~year:2024)
+    [
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Novice)
+        ~results:(results "spooky_novice")
+        ~leaders:32
+        ~follows:34
+    ]
+
 let events =
   List.to_seq [
     winter_cup;
     temptastiques;
     p4t;
+    spooky;
   ]
 
