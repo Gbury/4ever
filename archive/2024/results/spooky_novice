@@ -1,0 +1,53 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	El Murr	Richard	14
+1	F	Koeler	Diane	14
+
+2	L	Poirier	Jean-françois	12
+2	F	Castagnet	Mathilde	12
+
+3	L	Canonne	Raphaël	10
+3	F	Delcroix	Marine	10
+
+4	L	Augusto	Arthur	8
+4	F	Desagnat	Alix	8
+
+5	L	Chartier	Bastien	8
+5	F	Morizur	Suzanne	8
+
+6	L	Berton	Irène	6
+6	F	Aït Ahmed	Massilia	6
+
+7	L	Abella	Alexandra	6
+7	F	Bazin	Dominique	6
+
+8	L	Labatut	Thibaut	3
+8	F	Mallah	Alexandra	3
+
+9	L	Guignabodet	Eva	3
+9	F	Houzelle	Annaelle	3
+
+10	L	Te	Kevin	3
+10	F	Vignier	Lisa	3
+
+
+S	L	Bosquet	Florie	2
+S	L	Lesot	Robin	2
+S	L	Fok-Kan	Cedric	2
+S	L	Jardin	Emmanuel	2
+S	L	Loyer	Lilian	2
+S	L	Dardel	Romain	2
+
+S	F	Daudet	Marie	2
+S	F	Brunessaux	Celine	2
+S	F	Leclerc	Alexis	2
+S	F	Bude	Mylene	2
+S	F	Warner	Muriel	2
+S	F	Rivière	Natacha	2
