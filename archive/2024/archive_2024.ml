@@ -80,7 +80,7 @@ let p4t = I.ev
     ]
 
 let spooky = I.ev
-    ~log:true
+    ~log:false
     ~name:"Spooky Cup"
     ~date:(F.Date.mk ~day:19 ~month:10 ~year:2024)
     [
@@ -103,11 +103,36 @@ let spooky = I.ev
         ~follows:14
     ]
 
+let paris_plage = I.ev
+    ~log:false
+    ~name:"Paris Plage Clup"
+    ~date:(F.Date.mk ~day:7 ~month:12 ~year:2024)
+    [
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Novice)
+        ~results:(results "plage_novice")
+        ~leaders:24
+        ~follows:38
+      ;
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:true
+        ~category:(Competitive Novice)
+        ~results:(results "plage_inter")
+        ~leaders:21
+        ~follows:13
+    ]
+
 let events =
   List.to_seq [
     winter_cup;
     temptastiques;
     p4t;
     spooky;
+    paris_plage;
   ]
 

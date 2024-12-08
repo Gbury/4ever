@@ -1,0 +1,39 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	De Longuemar	Guillaume	12
+1	F	Rault	Cécile	10
+
+2	L	Popineau	Pierre	10
+2	F	Desagnat	Alix	8
+
+3	L	Bury	Guillaume	8
+3	F	Berton	Irène	6
+
+4	L	Le	Huy Hoang	6
+4	F	Gressin	Celia	3
+
+5	L	Ducros	Charles	6
+5	F	Bivas	Irène	3
+
+6	L	Marcetteau	Aurélien	3
+6	F	Castagnet	Mathilde
+
+7	L	Lamarque	Aymerick	3
+7	F	Leblanc Sogutçu	Gabrielle
+
+8	L	Airiau	Pierre-Marie	3
+8	F	Rieu	Camille
+
+9	L	Leclerc	Alexis	3
+9	F	Koeler	Alice
+
+10	L	Rossignol	Irène	3
+10	F	Goubert	Camille
+

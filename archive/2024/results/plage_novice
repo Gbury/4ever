@@ -1,0 +1,54 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Te	Kevin	12
+1	F	Mekhazni	Laurène	14
+
+2	L	Kraemer	Guillaume	10
+2	F	Vignaud	Lucile	12
+
+3	L	Delcroix	Marine	8
+3	F	Bazin	Dominique	10
+
+4	L	Lesot	Robin	6
+4	F	Guignabodet	Eva	8
+
+5	L	Gaglione	Eglantine	6
+5	F	Koeffer	Lisa	8
+
+6	L	Meziane	Yani	3
+6	F	Leclerc	Alexis	6
+
+7	L	Cauhépé	Vivien	3
+7	F	Penot	Céline	6
+
+8	L	De Amorim	Arthur	3
+8	F	Boucher	Valentine	3
+
+9	L	Dardel	Romain	3
+9	F	Patural	Clara	3
+
+10	L	Bosquet	Florie	3
+10	F	AÏt Ahmed	Massilia	3
+
+
+S	L	Dabas	Jean-Guillain
+S	L	Jouin	Pierre
+S	L	Guillon	Valentin
+S	L	Boyer	Clement
+S	L	Calame	Raphaël
+S	L	Jardin	Emmanuel
+
+S	F	Bion	Alix	2
+S	F	Causse	Pauline	2
+S	F	Warner	Muriel	2
+S	F	Ibos	Camille	2
+S	F	Greffion	Valentine	2
+S	F	Visouthivong	Anouvong	2
+
