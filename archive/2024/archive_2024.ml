@@ -105,7 +105,7 @@ let spooky = I.ev
 
 let paris_plage = I.ev
     ~log:false
-    ~name:"Paris Plage Clup"
+    ~name:"Paris Plage Cup"
     ~date:(F.Date.mk ~day:7 ~month:12 ~year:2024)
     [
       I.comp
