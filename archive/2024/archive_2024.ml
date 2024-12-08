@@ -121,7 +121,7 @@ let paris_plage = I.ev
         ~kind:Jack_and_Jill
         ~name:""
         ~check_divs:true
-        ~category:(Competitive Novice)
+        ~category:(Competitive Intermediate)
         ~results:(results "plage_inter")
         ~leaders:21
         ~follows:13
