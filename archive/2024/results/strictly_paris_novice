@@ -1,0 +1,42 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Jodin	Edouard
+1	F	Mekhazni	Laurène
+
+2	L	Labatut	Thibaut
+2	F	Penot	Céline
+
+3	L	Fok-Kan	Cédric
+3	F	Guyon	Lison
+
+4	L	Chartier	Bastien
+4	F	Brunessaux	Celine
+
+5	L	Duquesne	Xavier
+5	F	Duquesne	Elisa
+
+6	L	Vue	Alexis
+6	F	Vignier	Lisa
+
+7	L	Brandicourt	Titouan
+7	F	Nativelle	Agathe
+
+8	L	Guignabodet	Eva
+8	F	Randriambololona	Manon
+
+9	L	Koeler	Diane
+9	F	Koeffer	Lisa
+
+10	L	Zerara	Abdelhahim
+10	F	Mallah	Alexandra
+
+11	L	Dardel	Romain
+11	F	de Lagrevol	Priscille
+

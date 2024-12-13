@@ -103,6 +103,31 @@ let spooky = I.ev
         ~follows:14
     ]
 
+let strictly_rock_it = I.ev
+    ~log:false
+    ~name:"Paris Strictly 2024"
+    ~date:(F.Date.mk ~day:30 ~month:11 ~year:2024)
+    [
+      I.comp
+        ~kind:Strictly
+        ~name:"Novice"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "strictly_paris_novice")
+        ~leaders:28
+        ~follows:28
+      ;
+      I.comp
+        ~kind:Strictly
+        ~name:"Inter"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "strictly_paris_inter")
+        ~leaders:17
+        ~follows:17
+      ;
+    ]
+
 let paris_plage = I.ev
     ~log:false
     ~name:"Paris Plage Cup"
@@ -134,5 +159,6 @@ let events =
     p4t;
     spooky;
     paris_plage;
+    strictly_rock_it;
   ]
 

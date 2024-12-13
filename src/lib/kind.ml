@@ -16,9 +16,9 @@ let of_int = function
   | _ -> assert false
 
 let to_string = function
-  | Routine -> "chorégraphie"
-  | Strictly -> "strictly"
-  | Jack_and_Jill -> "jack&jill"
+  | Routine -> "Chorégraphie"
+  | Strictly -> "Strictly"
+  | Jack_and_Jill -> "Jack&Jill"
 
 let p = Sqlite3_utils.Ty.([int])
 let conv = Conv.mk p of_int

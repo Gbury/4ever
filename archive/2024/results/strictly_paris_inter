@@ -1,0 +1,33 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	De Longuemar	Guillaume
+1	F	Cimelli	Léa
+
+2	L	Le	Huy Hoang
+2	F	Abella	Alexandra
+
+3	L	Popineau	Pierre
+3	F	Bivas	Irène
+
+4	L	Guillochon	Romain
+4	F	Le	Ai-My
+
+5	L	Corbet	Alexandre
+5	F	Richard	Emilie
+
+6	L	Ducros	Charles
+6	F	Berton	Irène
+
+7	L	Marcetteau	Aurélien
+7	F	Strizzi	Laura
+
+8	L	Barateig	Maximilien
+8	F	Penin	Gaelle
+
