@@ -13,17 +13,19 @@ let competitive = function
 
 let to_int = function
   | Non_competitive Some Invited -> 0
-  | Competitive Intermediate -> 1
-  | Competitive Novice -> 2
-  | Non_competitive None -> 3
-  | Non_competitive Some Qualifying -> 4
+  | Competitive Advanced -> 1
+  | Competitive Intermediate -> 2
+  | Competitive Novice -> 3
+  | Non_competitive None -> 4
+  | Non_competitive Some Qualifying -> 5
 
 let of_int = function
   | 0 -> Non_competitive (Some Invited)
-  | 1 -> Competitive Intermediate
-  | 2 -> Competitive Novice
-  | 3 -> Non_competitive None
-  | 4 -> Non_competitive (Some Qualifying)
+  | 1 -> Competitive Advanced
+  | 2 -> Competitive Intermediate
+  | 3 -> Competitive Novice
+  | 4 -> Non_competitive None
+  | 5 -> Non_competitive (Some Qualifying)
   | d -> failwith (Format.asprintf "%d is not a valid category" d)
 
 let p = Sqlite3_utils.Ty.([int])
@@ -32,6 +34,7 @@ let conv = Conv.mk p of_int
 let to_string = function
   | Competitive Novice -> "Initié"
   | Competitive Intermediate -> "Inter"
+  | Competitive Advanced -> "Avancé"
   | Non_competitive None -> "Autres"
   | Non_competitive Some Qualifying -> "Compétition qualifiante"
   | Non_competitive Some Invited -> "Invité"
