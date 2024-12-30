@@ -12,6 +12,10 @@ let id { id; _ } = id
 let birthday { birthday; _ } = birthday
 let as_leader { as_leader; _ } = as_leader
 let as_follower { as_follower; _ } = as_follower
+let as_role ~role t =
+  match role with
+  | Role.Leader -> as_leader t
+  | Role.Follower -> as_follower t
 
 let division d =
   Division.max
