@@ -15,24 +15,33 @@ let divisions ~role divs =
     in
     let color : Ocb.Color.t =
       match (divs : Fourever.Divisions.t) with
-      | { novice = false; inter = false; } -> Red
-      | { novice = true; inter = false; } -> Green
-      | { novice = true; inter = true; } -> Cyan
-      | { novice = false; inter = true; } -> Blue
+      | { novice = true; inter = false; adv = false; } -> Green
+      | { novice = true; inter = true; adv = false; } -> Cyan
+      | { novice = false; inter = true; adv = false } -> Blue
+      | { novice = false; inter = true; adv = true; } -> Purple
+      | { novice = false; inter = false; adv = true; } -> Red
+      | _ -> Grey
     in
     let status =
       match (divs : Fourever.Divisions.t) with
-      | { novice = false; inter = false; } -> "Error"
-      | { novice = true; inter = false; } ->
+      | { novice = true; inter = false; adv = false; } ->
         Format.asprintf "%s"
           (Fourever.Division.to_string Novice)
-      | { novice = true; inter = true; } ->
+      | { novice = true; inter = true; adv = false; } ->
         Format.asprintf "%s/%s"
           (Fourever.Division.to_string Novice)
           (Fourever.Division.to_string Intermediate)
-      | { novice = false; inter = true; } ->
+      | { novice = false; inter = true; adv = false; } ->
         Format.asprintf "%s"
           (Fourever.Division.to_string Intermediate)
+      | { novice = false; inter = true; adv = true; } ->
+        Format.asprintf "%s/%s"
+          (Fourever.Division.to_string Intermediate)
+          (Fourever.Division.to_string Advanced)
+      | { novice = false; inter = false; adv = true; } ->
+        Format.asprintf "%s"
+          (Fourever.Division.to_string Advanced)
+      | _ -> "Error"
     in
     gen ~label ~color ~status ()
   end

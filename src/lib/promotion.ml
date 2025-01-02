@@ -99,8 +99,11 @@ let rules =
       inter_finalist;
       qualifying_finalist;
       auto_promote Intermediate [Novice];
+      auto_promote Advanced [Intermediate; Novice];
       soft_promote Novice 6 Intermediate;
       hard_promote Novice 12 Intermediate;
+      soft_promote Intermediate 24 Advanced;
+      hard_promote Intermediate 36 Advanced;
     ];
 
     (* Rules for the foreseeable future *)
@@ -108,8 +111,11 @@ let rules =
       invited;
       qualifying_finalist;
       auto_promote Intermediate [Novice];
+      auto_promote Advanced [Intermediate; Novice];
       soft_promote Novice 6 Intermediate;
       hard_promote Novice 12 Intermediate;
+      soft_promote Intermediate 24 Advanced;
+      hard_promote Intermediate 36 Advanced;
     ];
 
   ]
@@ -152,16 +158,19 @@ let update_with_new_result ~log st (result : Results.t) =
     match competition.category with
     | Competitive Novice -> if not effective_divs.novice then fail ()
     | Competitive Intermediate -> if not effective_divs.inter then fail ()
+    | Competitive Advanced -> if not effective_divs.adv then fail ()
     | Non_competitive _ -> ()
   end;
   (* lazy computation of cumulative points total by division *)
   let points =
     let novice = lazy (Results.all_points st id result.role Novice) in
     let inter = lazy (Results.all_points st id result.role Intermediate) in
+    let adv = lazy (Results.all_points st id result.role Advanced) in
     (fun div ->
        match (div : Division.t) with
       | Novice -> Lazy.force novice
-      | Intermediate -> Lazy.force inter)
+      | Intermediate -> Lazy.force inter
+      | Advanced -> Lazy.force adv)
   in
   let new_divs =
     List.fold_left (fun divs (rule : rule) ->

@@ -5,6 +5,9 @@ let contact =
 let fb_page text =
   <a href="https://www.facebook.com/SCR4T.danse"><%s text %></a>
 
+let rules_petition txt =
+  <a href="/rules#petition"><%s txt %></a>
+
 let simple ~prefix id ?(kind="primary") text =
   <a
     href="/<%s prefix %>/<%s string_of_int id %>"
@@ -20,5 +23,4 @@ let comp ev = comp_id (Fourever.Competition.id ev)
 
 let dancer_id = simple ~prefix:"dancer"
 let dancer d  = dancer_id (Fourever.Dancer.id d)
-
 
