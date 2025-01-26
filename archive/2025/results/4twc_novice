@@ -1,0 +1,70 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Dardel	Romain	14
+1	F	Guyon	Lison	16
+
+2	L	Labatut	Thibaut	12
+2	F	Mallah	Alexandra	14
+
+3	L	Chartier	Bastien	10
+3	F	Penot	Céline	12
+
+4	L	Goubert	Camille	8
+4	F	Corneloup	Alexandrine	10
+
+5	L	Guignabodet	Eva	8
+5	F	Warner	Muriel	10
+
+6	L	Fok-Kan	Cédric	6
+6	F	Boucher	Valentine	8
+
+7	L	Leborgne	Amandine	6
+7	F	Gilbert	Stéphanie	8
+
+8	L	Desagnat	Alix	3
+8	F	Rosier	Céline	6
+
+9	L	Thomas	Marie Anne	3
+9	F	De Lagrevol	Priscille	6
+
+10	L	Penin	Gaelle	3
+10	F	Brandicourt	Titouan	6
+
+
+S	L	Pilia	Benjamin	1
+S	L	Mekhazni	Laurène	1
+S	L	Jouin	Pierre	1
+S	L	Calame	Raphaël	1
+S	L	Rouvière	Sébastien	1
+S	L	Venturi	Arnaud	1
+S	L	David	Florian	1
+S	L	Waterloos	Grégoire	1
+S	L	Jodin	Edouard	1
+S	L	Dabas	Jean-Guillain	1
+S	L	Kominiarz	Mathis	1
+S	L	Fabre	Grégoire	1
+S	L	Jardin	Emmanuel	1
+S	L	Loaëc	Nolwenn	1
+
+S	F	Baechlin	Valentine	2
+S	F	Bion	Alix	2
+S	F	Brunessaux	Celine	2
+S	F	Manet	Hugo	2
+S	F	Zerara	Abdelhalim	2
+S	F	Ibos	Camille	2
+S	F	Causse	Pauline	2
+S	F	Dollerschell	Léa	2
+S	F	Lancien	François	2
+S	F	Dardilhac	Sarah	2
+S	F	Cheriot	Marie	2
+S	F	Madelenat	Pauline	2
+S	F	Meziane	Yani	2
+S	F	Augusto	Arthur	2
+

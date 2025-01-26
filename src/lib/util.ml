@@ -16,6 +16,7 @@ module Export = struct
       match div with
       | Division.Novice -> divs.novice
       | Division.Intermediate -> divs.inter
+      | Division.Advanced -> divs.adv
     in
     List.filter aux l
 

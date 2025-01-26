@@ -1,0 +1,23 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Haleblian	Boris
+1	F	Weber	Marion
+
+2	L	Youssefi	Souhail
+2	F	Brosset	Marine
+
+3	L	Meynadier	Yannis
+3	F	Maubian	Aurore
+
+4	L	Kaupp	Nicolas
+4	F	Desclaux Arramond	Sandra
+
+5	L	Rousseaux	Vincent
+5	F	Lobato	Nathália

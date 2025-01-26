@@ -27,7 +27,7 @@ F	L	Le	Huy Hoang
 F	F	Cimelli	Léa
 
 # 6e (2e passage de DeGaulle)
-F	L	Guillaume	De Gaulle
+F	L	De Gaulle	Guillaume
 F	F	Bivas	Irène
 
 # 7e
@@ -35,6 +35,6 @@ F	L	Lopez	Yann
 F	F	Le	Ai-My
 
 # 8e (1e passage de DeGaulle)
-#F	L	Guillaume	De Gaulle
+#F	L	De Gaulle	Guillaume
 F	F	Vendroux	Camille
 

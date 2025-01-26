@@ -1,0 +1,38 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Le	Huy Hoang	12
+1	F	Varieras	Mathilde	12
+
+2	L	Popineau	Pierre	10
+2	F	Richard	Emilie	10
+
+3	L	Guillochon	Romain	8
+3	F	Rossignol	Irène	8
+
+4	L	Ziakovic	Théo	6
+4	F	De Saint Léon	Aliénor	6
+
+5	L	Bury	Guillaume	6
+5	F	Litzler-Italia	Marie	6
+
+6	L	Lopez	Yann	3
+6	F	Castro Scherianz	Maria	3
+
+7	L	Ducros	Charles	3
+7	F	Bivas	Irène	3
+
+8	L	Khansa	Rémi	3
+8	F	Regnault	Léa	3
+
+9	L	Astaing-Peyrat	Dylan	3
+9	F	Berton	Irène	3
+
+10	L	Corbet	Alexandre	3
+10	F	Bourda	Alice	3
