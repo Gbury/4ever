@@ -8,7 +8,7 @@ let results name =
   | Some contents -> I.read_results contents
 
 let winter_cup = I.ev
-    ~log:true
+    ~log:false
     ~name:"4 Temps Winter Cup"
     ~date:(F.Date.mk ~day:25 ~month:1 ~year:2025)
     [
@@ -40,8 +40,34 @@ let winter_cup = I.ev
         ~follows:30
     ]
 
+let ttq = I.ev
+    ~log:true
+    ~name:"4Tempstastiques"
+    ~date:(F.Date.mk ~day:23 ~month:3 ~year:2025)
+    [
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Novice)
+        ~results:(results "4ttq_novice")
+        ~leaders:33
+        ~follows:39
+      ;
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Intermediate)
+        ~results:(results "4ttq_inter")
+        ~leaders:28
+        ~follows:25
+      ;
+    ]
+
 let events =
   List.to_seq [
     winter_cup;
+    ttq;
   ]
 

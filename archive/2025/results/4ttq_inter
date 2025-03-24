@@ -1,0 +1,38 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Lopez	Yann	12
+1	F	Litzler-Italia	Marie	12
+
+2	L	De Longuemar	Guillaume	10
+2	F	Abella	Alexandra	10
+
+3	L	Ducros	Charles	8
+3	F	Desagnat	Alix	8
+
+4	L	Bury	Guillaume	6
+4	F	Rault	Cécile	6
+
+5	L	Corbet	Alexandre	6
+5	F	Bourda	Alice	6
+
+6	L	Marcetteau	Aurélien	3
+6	F	Strizzi	Laura	3
+
+7	L	Ziakovic	Théo	3
+7	F	Renoul	Louise	3
+
+8	L	Burg	Antoine	3
+8	F	Castro Scherianz	Maria	3
+
+9	L	Astaing-Peyrat	Dylan	3
+9	F	Cimelli	Léa	3
+
+10	L	Bazin	Dominique	3
+10	F	Berton	Irène	3

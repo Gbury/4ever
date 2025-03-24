@@ -1,0 +1,52 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Lhuillier	Victor	14
+1	F	Maubian	Aurore	14
+
+2	L	Boyer	Clement	12
+2	F	Koeffer	Lisa	12
+
+3	L	Delcroix	Marine	10
+3	F	Combet	Amandine	10
+
+4	L	Manet	Hugo	8
+4	F	Cholley	Elise	8
+
+5	L	Mekhazni	Laurène	8
+5	F	Vignier	Lisa	8
+
+6	L	Calame	Raphaël	6
+6	F	Leroy	Amelie	6
+
+7	L	Dabas	Jean-Guillain	6
+7	F	Dollerschell	Léa	6
+
+8	L	Goubert	Camille	3
+8	F	Demko	Julia	3
+
+9	L	Berneau	Ethan	3
+9	F	Brunessaux	Celine	3
+
+10	L	Jodin	Edouard	3
+10	F	Randriambololona	Manon	3
+
+S	L	Renoul	Louise	1
+S	L	Guillon	Valentin	1
+S	L	Desseaux	Albane	1
+S	L	Castagnet	Mathilde	1
+S	L	Marie	Hugo	1
+S	L	Loyer	Lilian	1
+
+S	F	Houzelle	Annaelle	1
+S	F	Madelenat	Pauline	1
+S	F	Mondain	Marie-Alix	1
+S	F	Dorlet	Florence	1
+S	F	Baechlin	Valentine	1
+S	F	Lancien	François	1
