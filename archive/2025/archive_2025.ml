@@ -41,7 +41,7 @@ let winter_cup = I.ev
     ]
 
 let ttq = I.ev
-    ~log:true
+    ~log:false
     ~name:"4Tempstastiques"
     ~date:(F.Date.mk ~day:23 ~month:3 ~year:2025)
     [
@@ -65,9 +65,43 @@ let ttq = I.ev
       ;
     ]
 
+let p4t = I.ev
+    ~log:true
+    ~name:"Printemps 4 temps"
+    ~date:(F.Date.mk ~day:07 ~month:6 ~year:2025)
+    [
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Novice)
+        ~results:(results "p4t_novice")
+        ~leaders:62
+        ~follows:71
+      ;
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Intermediate)
+        ~results:(results "p4t_inter")
+        ~leaders:30
+        ~follows:34
+      ;
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Advanced)
+        ~results:(results "p4t_advanced")
+        ~leaders:8
+        ~follows:8
+]
+
 let events =
   List.to_seq [
     winter_cup;
     ttq;
+    p4t;
   ]
 

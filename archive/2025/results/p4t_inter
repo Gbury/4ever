@@ -1,0 +1,53 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Ben Kiran	Paul	12
+1	F	Castro Scherianz	Maria	14
+
+2	L	Corbet	Alexandre	10
+2	F	Guillochon	Romain	12
+
+3	L	Leclerc	Alexis	8
+3	F	Litzler-Italia	Marie	10
+
+4	L	Bazin	Dominique	6
+4	F	Bourda	Alice	8
+
+5	L	Manet	Hugo	6
+5	F	Berton	Irène	8
+
+6	L	Astaing-Peyrat	Dylan	3
+6	F	Desagnat	Alix	6
+
+7	L	Barateig	Maximilien	3
+7	F	Penin	Gaelle	6
+
+8	L	Poirier	Jean-françois	3
+8	F	Rieu	Camille	3
+
+9	L	Duquesne	Xavier	3
+9	F	Ziakovic	Théo	3
+
+10	L	Canonne	Raphaël	3
+10	F	Rault	Cécile	3
+
+
+S	L	Guignabodet	Eva
+S	L	Brandicourt	Titouan
+S	L	Zerara	Abdelhalim
+S	L	Burg	Antoine
+S	L	Bussonati	Orlando
+S	L	Maison	Baptiste
+
+S	F	Koeffer	Lisa	1
+S	F	Rossignol	Irène	1
+S	F	Goubert	Camille	1
+S	F	Castelain	Marianne	1
+S	F	Morizur	Suzanne	1
+S	F	Castagnet	Mathilde	1

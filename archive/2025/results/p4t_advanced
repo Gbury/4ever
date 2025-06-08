@@ -1,0 +1,33 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	De Longuemar	Guillaume	7
+1	F	Bivas	Irène	7
+
+2	L	Bury	Guillaume	5
+2	F	Lefrère	Valentine	5
+
+3	L	Popineau	Pierre	3
+3	F	Cimelli	Léa	3
+
+4	L	Guillochon	Romain
+4	F	Le	Ai-My
+
+5	L	Le	Huy Hoang
+5	F	Varieras	Mathilde
+
+6	L	Ziakovic	Théo
+6	F	Abella	Alexandra
+
+7	L	Ducros	Charles
+7	F	De Saint Léon	Aliénor
+
+8	L	Lopez	Yann
+8	F	Richard	Emilie
+
