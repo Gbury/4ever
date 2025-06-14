@@ -66,7 +66,7 @@ let ttq = I.ev
     ]
 
 let p4t = I.ev
-    ~log:true
+    ~log:false
     ~name:"Printemps 4 temps"
     ~date:(F.Date.mk ~day:07 ~month:6 ~year:2025)
     [
