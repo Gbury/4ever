@@ -10,9 +10,16 @@ let links ~current =
 
   <div class="row my-3">
     <div class="col">
-      <a href="/rules">
-        <button type="button" class="btn <%s! btn_class ~self:1 ~current %>">
+      <a href="/rules?ver=2">
+        <button type="button" class="btn <%s! btn_class ~self:2 ~current %>">
           Règles actuelles
+        </button>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/rules?ver=1">
+        <button type="button" class="btn <%s! btn_class ~self:1 ~current %>">
+          Règles jusqu'au 09/07/2025
         </button>
       </a>
     </div>
@@ -35,7 +42,7 @@ let render_2 () =
 
   <h1>Les règles du SCR4T</h1>
 
-  <%s! links ~current:1 %>
+  <%s! links ~current:2 %>
 
   <h3>Préambule</h3>
 
@@ -455,6 +462,12 @@ let render_1 () =
   <h1>Les règles du SCR4T</h1>
 
   <%s! links ~current:1 %>
+
+  <div class="alert alert-danger">
+    Le contenu de cette page se réfère au fonctionnement du SCR4T entre le 1er
+    janvier 2025 et le 9 juillet 2025, et est rendu public à des fins d’archivage
+    et de transparence uniquement.
+  </div>
 
   <h3>Préambule</h3>
 
