@@ -6,45 +6,37 @@ let dancers = [
   <ul>
     <li>
       Si vous participez pour la première fois à une compétition
-      adoptant le SCR4T, vous devez vous inscrire dans la division Inité.
+      adoptant le SCR4T, vous devez vous inscrire dans la division Initié.
     </li>
     <li>
-      Si vous avez accumulé au moins 6 points en division Initié dans
+      Si vous avez accumulé au moins 15 points en division Initié dans
       un rôle donné, vous pouvez participer en division Intermédiaire
-      avec ce rôle. Si vous avez accumulé 12 points ou plus en division
-      Initié vous devez compétiter en Intermédiaire dans votre rôle
-      principal. Entre 6 et 11 points inclus, tant que vous n’avez pas
+      dans ce rôle. Si vous avez accumulé 25 points ou plus en division
+      Initié dans un rôle, vous devez compétiter en division Intermédiaire dans ce rôle. 
+      Entre 15 et 24 points inclus, et tant que vous n’avez pas
       marqué de points Intermédiaire, vous avez le choix entre ces deux
-      divisions. Si vous avez moins de 6 points Initié, vous devez
+      divisions. Si vous avez moins de 15 points Initié, vous devez
       continuer à participer en division Initié jusqu’à obtenir au moins
-      6 points dans un rôle donné. Si vous avez au moins 1 point
+      15 points dans un rôle donné. Si vous avez au moins 1 point
       Intermédiaire, vous devez participer en Intermédiaire.
     </li>
     <li>
-      Si vous avez accumulé au moins 24 points en division Intermédiaire
-      dans un rôle donné, vous pouvez participer en division Avancé avec
-      ce rôle. Si vous avez accumulé 36 points Intermédiaire vous devez
-      compétiter en division Avancé dans ce rôle. Entre 24 et 35 points
-      inclus, tant que vous n’avez pas marqué de points Avancé, vous avez
-      le choix entre ces deux divisions. Si vous avez au moins 1 point
-      Avancé, vous devez participer en Avancé. S’il n’y a pas assez
-      d’inscrit-es pour ouvrir la division Avancé, les danseur-euses
-      de cette division pourront exceptionnellement participer en division
-      Intermédiaire.
-    </li>
-    <li>
-      Si vous appartenez aux groupes suivants: danseurs invités au JNJ
-      invité du P4T en 2022 ou 2019, JNJ vétéran du Club de Rock 4 Temps
-      de l’ENS en 2018, ou finaliste en division confirmé du P4T 2019,
-      vous devez vous inscrire dans la division intermédiaire dans votre
-      rôle principal (voir cas particulier du lancement du SCR4T,
-      ici [lien règles > Lancement du système])
+      Si vous avez accumulé au moins 30 points en division Intermédiaire
+      dans un rôle donné, vous pouvez participer en division Avancé dans
+      ce rôle. Si vous avez accumulé 40 points ou plus en division Intermédiaire 
+      dans un rôle donné, vous devez compétiter en division Avancé dans ce rôle. 
+      Entre 30 et 39 points inclus, et tant que vous n’avez pas marqué de points 
+      Avancé, vous avez le choix entre ces deux divisions. Si vous avez au moins 
+      1 point Avancé, vous devez participer en Avancé. S’il n’y a pas assez
+      d’inscrit-e-s pour ouvrir la division Avancé à une compétition donnée, 
+      les danseur-euse-s de cette division pourront exceptionnellement participer 
+      en division Intermédiaire.
     </li>
   </ul>
   |};
 
   "Je suis professeur, je souhaiterais ne pas faire concurrence à mes élèves;
-  pourrais-je exceptionnellement participer en division intermédiaire ?",
+  pourrais-je exceptionnellement participer en division Intermédiaire ?",
   Format.asprintf {|
   Il est possible de faire une demande de dérogation pour participer dans
   la division suivante à la sienne uniquement. Cette demande doit être
@@ -77,15 +69,16 @@ let dancers = [
   pouvez en lire plus %s.
   |} (Links.rules_petition "ici");
 
-  "Je ne suis pas débutant mais je n’ai pas 6 points en division initiée, dans
+  "Je ne suis pas débutant mais je n’ai pas 15 points en division Initié, dans
   quelle division dois-je m’inscrire ?",
   {|
   À l’exception du lancement du SCR4T au Printemps 4 Temps 2022, vous devez
-  vous inscrire en division initiée. Il suffira de marquer 6 points dans cette
-  division pour pouvoir participer par la suite en division intermédiaire. <br />
+  vous inscrire en division Initié. Il suffira de marquer 15 points dans cette
+  division pour pouvoir participer par la suite en division Intermédiaire. <br />
 
-  En effet, la division initiée n’est pas une division débutante, mais est
-  adaptée aux danseur-euse-s de tous les niveaux. Les divisions Intermédiaire et Avancé
+  En effet, la division Initié n’est pas une division débutante, mais est
+  adaptée à des danseur-euse-s de niveaux variés qui commencent leur parcours 
+  compétitif SCR4T. Les divisions Intermédiaire et Avancé
   sont réservées aux danseur-euse-s ayant fait leur preuves dans d’autres
   compétitions par l’accumulation de points.
   |};
@@ -94,9 +87,9 @@ let dancers = [
   puis-je participer avec chaque rôle ?",
   {|
   Les points accumulés dans chaque rôle sont indépendants. Par exemple, si vous
-  avez 3 points Initié en leader et 3 points Initié en follower, bien que le total fasse 6
+  avez 10 points Initié en leader et 5 points Initié en follower, bien que le total fasse 15
   points, vous n’avez pas accès à la division Intermédiaire pour l’instant. Il
-  faut gagner 6 points avec un rôle donné pour pouvoir le faire.
+  faut gagner 15 points avec un rôle donné pour pouvoir le faire.
   |};
 
 
@@ -105,36 +98,37 @@ let dancers = [
   Les règles ayant trait à la pratique des deux rôles sont déterminées par
   chaque événement, et non par le SCR4T, nous vous invitons à prendre contact
   avec les organisateurs de la compétition concernée. Dans tous les cas, pour
-  pouvoir prétendre participer à une division donnée dans un rôle donnée, il
+  pouvoir prétendre participer à une division donnée dans un rôle donné, il
   faut remplir les prérequis de points dans le rôle concerné.
   |};
 
-  "Je participe en division initiée, à quoi servent mes points ?",
+  "Je participe en division Initié, à quoi servent mes points ?",
   {|
-  Vos points en division initiée s’accumulent de compétition en compétition.
-  Quand vous accumulez 6 points, vous devenez éligible à la division
-  intermédiaire avec ce rôle. A partir de 12 points initiés vous ne pouvez plus
+  Vos points en division Initié s’accumulent de compétition en compétition.
+  Quand vous accumulez 15 points, vous devenez éligible à la division
+  Intermédiaire avec ce rôle. A partir de 25 points Initié vous ne pouvez plus
   compétiter dans cette division, il faudra participer en division
-  intermédiaire. De plus, ils permettent d’avoir une concrétisation tangible de
+  Intermédiaire. De plus, ils permettent d’avoir une concrétisation tangible de
   votre progression en tant que danseur-euse et compétiteur-ice, et constituent
   un aspect ludique de la compétition !
   |};
 
-  "Je viens de passer de la division initiée à la division intermédiaire, que
+  "Je viens de passer de la division Initié à la division Intermédiaire, que
   deviennent mes points ?",
   {|
-  Vos points initiés restent en mémoire dans le système. Néanmoins vos points
-  initiés et intermédiaires sont disjoints, vous commencez à 0 points en
-  intermédiaire et devrez donc accumuler des points propres à cette division.
+  Vos points Initié restent en mémoire dans le système. Néanmoins vos points
+  Initié et Intermédiaire sont disjoints, vous commencez à 0 points en
+  Intermédiaire et devrez donc accumuler des points propres à cette division.
   |};
 
 
-  "Je participe en division intermédiaire, à quoi servent mes points ?",
+  "Je participe en division Intermédiaire, à quoi servent mes points ?",
   {|
   Vos points en division Intermédiaire s’accumulent de compétition en compétition
-  depuis la création du SCR4T. Quand vous accumulez 24 points, vous devenez éligible
-  à la division Avancé avec ce rôle. A partir de 36 points Intermédiaire vous ne
-  pouvez plus compétiter dans cette division, il faudra participer en division Avancé.
+  depuis la création du SCR4T. Quand vous accumulez 30 points dans un rôle, 
+  vous devenez éligible à la division Avancé avec ce rôle. 
+  A partir de 40 points Intermédiaire dans un rôle, vous ne pouvez plus compétiter 
+  dans cette division, il faudra participer en division Avancé.
   De plus, ils permettent d’avoir une concrétisation tangible de votre progression
   en tant que danseur-euse et compétiteur-ice, et constituent un aspect ludique
   de la compétition !
@@ -154,6 +148,9 @@ let dancers = [
   compétition en compétition. Ils constituent un aspect ludique de la compétition !
   Ils permettent en plus d’avoir une concrétisation tangible de votre progression
   en tant que danseur-euse et compétiteur-ice.
+  Il n’est pour l’instant pas envisagé de créer une division au-dessus d’Avancé 
+  dans le SCR4T, c’est donc la division la plus élevée. 
+  Si tu l’as atteinte, bravo !
   |};
 
 
@@ -168,10 +165,11 @@ let dancers = [
 
   "Quelles sont les compétitions dans lesquelles je peux accumuler des points ?",
   Format.asprintf {|
-  Vous ne pouvez marquer des points que dans les JNJ adoptant le SCR4T. Les
-  compétitions participant au système l’annonceront. Vous pouvez également
-  suivre les nouvelles compétitions adoptant le SCR4T et donnant accès à des
-  points dans l’onglet “Évènements”, ou en consultant %s. <br />
+  Vous ne pouvez marquer des points que dans les Jack N' Jill (compétition à inscription
+  individuelle, partenaires et musiques tirés au hasard tout au long des étapes)
+  adoptant le SCR4T. Les compétitions participant au système l’annonceront. 
+  Vous pouvez également suivre les nouvelles compétitions adoptant le SCR4T 
+  et donnant accès à des points dans l’onglet “Évènements”, ou en consultant %s. <br />
 
   Les Strictly et concours de chorégraphies ne donnent pas accès à des points
   compatibles avec le SCR4T, mais peuvent avoir des divisions basées sur le SCR4T,
