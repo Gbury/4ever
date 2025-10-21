@@ -1,0 +1,74 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	De Amorim	Arthur	12
+1	F	Delcroix	Marine	14
+
+2	L	Thomas	MA	10
+2	F	Houzelle	Annaelle	12
+
+3	L	Gervreau	Augustin	8
+3	F	Randriambololona	Manon	10
+
+4	L	Mahé	Loïc	6
+4	F	Causse	Pauline	8
+
+5	L	Nicot	Julien	4
+5	F	Manet	Hugo	6
+
+6	L	Deboudt	Maxence	2
+6	F	Dollerschell	Léa	4
+
+7	L	Berneau	Ethan	2
+7	F	Tisserand	Marie	4
+
+8	L	Rouviere	Sebastien	2
+8	F	Cheriot	Marie	4
+
+9	L	Nguyen	Julien	2
+9	F	Pigeon	Elisa	2
+
+10	L	Youssefi	Souhail	2
+10	F	Fallion Dalmonte	Margaux	2
+
+
+# different tiers for leaders and follows, thus
+# not all semis leaders get points, only those coevered by semis
+# in their tiers
+S	L	Penot	Céline	1
+S	L	Poirier	Yves-Marie	1
+S	L	Calame	Raphaël	1
+S	L	Venturi	Arnaud	1
+S	L	Lancien	François	1
+S	L	Goubert	Camille	1
+#S	L	Guillon	Valentin
+#S	L	Mériguet	Léa
+#S	L	Haleblian	Boris
+#S	L	Kominiarz	Mathis
+#S	L	Brun	Michel
+#S	L	Meynadier	Yannis
+#S	L	Schneider	Emmanuel
+#S	L	Pilia	Benjamin
+
+S	F	Gilbert	Stéphanie	1
+S	F	Roche	Maïlys	1
+S	F	Caramelli	Lili-Rose	1
+S	F	Astaing-Peyrat	Dylan	1
+S	F	Zerara	Abdelhalim	1
+S	F	Cholley	Elise	1
+S	F	Duguery	Elsa	1
+S	F	Brandicourt	Titouan	1
+S	F	Te	Kevin	1
+S	F	Marbach	Estelle	1
+S	F	Judas	Margor	1
+S	F	Breton	Sophie	1
+S	F	Gourgue	Delphine	1
+S	F	Daudet	Marie	1
+
+

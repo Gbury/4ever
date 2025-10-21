@@ -1,0 +1,39 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Khansa	Rémi	10
+1	F	Penin	Gaelle	10
+
+2	L	Corbet	Alexandre	8
+2	F	Bourda	Alice	8
+
+3	L	Airiau	Pierre-Marie	6
+3	F	Bensimon	Johanne	6
+
+4	L	Ben Kiran	Paul	4
+4	F	Goubert	Camille	4
+
+5	L	Burg	Antoine	2
+5	F	Desagnat	Alix	2
+
+6	L	Fok-Kan	Cédric	1
+6	F	Berton	Irène	1
+
+7	L	Rossignol	Irène	1
+7	F	Koeffer	Lisa	1
+
+8	L	Leclerc	Alexis	1
+8	F	Castagnet	Mathilde	1
+
+9	L	Astaing-Peyrat	Dylan	1
+9	F	Rieu	Camille	1
+
+10	L	Marcetteau	Aurélien	1
+10	F	Castro Scherianz	Maria	1
+
