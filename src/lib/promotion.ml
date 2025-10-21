@@ -106,8 +106,8 @@ let rules =
       hard_promote Intermediate 36 Advanced;
     ];
 
-    (* Rules for the foreseeable future *)
-    Date.mk ~day:01 ~month:01 ~year:2100, [
+    (* Rules until summer 2025 *)
+    Date.mk ~day:09 ~month:07 ~year:2025, [
       invited;
       qualifying_finalist;
       auto_promote Intermediate [Novice];
@@ -118,6 +118,17 @@ let rules =
       hard_promote Intermediate 36 Advanced;
     ];
 
+    (* Rules for the foreseeable future *)
+    Date.mk ~day:01 ~month:01 ~year:2100, [
+      invited;
+      qualifying_finalist;
+      auto_promote Intermediate [Novice];
+      auto_promote Advanced [Intermediate; Novice];
+      soft_promote Novice 15 Intermediate;
+      hard_promote Novice 25 Intermediate;
+      soft_promote Intermediate 30 Advanced;
+      hard_promote Intermediate 40 Advanced;
+    ];
   ]
 
 let get_rules_for date =
