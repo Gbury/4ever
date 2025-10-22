@@ -46,15 +46,18 @@ S	L	Poirier	Yves-Marie	1
 S	L	Calame	Raphaël	1
 S	L	Venturi	Arnaud	1
 S	L	Lancien	François	1
-S	L	Goubert	Camille	1
-#S	L	Guillon	Valentin
-#S	L	Mériguet	Léa
-#S	L	Haleblian	Boris
-#S	L	Kominiarz	Mathis
-#S	L	Brun	Michel
-#S	L	Meynadier	Yannis
-#S	L	Schneider	Emmanuel
-#S	L	Pilia	Benjamin
+# do not give points here because she should not have been able to
+# participat in this division given their points total
+S	L	Goubert	Camille	0
+
+S	L	Guillon	Valentin
+S	L	Mériguet	Léa
+S	L	Haleblian	Boris
+S	L	Kominiarz	Mathis
+S	L	Brun	Michel
+S	L	Meynadier	Yannis
+S	L	Schneider	Emmanuel
+S	L	Pilia	Benjamin
 
 S	F	Gilbert	Stéphanie	1
 S	F	Roche	Maïlys	1
