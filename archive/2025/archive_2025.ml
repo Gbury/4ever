@@ -137,7 +137,7 @@ let events =
     `Event winter_cup;
     `Event ttq;
     `Event p4t;
-    `Hook (F.Promotion.reform_1 ~log:true);
+    `Hook (F.Promotion.reform_1 ~log:false);
     `Event spooky;
   ]
 
