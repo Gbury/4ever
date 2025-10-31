@@ -21,7 +21,8 @@ let cc_ulm = I.ev
     ]
 
 let events =
-  List.to_seq [
+  List.to_seq @@
+  List.map (fun ev -> `Event ev) [
     cc_ulm;
   ]
 

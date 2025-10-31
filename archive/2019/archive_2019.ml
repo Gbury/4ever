@@ -61,7 +61,8 @@ let p4t = I.ev
     ]
 
 let events =
-  List.to_seq [
+  List.to_seq @@
+  List.map (fun ev -> `Event ev) [
     cc_ulm;
     p4t;
   ]

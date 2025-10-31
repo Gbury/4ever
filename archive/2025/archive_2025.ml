@@ -134,9 +134,10 @@ let spooky = I.ev
 
 let events =
   List.to_seq [
-    winter_cup;
-    ttq;
-    p4t;
-    spooky;
+    `Event winter_cup;
+    `Event ttq;
+    `Event p4t;
+    `Hook (F.Promotion.reform_1 ~log:true);
+    `Event spooky;
   ]
 

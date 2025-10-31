@@ -202,3 +202,33 @@ let update_with_new_result ~log st (result : Results.t) =
   end
 
 
+(* ************************************************************************* *)
+(* Special promotion passes *)
+(* ************************************************************************* *)
+
+let reform_1 ?(log=false) st =
+  let apply dancer role =
+    let id = Dancer.id dancer in
+    let divs = Dancer.as_role ~role dancer in
+    if divs.inter && not divs.novice then
+      let novice_points = Results.all_points st id role Novice in
+      let inter_points = Results.all_points st id role Intermediate in
+      if inter_points <= 0 && 12 <= novice_points && novice_points <= 14 then begin
+        let new_divs = Divisions.add divs Novice in
+        if log then
+          Progress.interject_with @@ begin fun () ->
+            Format.printf "  PROMOTE : %20s %20s\t%10s\t%a -> %a@."
+              dancer.first_name dancer.last_name
+              (Role.to_string role)
+              Divisions.print divs
+              Divisions.print new_divs
+          end;
+        Dancer.update_divisions st id role new_divs
+      end
+  in
+  Dancer.search st () |> List.iter (fun d ->
+      apply d Leader;
+      apply d Follower;
+      ()
+    )
+

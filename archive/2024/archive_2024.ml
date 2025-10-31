@@ -153,7 +153,8 @@ let paris_plage = I.ev
     ]
 
 let events =
-  List.to_seq [
+  List.to_seq @@
+  List.map (fun ev -> `Event ev) [
     winter_cup;
     temptastiques;
     p4t;
