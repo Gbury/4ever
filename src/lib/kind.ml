@@ -3,19 +3,23 @@ type t =
   | Routine
   | Strictly
   | Jack_and_Jill
+  | All_In
 
 let to_int = function
   | Routine -> 2
   | Strictly -> 1
   | Jack_and_Jill -> 0
+  | All_In -> 3
 
 let of_int = function
+  | 3 -> All_In
   | 2 -> Routine
   | 1 -> Strictly
   | 0 -> Jack_and_Jill
   | _ -> assert false
 
 let to_string = function
+  | All_In -> "All-In"
   | Routine -> "Chorégraphie"
   | Strictly -> "Strictly"
   | Jack_and_Jill -> "Jack&Jill"

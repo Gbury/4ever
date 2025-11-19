@@ -1,0 +1,38 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	De Longuemar	Guillaume
+1	F	Houzelle	Annaelle
+
+2	L	Lopez	Yann
+2	F	Randriambololona	Manon
+
+3	L	Fok-Kan	Cédric
+3	F	Bude	Mylene
+
+4	L	Duquesne	Xavier
+4	F	Baechlin	Valentine
+
+5	L	De Longuemar	Guillaume
+5	F	Charvy-Pins	Clémentine
+
+6	L	Bazin	Dominique
+6	F	Patural	Clara
+
+7	L	Lopez	Yann
+7	F	Joseph	Maëlle
+
+8	L	Ducros	Charles
+8	F	Rizk	Théra
+
+9	L	Guignabodet	Eva
+9	F	Brosset	Marine
+
+10	L	Le	Huy Hoang
+10	F	Bister	Audrey

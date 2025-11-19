@@ -1,0 +1,38 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Schneider	Emmanuel
+1	F	De Saint Léon	Aliénor
+
+2	L	De Amorim	Arthur
+2	F	Penot	Céline
+
+3	L	Guillon	Valentin
+3	F	Le	Ai-My
+
+4	L	Jodin	Edouard
+4	F	Castagnet	Mathilde
+
+5	L	Haleblian	Boris
+5	F	Delcroix	Marine
+
+6	L	Vuong	Trung
+6	F	Berton	Irène
+
+7	L	Lemoine	Jérémy
+7	F	Delcroix	Marine
+
+8	L	Pilia	Benjamin
+8	F	Rieu	Camille
+
+9	L	Berneau	Ethan
+9	F	Bion	Alix
+
+10	L	Marie	Hugo
+10	F	Goubert	Camille

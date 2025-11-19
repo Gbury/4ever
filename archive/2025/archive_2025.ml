@@ -96,6 +96,25 @@ let p4t = I.ev
         ~results:(results "p4t_advanced")
         ~leaders:8
         ~follows:8
+      ;
+      I.comp
+        ~kind:All_In
+        ~name:"Leaders Inter/Adv - Followers Initiés"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "p4t_allin_leaders")
+        ~leaders:33
+        ~follows:50
+      ;
+      I.comp
+        ~kind:All_In
+        ~name:"Leaders Initiés - Followers Inter/Adv"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "p4t_allin_follows")
+        ~leaders:41
+        ~follows:28
+      ;
 ]
 
 let spooky = I.ev
