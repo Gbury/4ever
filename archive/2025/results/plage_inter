@@ -1,0 +1,29 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	F	Bensimon	Johanne	8
+1	L	Corbet	Alexandre	8
+
+2	F	Desagnat	Alix	6
+2	L	Bazin	Dominique	6
+
+3	F	Bourda	Alice	4
+3	L	Ben Kiran	Paul	4
+
+4	F	Berton	Irène	2
+4	L	Airiau	Pierre-Marie	2
+
+5	F	Morizur	Suzanne	1
+5	L	Marcetteau	Aurélien	1
+
+6	F	Koeffer	Lisa	0
+6	L	Leclerc	Alexis	0
+
+7	F	Rieu	Camille	0
+7	L	Burg	Antoine	0

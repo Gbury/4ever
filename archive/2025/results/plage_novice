@@ -1,0 +1,53 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	F	Caramelli	Lili-Rose	10
+1	L	Kominiarz	Mathis	10
+
+2	F	Breton	Sophie	8
+2	L	Berneau	Ethan	8
+
+3	F	Goutfer	Andréa	6
+3	L	Poirier	Yves-Marie	6
+
+4	L	Lemoine	Jérémy	4
+4	F	Roche	Maïlys	4
+
+5	F	Brosset	Marine	2
+5	L	Mahé	Loïc	2
+
+6	F	Dollerschell	Léa	1
+6	L	Jodin	Edouard	1
+
+7	F	Mercier De Lépinay	Noemie	1
+7	L	Nguyen	Julien	1
+
+8	F	Dupont	Inès	1
+8	L	Calame	Raphaël	1
+
+9	F	Judas	Margot	1
+9	L	Morizur	Suzanne	1
+
+10	F	Maubian	Aurore	1
+10	L	Penot	Céline	1
+
+S	F	Lancien	François	0
+S	F	Zerara	Abdelhalim	0
+S	F	Astaing-Peyrat	Dylan	0
+S	F	Larhant	Apolline	0
+S	F	Ryan	Sylvia	0
+S	F	Warner	Muriel	0
+
+S	L	Brun	Michel	0
+S	L	Dabas	Jean-Guillain	0
+S	L	David	Florian	0
+S	L	Leau	Cédric	0
+S	L	Mériguet	Léa	0
+S	L	Venturi	Arnaud	0
+

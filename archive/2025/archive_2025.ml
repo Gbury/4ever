@@ -151,6 +151,31 @@ let spooky = I.ev
       ;
     ]
 
+let plage_cup = I.ev
+    ~log:false
+    ~name:"Rock 4 Temps Paris Plage Cup"
+    ~date:(F.Date.mk ~day:6 ~month:12 ~year:2025)
+    [
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Novice)
+        ~results:(results "plage_novice")
+        ~leaders:27
+        ~follows:25
+      ;
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:true
+        ~category:(Competitive Intermediate)
+        ~results:(results "plage_inter")
+        ~leaders:20
+        ~follows:16
+      ;
+    ]
+
 let events =
   List.to_seq [
     `Event winter_cup;
@@ -158,5 +183,6 @@ let events =
     `Event p4t;
     `Hook (F.Promotion.reform_1 ~log:false);
     `Event spooky;
+    `Event plage_cup;
   ]
 
