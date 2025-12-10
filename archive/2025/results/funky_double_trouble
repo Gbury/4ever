@@ -1,0 +1,29 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	O	Lopez	Yann
+1	O	iStrizzi	Laura
+1	O	Bourda	Alice
+
+2	O	Khansa	Rémi
+2	O	Lefrère	Valentine
+2	O	Berton	Irène
+
+3	O	Fok-kan	Cédric
+3	O	Caramelli	Lili-Rose
+3	O	Chanteau	Alice
+
+4	O	Canonne	Raphaël
+4	O	Baechlin	Valentine
+4	O	Causse	Pauline
+
+5	O	Labatut	Thibaut
+5	O	Penot	Céline
+5	O	Manet	Hugo
+

@@ -1,0 +1,27 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Khansa	Rémi
+1	F	Breton	Sophie
+
+2	L	De longuemar	Guillaume
+2	F	Caramelli	Lili-rose
+
+3	L	Fok-kan	Cédric
+3	F	Fallion dalmonte	Margaux
+
+4	L	Canonne	Raphaël
+4	F	Le coutour	Camille
+
+5	L	Manet	Hugo
+5	F	De lepinay	Noémie
+
+6	L	Lesot	Robin
+6	F	Dollershell	Léa
+

@@ -1,0 +1,27 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Berneau	Ethan
+1	F	Castagnet	Mathilde
+
+2	L	Kominiarz	Mathis
+2	F	Berton	Irène
+
+3	L	Person	Thomas
+3	F	Davoust	Enora
+
+4	L	Gervreau	Augustin
+4	F	Houzelle	Annaelle
+
+5	L	Nguyen	Julien
+5	F	Bourda	Alice
+
+6	L	Boyer	Clément
+6	F	Strizzi	Laura
+

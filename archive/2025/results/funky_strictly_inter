@@ -1,0 +1,33 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Corbet	Alexandre
+1	F	Desagnat	Alix
+
+2	L	Bazin	Dominique
+2	F	Morizur	Suzanne
+
+3	L	Manet	Hugo
+3	F	Penin	Gaelle
+
+4	L	Burg	Antoine
+4	F	Castro Scherianz	Maria
+
+5	L	Zerara	Abdelhalim
+5	F	Leroy	Amelie
+
+6	L	Poirier	Jean-françois
+6	F	Rieu	Camille
+
+7	L	Le	Huy Hoang
+7	F	Bourda	Alice
+
+8	L	Airiau	Pierre-Marie
+8	F	Leblanc Sogutçu	Gabrielle
+

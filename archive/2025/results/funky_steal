@@ -1,0 +1,29 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	O	Airiau	Pierre-marie
+1	O	Leblanc Sogutçu	Gabrielle
+1	O	Berton	Irène
+
+2	O	Khansa	Rémi
+2	O	Lefrère	Valentine
+2	O	Bury	Guillaume
+
+3	O	Ducros	Charles
+3	O	Corbet	Alexandre
+3	O	Litzler-Italia	Marie
+
+4	O	Le	Huy Hoang
+4	O	Lopez	Yann
+4	O	Abella	Alexandra
+
+5	O	De Longuemar	Guillaume
+5	O	Castro-Scherianz	Maria
+5	O	Popineau	Pierre
+

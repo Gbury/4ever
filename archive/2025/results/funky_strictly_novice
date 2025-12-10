@@ -1,0 +1,33 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Person	Thomas
+1	F	Caramelli	Lili-Rose
+
+2	L	Thomas	MA
+2	F	Fallion Dalmonte	Margaux
+
+3	L	Kominiarz	Mathis
+3	F	Dollerschell	Léa
+
+4	L	Gervreau	Augustin
+4	F	Brosset	Marine
+
+5	L	Berneau	Ethan
+5	F	Leborgne	Amandine
+
+6	L	De Amorim	Arthur
+6	F	Mercier De Lépinay	Noemie
+
+7	L	Gandilhon	Etienne
+7	F	Astaing-Peyrat	Dylan
+
+8	L	Richard	Emilie
+8	F	Le Coutour	Camille
+

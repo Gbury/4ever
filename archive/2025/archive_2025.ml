@@ -151,6 +151,62 @@ let spooky = I.ev
       ;
     ]
 
+let funky = I.ev
+    ~log:false
+    ~name:"Paris Funky Cup"
+    ~date:(F.Date.mk ~day:8 ~month:11 ~year:2025)
+    [
+      I.comp
+        ~kind:Strictly
+        ~name:"Initié"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "funky_strictly_novice")
+        ~leaders:22
+        ~follows:22
+      ;
+      I.comp
+        ~kind:Strictly
+        ~name:"Inter"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "funky_strictly_inter")
+        ~leaders:19
+        ~follows:19
+      ;
+      I.comp
+        ~kind:Strictly
+        ~name:"Avancé"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "funky_strictly_adv")
+        ~leaders:7
+        ~follows:7
+      ;
+      I.comp
+        ~kind:All_In
+        ~name:"Leaders Inter/Adv - Followers Initiés"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "p4t_allin_leaders")
+        ~leaders:19
+        ~follows:23
+      ;
+      I.comp
+        ~kind:All_In
+        ~name:"Leaders Initiés - Followers Inter/Adv"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "p4t_allin_follows")
+        ~leaders:19
+        ~follows:15
+      ;
+      (* Steal and double trouble omitted for now,
+         as there is no support for 3 people with the same rank (at least for now).
+         The results are still archived in the corresponding files in `results`,
+         just currently not imported in the database for the website. *)
+    ]
+
 let plage_cup = I.ev
     ~log:false
     ~name:"Rock 4 Temps Paris Plage Cup"
@@ -183,6 +239,7 @@ let events =
     `Event p4t;
     `Hook (F.Promotion.reform_1 ~log:false);
     `Event spooky;
+    `Event funky;
     `Event plage_cup;
   ]
 
