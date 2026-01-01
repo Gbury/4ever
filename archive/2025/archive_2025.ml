@@ -188,7 +188,7 @@ let funky = I.ev
         ~name:"Leaders Inter/Adv - Followers Initiés"
         ~check_divs:false
         ~category:(Non_competitive None)
-        ~results:(results "p4t_allin_leaders")
+        ~results:(results "funky_allin_leaders")
         ~leaders:19
         ~follows:23
       ;
@@ -197,7 +197,7 @@ let funky = I.ev
         ~name:"Leaders Initiés - Followers Inter/Adv"
         ~check_divs:false
         ~category:(Non_competitive None)
-        ~results:(results "p4t_allin_follows")
+        ~results:(results "funky_allin_follows")
         ~leaders:19
         ~follows:15
       ;
