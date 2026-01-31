@@ -13,6 +13,7 @@ let events =
     Archive_2023.events;
     Archive_2024.events;
     Archive_2025.events;
+    Archive_2026.events;
   ]
 
 let progress_bar total =

@@ -1,0 +1,24 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	De Blauwe	Tristan
+1	F	Massart	Lucile
+
+2	L	Lavaill	Hugo
+2	F	Larhant	Apolline
+
+3	L	Vo	Willy
+3	F	Gudat	Katharina
+
+4	L	Dru	Guillaume
+4	F	Petitbon	Héloise
+
+5	L	Masciella	Alain
+5	F	Pellegrin	Laure
+

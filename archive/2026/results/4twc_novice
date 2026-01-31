@@ -1,0 +1,39 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Gervreau	Augustin	12
+1	F	Goutfer	Andréa	14
+
+2	L	Thomas	MA	10
+2	F	Caramelli	Lili-Rose	12
+
+3	L	Jodin	Edouard	8
+3	F	Dollerschell	Léa	10
+
+4	L	Randriambololona	Manon	6
+4	F	Fallion Dalmonte	Margaux	8
+
+5	L	Desagnat	Alix	4
+5	F	Cholley	Elise	6
+
+6	L	Pilia	Benjamin	2
+6	F	Charvy-Pins	Clémentine	4
+
+7	L	Rouviere	Sebastien	2
+7	F	Brosset	Marine	4
+
+8	L	Penot	Céline	2
+8	F	Mercier De Lépinay	Noemie	4
+
+9	L	Nguyen	Julien	2
+9	F	Ryan	Sylvia	2
+
+10	L	Mahé	Loïc	2
+10	F	Pigeon	Elisa	2
+

@@ -1,0 +1,39 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Leclerc	Alexis	10
+1	F	Berton	Irène	10
+
+2	L	Bazin	Dominique	8
+2	F	Bensimon	Johanne	8
+
+3	L	Ben Kiran	Paul	6
+3	F	Rieu	Camille	6
+
+4	L	Fok-Kan	Cédric	4
+4	F	Regnault	Léa	4
+
+5	L	Burg	Antoine	2
+5	F	Corneloup	Alexandrine	2
+
+6	L	Zerara	Abdelhalim	1
+6	F	Leblanc Sogutçu	Gabrielle	1
+
+7	L	Guignabodet	Eva	1
+7	F	Castro Scherianz	Maria	1
+
+8	L	Te	Kevin	1
+8	F	Koeffer	Lisa	1
+
+9	L	Rossignol	Irène	1
+9	F	Bourda	Alice	1
+
+10	L	Bivas	Irène	1
+10	F	Morizur	Suzanne	1
+
