@@ -159,7 +159,7 @@ let events =
     temptastiques;
     p4t;
     spooky;
-    paris_plage;
     strictly_rock_it;
+    paris_plage;
   ]
 

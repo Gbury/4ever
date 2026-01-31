@@ -25,12 +25,21 @@ let progress_bar total =
 let () =
   let st = F.State.mk "db.sqlite" in
   let total = Seq.length events in
+  let current_date = ref (F.Date.mk ~day:1 ~month:1 ~year:2000) in
   Progress.with_reporter (progress_bar total) (fun progress ->
       Seq.iter (function
           | `Event ev ->
-            let () = I.import st ev in
-            progress 1; (* report some progress *)
-            ()
+            if not (F.Date.compare ev.I.date !current_date > 0) then begin
+              Progress.interject_with (fun () ->
+                  Format.eprintf "Non-chronological sequence of events: %s(%s) !!@." ev.I.name (F.Date.to_string ev.I.date);
+                );
+              assert false
+            end else begin
+              current_date := ev.I.date;
+              let () = I.import st ev in
+              progress 1; (* report some progress *)
+              ()
+            end
           | `Hook f ->
             let () = f st in
             progress 1; (* report some progress *)
