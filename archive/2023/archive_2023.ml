@@ -31,7 +31,7 @@ let winter_cup = I.ev
     ]
 
 let cc_ulm = I.ev
-    ~log:true
+    ~log:false
     ~name:"Concours Chorégraphie ENS Ulm"
     ~date:(F.Date.mk ~day:21 ~month:4 ~year:2023)
     [

@@ -1,0 +1,39 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Poirier	Yves-Marie	10
+1	F	Judas	Margot	10
+
+2	L	Mahé	Loïc	8
+2	F	Breton	Sophie	8
+
+3	L	Kominiarz	Mathis	6
+3	F	Goutfer	Andréa	6
+
+4	L	Rouviere	Sebastien	4
+4	F	Dupont	Inès	4
+
+5	L	Waterloos	Grégoire	2
+5	F	Manet	Hugo	2
+
+6	L	Boca	Victor	1
+6	F	Ortonne	Lou-Ann	1
+
+7	L	Dabas	Jean-Guillain	1
+7	F	Bouvier	Oriane	1
+
+8	L	Brun	Michel	1
+8	F	Tchang	Alice	1
+
+9	L	Venturi	Arnaud	1
+9	F	Te	Kevin	1
+
+10	L	Loaëc	Nolwenn	1
+10	F	Zerara	Abdelhalim	1
+

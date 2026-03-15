@@ -1,0 +1,24 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Burg	Antoine	8
+1	F	Leroy	Amelie	6
+
+2	L	Zerara	Abdelhalim	6
+2	F	Rieu	Camille	4
+
+3	L	Gervreau	Augustin	4
+3	F	Corneloup	Alexandrine	2
+
+4	L	Marcetteau	Aurélien	2
+4	F	Maubian	Aurore	0
+
+5	L	De Amorim	Arthur	1
+5	F	Thomas	MA	0
+
