@@ -50,7 +50,7 @@ let winter_cup = I.ev
     ]
 
 let ttq = I.ev
-    ~log:true
+    ~log:false
     ~name:"4Tempstastiques"
     ~date:(F.Date.mk ~day:14 ~month:3 ~year:2026)
     [
@@ -74,9 +74,63 @@ let ttq = I.ev
       ;
     ]
 
+let p4t = I.ev
+    ~log:true
+    ~name:"Printemps 4 temps"
+    ~date:(F.Date.mk ~day:22 ~month:5 ~year:2026)
+    [
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Novice)
+        ~results:(results "p4t_novice")
+        ~leaders:61
+        ~follows:75
+      ;
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Intermediate)
+        ~results:(results "p4t_inter")
+        ~leaders:31
+        ~follows:33
+      ;
+      I.comp
+        ~kind:Jack_and_Jill
+        ~name:""
+        ~check_divs:false
+        ~category:(Competitive Advanced)
+        ~results:(results "p4t_advanced")
+        ~leaders:9
+        ~follows:11
+      ;
+  (*
+      I.comp
+        ~kind:All_In
+        ~name:"Leaders Inter/Adv - Followers Initiés"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "p4t_allin_leaders")
+        ~leaders:33
+        ~follows:50
+      ;
+      I.comp
+        ~kind:All_In
+        ~name:"Leaders Initiés - Followers Inter/Adv"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "p4t_allin_follows")
+        ~leaders:41
+        ~follows:28
+      ;
+  *)
+]
 let events =
   List.to_seq [
     `Event winter_cup;
     `Event ttq;
+    `Event p4t;
   ]
 

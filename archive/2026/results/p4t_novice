@@ -1,0 +1,118 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Penin	Gaelle	14
+1	F	Planzi	Léo	16
+
+2	L	Rouviere	Sebastien	12
+2	F	Charvy-Pins	Clémentine	14
+
+3	L	Person	Thomas	10
+3	F	Lopez	Yann	12
+
+4	L	Strizzi	Laura	8
+4	F	Caramelli	Lili-Rose	10
+
+5	L	Richard	Emilie	6
+5	F	Dupont	Inès	8
+
+6	L	Nguyen	Julien	4
+6	F	Berneau	Ethan	6
+
+7	L	Brun	Michel	4
+7	F	De Lagrevol	Priscille	6
+
+8	L	Vue	Alexis	4
+8	F	Judas	Margot	6
+
+9	L	Youssefi	Souhail	2
+9	F	Mercier De Lépinay	Noemie	4
+
+10	L	Guillon	Valentin	2
+10	F	Gervreau	Augustin	4
+
+11	L	Coeuret	Jordan	1
+11	F	Brosset	Marine	2
+
+12	L	Jodin	Edouard	1
+12	F	Cholley	Elise	2
+
+13	L	Lemoine	Jérémy	1
+13	F	Pialoux	Louise	2
+
+14	L	Kominiarz	Mathis	1
+14	F	Manet	Hugo	2
+
+# 15
+S	L	Pakhomov	Pierre	1
+# 16
+S	L	Venturi	Arnaud	1
+# 17
+S	L	Boca	Victor	1
+# 18
+S	L	Schneider	Emmanuel	1
+# 19
+S	L	Vallerio	Héloise	1
+# 20
+S	L	Waterloos	Grégoire	1
+# 21
+S	L	Calame	Raphaël	1
+# 22
+S	L	Masson	Florine	1
+S	L	David	Florian	1
+# 24
+S	L	Mériguet	Léa
+S	L	Thomas	Fernandez
+S	L	De Blauwe	Tristan
+
+# Leaders Semifinalists without points (because of Tiers)
+# 27
+S	L	Goutfer	Andréa	0
+S	L	Ait El Kamel	Hicham	0
+# 29
+S	L	Bour	Damyen	0
+S	L	Roué	Simon	0
+# 31
+S	L	Loaëc	Nolwenn	0
+# 32
+S	L	Bouhastine	Adam	0
+
+
+# Followers Semifinalists
+# 15
+S	F	Pigeon	Elisa	1
+# 16
+S	F	Picquet	Augustine	1
+# 17
+S	F	Labatut	Thibaut	1
+S	F	Ryan	Sylvia	1
+# 19
+S	F	Roche	Maïlys	1
+# 20
+S	F	Griot	Mirentxu	1
+S	F	Gilbert	Stéphanie	1
+# 22
+S	F	Zerara	Abdelhalim	1
+S	F	Cheriot	Marie	1
+# 24
+S	F	Vignier	Lisa	1
+# 25
+S	F	Tchang	Alice	1
+# 26
+S	F	Brunessaux	Celine	1
+S	F	Tisserand	Marie	1
+# 28
+S	F	Lancien	François	1
+# 29
+S	F	Leclerc	Alexis	1
+S	F	Ortonne	Lou-Ann	1
+S	F	Brandicourt	Titouan	1
+# 32
+S	F	Larhant	Apolline	1
+

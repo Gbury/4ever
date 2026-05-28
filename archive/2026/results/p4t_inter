@@ -1,0 +1,68 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+
+1	L	Khansa	Rémi	12
+1	F	Rieu	Camille	12
+
+2	L	Leclerc	Alexis	10
+2	F	Morizur	Suzanne	10
+
+3	L	Gervreau	Augustin	8
+3	F	Bensimon	Johanne	8
+
+4	L	Berneau	Ethan	6
+4	F	Penin	Gaelle	6
+
+5	L	Marcetteau	Aurélien	4
+5	F	Koeffer	Lisa	4
+
+6	L	Ben Kiran	Paul	2
+6	F	Regnault	Léa	2
+
+7	L	Barateig	Maximilien	2
+7	F	Corneloup	Alexandrine	2
+
+8	L	Bazin	Dominique	2
+8	F	Thomas	MA	2
+
+9	L	Burg	Antoine	2
+9	F	Strizzi	Laura	2
+
+10	L	Mahé	Loïc	2
+10	F	Bourda	Alice	2
+
+# Leaders semifinalists
+# 11
+S	L	Astaing-Peyrat	Dylan	1
+# 12
+S	L	Labatut	Thibaut	1
+# 13
+S	L	Varieras	Mathilde	1
+# 14
+S	L	De Amorim	Arthur	1
+# 15
+S	L	Fok-Kan	Cédric	1
+# 16
+S	L	Te	Kevin	1
+
+
+# Followers semi-finalists
+# 11
+S	F	Rossignol	Irène	1
+# 12
+S	F	Leborgne	Amandine	1
+# 13
+S	F	Rault	Cécile	1
+# 14
+S	F	Leroy	Amelie	1
+# 15
+S	F	Bion	Alix	1
+# 16
+S	F	Gressin	Celia	1
