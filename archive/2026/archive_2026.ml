@@ -75,7 +75,7 @@ let ttq = I.ev
     ]
 
 let p4t = I.ev
-    ~log:true
+    ~log:false
     ~name:"Printemps 4 temps"
     ~date:(F.Date.mk ~day:22 ~month:5 ~year:2026)
     [
@@ -126,11 +126,38 @@ let p4t = I.ev
         ~follows:28
       ;
   *)
-]
+    ]
+
+let strictly_r4y = I.ev
+    ~log:true
+    ~name:"Strictly 4 You"
+    ~date:(F.Date.mk ~day:6 ~month:6 ~year:2026)
+    [
+      I.comp
+        ~kind:Strictly
+        ~name:"Strictly Initié"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "s4y_novice")
+        ~leaders:14
+        ~follows:14
+      ;
+      I.comp
+        ~kind:Strictly
+        ~name:"Strictly Inter"
+        ~check_divs:false
+        ~category:(Non_competitive None)
+        ~results:(results "s4y_inter")
+        ~leaders:14
+        ~follows:14
+      ;
+    ]
+
 let events =
   List.to_seq [
     `Event winter_cup;
     `Event ttq;
     `Event p4t;
+    `Event strictly_r4y
   ]
 

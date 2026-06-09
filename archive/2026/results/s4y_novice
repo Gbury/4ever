@@ -1,0 +1,32 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Rouviere	Sebastien
+1	F	Gilbert	Stéphanie
+
+2	L	Calame	Raphaël
+2	F	Cheriot	Marie
+
+3	L	Goutfer	Andréa
+3	F	Lemoine	Jérémy
+
+4	L	Dabas	Jean-Guillain
+4	F	Warner	Muriel
+
+5	L	Lallemand	Pierrick
+5	F	Mure	Anne-Solène
+
+6	L	Fernandez	Tomas
+6	F	Lubek	Elsa
+
+7	L	Richard	Jeanne
+7	F	To	Coline
+
+8	L	Baglioni	Jessica
+8	F	?	Mohamed

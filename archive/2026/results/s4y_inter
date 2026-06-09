@@ -1,0 +1,32 @@
+#################################################
+# Format for ranking results
+#
+# Rank	Role	Last name	First name	Points
+#
+# 1	L	Foo	Bar	0
+# 1	F	Bla	Bla	1
+#################################################
+
+1	L	Zerara	Abdelhalim
+1	F	Varieras	Mathilde
+
+2	L	Gervreau	Augustin
+2	F	Leroy	Amelie
+
+3	L	Ben Kiran	Paul
+3	F	Maubian	Aurore
+
+4	L	Lemoine	Jérémy
+4	F	Goutfer	Andréa
+
+5	L	Marcetteau	Aurélien
+5	F	Thomas	MA
+
+6	L	Bussonati	Orlando
+6	F	Koeler	Alice
+
+7	L	Mahé	Loïc
+7	F	Ryan	Sylvia
+
+8	L	Dardel	Romain
+8	F	Larhant	Apolline
